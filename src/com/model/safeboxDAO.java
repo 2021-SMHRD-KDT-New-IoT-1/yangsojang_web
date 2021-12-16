@@ -3,6 +3,7 @@ package com.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.sql.DriverManager;
 
 public class safeboxDAO {
@@ -11,10 +12,12 @@ public class safeboxDAO {
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	int cnt = 0;
+	ArrayList<safeboxVO> safebox_array = null;
+	safeboxVO vo1_safebox = null;
 
-	public void connection() {
+	   public void connection() {
 	      try {
-	    	  
+	    	  Class.forName("org.mariadb.jdbc.Driver");
 	          String url = "jdbc:mariadb://211.48.228.15:3306/iot_db";
 	          String user="smhrd";;
 	          String password="smhrd1234";
@@ -69,6 +72,38 @@ public class safeboxDAO {
 	         close();
 	      }
 	      return cnt;
+	   }
+	   
+	   //기기 리스트 확인
+	   public ArrayList<safeboxVO> safeboxList() {
+		   safebox_array = new ArrayList<safeboxVO>();      
+	      
+	      try {
+	         connection();
+	         
+	         String sql = "select device_seq, device_id from tbl_device";
+	         psmt = conn.prepareStatement(sql);
+	                  
+	         rs = psmt.executeQuery();
+	         
+	         while(rs.next()) {
+	            System.out.println("기기 리스트 불러오기 성공..");
+	            
+	            int get_device_seq = rs.getInt("device_seq");
+	            String get_device_id = rs.getString("device_id");
+	            
+	            vo1_safebox = new safeboxVO(get_device_seq, get_device_id);
+	            safebox_array.add(vo1_safebox);
+	         }   
+	         
+	      } catch (Exception e) {
+	         System.out.println("기기 리스트 불러오기 실패..");
+	         e.printStackTrace();
+	      }finally {
+	         close();
+	         }
+	      return safebox_array;
+	      
 	   }
 	   
 	   

@@ -1,3 +1,6 @@
+<%@page import="com.model.sensorVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.sensorDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
@@ -15,6 +18,10 @@
 	</head>
 	<body class="is-preload">
 
+		<%
+			sensorDAO sensordao = new sensorDAO();
+			ArrayList<sensorVO> sensor_array_all = sensordao.sensorAllList();
+		%>
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -23,87 +30,44 @@
 						<div class="inner">
 
 							<!-- Header -->
-								<header id="header">
-									<a href="elements.html".html" class="logo" style="font-size: 20px;"><strong>SafeBox 관리</strong></a>
+								
+							<header id="header">
+									<a href="sensorList.jsp" class="logo" style="font-size: 20px;"><strong>센서 관리</strong></a>
 									<ul class="icons">
 										<!-- <form action="safeboxadd.html"><input type="submit" value="SAFEBOX 추가" class="primary" /></form> -->
-										<li><a href="safeboxadd.html" class="logo"><span class="label"><strong>Safebox 추가</strong></span></a></li>
-										
+										<li><a href="sensorAdd.jsp" class="logo"><span class="label"><strong>센서 추가</strong></span></a></li>
+										<li><a href="sensorUpdate.jsp" class="logo"><span class="label">센서 정보 수정</span></a></li>
 									</ul>
 								</header>
 
-								
-							<!-- Content -->
-								<section>
-									<!-- <header class="main">
-										<h1></h1>
-									</header> -->
-
-									<h3>현장명</h3>
-									<!-- <div class="col-12" style="text-align: center;">
-										<ul class="actions">
-											<li></li>
-											 <li><input type="reset" value="Reset" /></li> 
-										</ul> 
-									</div>-->
-
-													
+									<!-- Elements -->
+										<h2 id="elements"></h2>
+		
 													<div class="table-wrapper">
 														<table>
 															<thead>
 																<tr>
-																	<th>SAFEBOX ID</th>
-																	<th>SAFEBOX 위치</th>
-																	<th>설치된 센서</th>
-																	<th>정보수정</th>
-																	<th>SAFEBOX 설치제거</th>
+																	<th>센서 번호</th>
+																	<th>센서 이름</th>
+																	<th>센서 ID</th>
+																	<th>등록일자</th>
+																	<th>센서 삭제</th>
 																</tr>
 															</thead>
 															<tbody>
+															<%for(sensorVO vo2_sensor : sensor_array_all){%>
 																<tr>
-																	<td>Item1</td>
-																	<td>Ante turpis integer aliquet porttitor.</td>
-																	<td>Item1</td>
-																	<td><form action="safeboxUpdate.html"><input type="submit" value="수정"></form></td>
+																	<td><%=vo2_sensor.getSensor_seq() %></td>
+																	<td><%=vo2_sensor.getSensor_name() %></td>
+																	<td><%=vo2_sensor.getSensor_id() %></td>
+																	<td><%=vo2_sensor.getReg_date() %></td>
 																	<td><input type="button" value="삭제"></td>
 																</tr>
-																<tr>
-																	<td>Item2</td>
-																	<td>Vis ac commodo adipiscing arcu aliquet.</td>
-																	<td>Item1</td>
-																	<td><input type="button" value="수정"></td>
-																	<td><input type="button" value="삭제"></td>
-																</tr>
-																<tr>
-																	<td>Item3</td>
-																	<td> Morbi faucibus arcu accumsan lorem.</td>
-																	<td>Item1</td>
-																	<td><input type="button" value="수정"></td>
-																	<td><input type="button" value="삭제"></td>
-																</tr>
-																<tr>
-																	<td>Item4</td>
-																	<td>Vitae integer tempus condimentum.</td>
-																	<td>Item1</td>
-																	<td><input type="button" value="수정"></td>
-																	<td><input type="button" value="삭제"></td>
-																</tr>
-																<tr>
-																	<td>Item5</td>
-																	<td>Ante turpis integer aliquet porttitor.</td>
-																	<td>Item1</td>
-																	<td><input type="button" value="수정"></td>
-																	<td><input type="button" value="삭제"></td>
-																</tr>
+																<%}%>
 															</tbody>
 															
 														</table>
 													</div>
-													
-													
-													
-									<!-- Content -->
-								
 								
 										
 

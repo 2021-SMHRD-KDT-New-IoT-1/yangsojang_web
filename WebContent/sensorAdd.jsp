@@ -1,3 +1,6 @@
+<%@page import="com.model.safeboxVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.safeboxDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
@@ -11,21 +14,14 @@
 		<title>Generic - Editorial by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css"/>
-		<link rel="stylesheet" href="assets/css_board/css.css">
+		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
-	<style>
-		.pagination{
-			text-align: center;
-			margin-top: 20px;
-		}
-		.board_wrap {
-			position: relative;
-		}
-	
-	</style>
 	<body class="is-preload">
-
+		<%
+			safeboxDAO safeboxdao = new safeboxDAO();
+			ArrayList<safeboxVO> safebox_array = safeboxdao.safeboxList();
+			
+		%>
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -35,59 +31,43 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="safeboxcheck.html" class="logo" style="font-size: 20px;"><strong></strong></a>
+									<a href="sensorAdd.jsp" class="logo" style="font-size: 20px;"><strong>센서 추가</strong> </a>
 									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+										
 									</ul>
 								</header>
 
 							<!-- Content -->
 								<section>
-									<div class="board_wrap">
-										<div class="board_view_wrap">
-											<div class="board_view">
-												<div class="title">
-													글 제목이 들어갑니다.
-												</div>
-												<div class="info">
-													<dl>
-														<dt>번호</dt>
-														<dd>1</dd>
-													</dl>
-													<dl>
-														<dt>글쓴이</dt>
-														<dd>김이름</dd>
-													</dl>
-													<dl>
-														<dt>작성일</dt>
-														<dd>2021.1.16</dd>
-													</dl>
-													<dl>
-														<dt>조회</dt>
-														<dd>33</dd>
-													</dl>
-												</div>
-												<div class="cont">
-													글 내용이 들어갑니다<br>
-													글 내용이 들어갑니다<br>
-													글 내용이 들어갑니다<br>
-													글 내용이 들어갑니다<br>
-													글 내용이 들어갑니다<br>
-													글 내용이 들어갑니다<br>
-													글 내용이 들어갑니다<br>
-													글 내용이 들어갑니다
-												</div>
-											</div>
-												<ul class="pagination">
-													<a href="board_list.html" ><input type="submit" value="목록" class="primary" /></a>
-													<a href="board_edit.html" ><input type="submit" value="수정" class="primary" /></a>	
-												</ul>
-										</div>
-									</div>
+
+									<form method="post" action="sensorAddService">
+                                        <div class="row gtr-uniform">
+                                            <div class="row gtr-uniform">
+                                                <div class="col-6 col-12-xsmall">
+                                                    <input type="text" name="sensor_name" id="demo-name" value="" placeholder="센서  이름" />
+                                                </div>
+                                                <div class="col-6 col-12-xsmall">
+                                                    <input type="text" name="sensor_id" id="demo-email" value="" placeholder="센서 ID" />
+                                                </div>
+                                               	<div class="col-6 col-12-xsmall">
+                                                	<select name="device_seq" id="demo-category">
+                                                    	<option value="">- SAFEBOX -</option>
+                                                    	<%for(safeboxVO vo1_safebox : safebox_array){%>
+                                                    	<option name="device_seq"><%=vo1_safebox.getDevice_id()%>/<%=vo1_safebox.getDevice_seq()%></option>
+                                                    	<%}%>
+                                                	</select>
+                                                </div>
+                                            <div class="col-12" style="text-align: center;">
+                                                <ul class="actions" >
+                                                    <li><input type="submit" value="추가" class="primary" style="margin-right: 10px;" ><input type="reset" value="초기화" style="margin-left: 10px;"></li>
+                                                    
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </form>
+
+									
+
 								</section>
 
 						</div>
@@ -138,35 +118,10 @@
 								</nav>
 
 							<!-- Section -->
-								<!-- <section>
-									<header class="major">
-										<h2>Ante interdum</h2>
-									</header>
-									<div class="mini-posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-								</section> -->
-
-							<!-- Section -->
 								<section>
 									<header class="major">
 										<h2>내 정보</h2>
 									</header>
-									
 									<ul class="contact">
 										<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
 										<li class="icon solid fa-phone">(000) 000-0000</li>

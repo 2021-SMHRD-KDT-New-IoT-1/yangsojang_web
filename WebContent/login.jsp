@@ -95,33 +95,7 @@
                                                     <option value="1">Human Resources</option>
                                                 </select>
                                             </div>
-                                            <!-- Break -->
-                                            <!-- <div class="col-4 col-12-small">
-                                                <input type="radio" id="demo-priority-low" name="demo-priority" checked>
-                                                <label for="demo-priority-low">Low</label>
-                                            </div>
-                                            <div class="col-4 col-12-small">
-                                                <input type="radio" id="demo-priority-normal" name="demo-priority">
-                                                <label for="demo-priority-normal">Normal</label>
-                                            </div>
-                                            <div class="col-4 col-12-small">
-                                                <input type="radio" id="demo-priority-high" name="demo-priority">
-                                                <label for="demo-priority-high">High</label>
-                                            </div>-->
-                                            <!-- Break -->
-                                            <!-- <div class="col-6 col-12-small">
-                                                <input type="checkbox" id="demo-copy" name="demo-copy">
-                                                <label for="demo-copy">Email me a copy</label>
-                                            </div>
-                                            <div class="col-6 col-12-small">
-                                                <input type="checkbox" id="demo-human" name="demo-human" checked>
-                                                <label for="demo-human">I am a human</label>
-                                            </div>  -->
-                                            <!-- Break -->
-                                            <!-- <div class="col-12">
-                                                <textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-                                            </div> -->
-                                            <!-- Break -->
+                                            
                                             <div class="col-12" style="text-align: center;">
                                                 <ul class="actions">
                                                     <li><input type="submit" value="회원가입" class="primary" /></li>
@@ -131,23 +105,7 @@
                                             </div>
                                         </div>
                                     </form>
-									<!-- <hr class="major" />
-
-									<h2></h2>
-									<p></p>
-									<p></p>
-
-									<hr class="major" />
-
-									<h2></h2>
-									<p></p>
-									<p></p>
-
-									<hr class="major" />
-
-									<h2></h2>
-									<p></p>
-									<p></p> -->
+									
 
 								</section>
 
@@ -180,6 +138,7 @@
 									</header>
 									<ul>
 										<li><a href="fieldlist.jsp">현장 목록 </a></li>
+										<li><a href="sensorList.jsp">센서 목록 </a></li>
 										<li><a href="board_list.jsp">관리 일지</a></li>
                               			<li><a href="notice.jsp">경고 발생 현황</a></li>
 										<!-- <li><a href="elements.html">SafeBox List Manage</a></li> -->

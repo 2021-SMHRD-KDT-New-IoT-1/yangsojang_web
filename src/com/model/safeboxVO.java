@@ -20,6 +20,13 @@ public class safeboxVO {
 		this.reg_date = reg_date;
 		this.admin_id = admin_id;
 	}
+	
+	//센서 추가 페이지의 기기 리스트 생성자
+	public safeboxVO(int device_seq, String device_id) {
+		super();
+		this.device_seq = device_seq;
+		this.device_id = device_id;
+	}
 
 	public int getDevice_seq() {
 		return device_seq;
