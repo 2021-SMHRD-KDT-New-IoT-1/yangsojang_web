@@ -37,11 +37,11 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="safeboxcheck.html" class="logo" style="font-size: 20px;"><strong>관리 일지 목록</strong></a>
+									<a href="safeboxcheck.jsp" class="logo" style="font-size: 20px;"><strong>관리 일지 목록</strong></a>
 									<ul class="icons">
-										<li><a href="fieldlist.html" class="logo"><span class="label"><strong>현장목록</strong></span></a></li>
+										<li><a href="fieldlist.jsp" class="logo"><span class="label"><strong>현장목록</strong></span></a></li>
                               			
-                                        <li><a href="notice.html" class="logo"><span class="label">경고발생현황</span></a></li>  										
+                                        <li><a href="notice.jsp" class="logo"><span class="label">경고발생현황</span></a></li>  										
 									</ul>
 								</header>
 
@@ -66,35 +66,35 @@
 													<div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
 													<div class="writer">김이름</div>
 													<div class="date">2021.1.15</div>
-													<div class="count"><a href="board_edit.html" class="button">수정</a></div>
+													<div class="count"><a href="board_edit.jsp" class="button">수정</a></div>
 												</div>
 												<div>
 													<div class="num">4</div>
 													<div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
 													<div class="writer">김이름</div>
 													<div class="date">2021.1.15</div>
-													<div class="count"><a href="board_edit.html" class="button">수정</a></div>
+													<div class="count"><a href="board_edit.jsp" class="button">수정</a></div>
 												</div>
 												<div>
 													<div class="num">3</div>
 													<div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
 													<div class="writer">김이름</div>
 													<div class="date">2021.1.15</div>
-													<div class="count"><a href="board_edit.html" class="button">수정</a></div>
+													<div class="count"><a href="board_edit.jsp" class="button">수정</a></div>
 												</div>
 												<div>
 													<div class="num">2</div>
 													<div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
 													<div class="writer">김이름</div>
 													<div class="date">2021.1.15</div>
-													<div class="count"><a href="board_edit.html" class="button">수정</a></div>
+													<div class="count"><a href="board_edit.jsp" class="button">수정</a></div>
 												</div>
 												<div>
 													<div class="num">1</div>
 													<div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
 													<div class="writer">김이름</div>
 													<div class="date">2021.1.15</div>
-													<div class="count"><a href="board_edit.html" class="button">수정</a></div>
+													<div class="count"><a href="board_edit.jsp" class="button">수정</a></div>
 												</div>
 											</div>
 											<br><br><br>
@@ -112,7 +112,7 @@
 											</ul>
 											</div>
 											<ul class="pagination">
-											<a href="board_write.html" ><input type="submit" value="등록" class="primary" /></a>
+											<a href="board_write.jsp" ><input type="submit" value="등록" class="primary" /></a>
 											</ul>	
 										</div>
 									</div>

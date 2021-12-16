@@ -110,7 +110,7 @@ public class sensorDAO {
 		      try {
 		         connection();
 		         
-		         String sql = "select sensor_seq, sensor_name, sensor_id, reg_date from tbl_sensor";
+		         String sql = "select sensor_seq, sensor_name, sensor_id, reg_date, device_seq from tbl_sensor";
 		         psmt = conn.prepareStatement(sql);
 		                  
 		         rs = psmt.executeQuery();
@@ -122,8 +122,9 @@ public class sensorDAO {
 		            String get_sensor_name = rs.getString("sensor_name");
 		            String get_sensor_id = rs.getString("sensor_id");
 		            String get_reg_date = rs.getString("reg_date");
+		            int get_device_seq = rs.getInt("device_seq");		            
 		            
-		            vo2_sensor = new sensorVO(get_sensor_seq, get_sensor_name, get_sensor_id, get_reg_date);
+		            vo2_sensor = new sensorVO(get_sensor_seq, get_sensor_name, get_sensor_id, get_reg_date, get_device_seq);
 		            sensor_array_all.add(vo2_sensor);
 		         }   
 		         
@@ -161,6 +162,25 @@ public class sensorDAO {
 	      return cnt;
 	   }
 	
+	//센서 정보 삭제
+	public int sensorDelete(int sensor_seq) {
+	      try {
+	         connection();
+
+	         String sql = "delete from tbl_sensor where sensor_seq=?";
+	         psmt = conn.prepareStatement(sql);
+	         psmt.setInt(1, sensor_seq);   
+	         
+	         cnt = psmt.executeUpdate();
+	         
+	      } catch (Exception e) {
+	         System.out.println("센서 정보 삭제 실패..");
+	         e.printStackTrace();
+	      }finally {
+	         close();
+	         }
+	      return cnt;
+	   }
 	
 	
 }

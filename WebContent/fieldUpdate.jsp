@@ -24,7 +24,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="fieldUpdate.html" class="logo" style="font-size: 20px;"><strong>현장 정보 수정 </strong> </a>
+									<a href="fieldUpdate.jsp" class="logo" style="font-size: 20px;"><strong>현장 정보 수정 </strong> </a>
 									
 								</header>
 

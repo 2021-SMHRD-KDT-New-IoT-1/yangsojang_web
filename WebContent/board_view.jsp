@@ -35,7 +35,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="safeboxcheck.html" class="logo" style="font-size: 20px;"><strong></strong></a>
+									<a href="safeboxcheck.jsp" class="logo" style="font-size: 20px;"><strong></strong></a>
 									<ul class="icons">
 										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -83,8 +83,8 @@
 												</div>
 											</div>
 												<ul class="pagination">
-													<a href="board_list.html" ><input type="submit" value="목록" class="primary" /></a>
-													<a href="board_edit.html" ><input type="submit" value="수정" class="primary" /></a>	
+													<a href="board_list.jsp" ><input type="submit" value="목록" class="primary" /></a>
+													<a href="board_edit.jsp" ><input type="submit" value="수정" class="primary" /></a>	
 												</ul>
 										</div>
 									</div>

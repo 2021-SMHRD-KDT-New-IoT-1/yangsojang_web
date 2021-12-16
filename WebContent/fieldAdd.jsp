@@ -24,7 +24,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="fieldAdd.html" class="logo" style="font-size: 20px;"><strong>현장 추가 </strong></a>
+									<a href="fieldAdd.jsp" class="logo" style="font-size: 20px;"><strong>현장 추가 </strong></a>
 									
 								</header>
 

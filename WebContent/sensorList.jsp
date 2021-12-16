@@ -1,3 +1,5 @@
+<%@page import="com.model.safeboxVO"%>
+<%@page import="com.model.safeboxDAO"%>
 <%@page import="com.model.sensorVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.sensorDAO"%>
@@ -19,6 +21,7 @@
 	<body class="is-preload">
 
 		<%
+			
 			sensorDAO sensordao = new sensorDAO();
 			ArrayList<sensorVO> sensor_array_all = sensordao.sensorAllList();
 		%>
@@ -42,7 +45,7 @@
 
 									<!-- Elements -->
 										<h2 id="elements"></h2>
-		
+											
 													<div class="table-wrapper">
 														<table>
 															<thead>
@@ -51,6 +54,7 @@
 																	<th>센서 이름</th>
 																	<th>센서 ID</th>
 																	<th>등록일자</th>
+																	<th>설치된 SAFEBOX 번호</th>
 																	<th>센서 삭제</th>
 																</tr>
 															</thead>
@@ -61,14 +65,15 @@
 																	<td><%=vo2_sensor.getSensor_name() %></td>
 																	<td><%=vo2_sensor.getSensor_id() %></td>
 																	<td><%=vo2_sensor.getReg_date() %></td>
-																	<td><input type="button" value="삭제"></td>
+																	<td><%=vo2_sensor.getDevice_seq() %></td>
+																	<td><a href="sensorDeleteService?sensor_seq=<%=vo2_sensor.getSensor_seq()%>" class="logo" style="outline: none; text-decoration: none;">삭제</a></td>
 																</tr>
 																<%}%>
 															</tbody>
 															
 														</table>
 													</div>
-								
+											
 										
 
 								</section>

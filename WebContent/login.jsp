@@ -24,7 +24,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="login.html" class="logo" style="font-size: 20px;"><strong>로그인</strong>  </a>
+									<a href="login.jsp" class="logo" style="font-size: 20px;"><strong>로그인</strong>  </a>
 									<ul class="icons">
 										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>

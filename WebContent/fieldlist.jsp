@@ -20,7 +20,7 @@
 
                      <!-- Header -->
                         <header id="header">
-                           <a href="fieldlist.html" class="logo" style="font-size: 20px;"><strong>현장 목록</strong></a>
+                           <a href="fieldlist.jsp" class="logo" style="font-size: 20px;"><strong>현장 목록</strong></a>
                            <ul class="icons">
                               <li><a href="fieldAdd.jsp" class="logo"><span class="label">현장추가</span></a></li>
                               <li><a href="notice.jsp" class="logo"><span class="label"><strong>경고발생현황</strong></span></a></li>

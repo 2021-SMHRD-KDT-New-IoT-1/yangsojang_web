@@ -35,7 +35,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="board_write.html" class="logo" style="font-size: 20px;"><strong>包府 老瘤 累己</strong> </a>
+									<a href="board_write.jsp" class="logo" style="font-size: 20px;"><strong>包府 老瘤 累己</strong> </a>
 									<ul class="icons">
 										
 									</ul>
@@ -67,7 +67,7 @@
 											<div class="col-12" style=" vertical-align : middle;">
 												<ul class="pagination" >
 													<li><form action="#"><input type="submit" value="殿废" class="primary" /></form></li>
-													<li><form action="board_list.html"><input type="submit" value="秒家" class="primary" /></form></li>
+													<li><form action="board_list.jsp"><input type="submit" value="秒家" class="primary" /></form></li>
 												</ul>
 												
 											

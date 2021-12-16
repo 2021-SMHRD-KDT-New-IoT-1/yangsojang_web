@@ -36,7 +36,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="board_edit.html" class="logo" style="font-size: 20px;"><strong>관리 일지 수정</strong></a>
+									<a href="board_edit.jsp" class="logo" style="font-size: 20px;"><strong>관리 일지 수정</strong></a>
 									<ul class="icons">
 										
 									</ul>
@@ -70,8 +70,8 @@
 												</div>
 											</div>
 											<ul class="pagination">
-												<a href="board_view.html" ><input type="submit" value="수정" class="primary" /></a>
-												<a href="board_list.html" ><input type="submit" value="취소" class="primary" /></a>	
+												<a href="board_view.jsp" ><input type="submit" value="수정" class="primary" /></a>
+												<a href="board_list.jsp" ><input type="submit" value="취소" class="primary" /></a>	
 											</ul>
 										</div>
 									</div>
