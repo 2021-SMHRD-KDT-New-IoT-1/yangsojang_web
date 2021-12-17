@@ -36,17 +36,18 @@
 
 									<!-- <span class="image main"><img src="images/pic11.jpg" alt="" /></span> -->
 
-									<form method="post" action="#">
+									<form method="post" action="fieldAddAction.jsp">
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
-                                                <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="demo-name" id="demo-name" value="" placeholder="현장명" />
+                                                <div class="col-6 col-12-xsmall"> 
+                                               
+                                                    <input type="text" name="fieldName" id="demo-name" value="" placeholder="현장명" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="email" name="demo-email" id="demo-email" value="" placeholder="주소" />
+                                                    <input type="text" name="fieldAddr" id="demo-email" value="" placeholder="주소" />
                                                 </div>
                                                 <div class="col-12">
-                                                    <textarea name="demo-message" id="demo-message" placeholder="메모" rows="6"></textarea>
+                                                    <textarea name="fieldMemo" id="demo-message" placeholder="메모" rows="6"></textarea>
                                                 </div>
                                                 <!-- <div class="col-6 col-12-xsmall">
                                                     <input type="text" name="demo-id" id="demo-name" value="" placeholder="아이디" />
@@ -96,11 +97,14 @@
                                             <!-- Break -->
                                             <div class="col-12" style="text-align: center;">
                                                 <ul class="actions" >
-                                                    <li><input type="submit" value="추가" class="primary" style="margin-right: 10px;" ><input type="reset" value="초기화" style="margin-left: 10px;"></li>
-                                                    
+                                                    <li>
+                                                    <input type="submit" value="추가" class="primary" style="margin-right: 10px;" >
+                                                    <input type="reset" value="초기화" style="margin-left: 10px;">
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
+                                       </div>
                                     </form>
 
 									<!-- <hr class="major" />
