@@ -97,7 +97,7 @@
                                                 </div>
                                             	<div class="col-12">
                                                		 <input type="text" name="admin_dept" id="input_deft" value="" placeholder="¼Ò¼Ó" />
-                                               		 <span id="sp_result"></span>
+                                      
                                             	</div>
                                             
                                             <div class="col-12" style="text-align: center;">
@@ -254,7 +254,6 @@
 					}
 				});
 			}
-			
 			</script>
 	</body>
 </html>
