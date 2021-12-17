@@ -26,11 +26,10 @@ public class joinServlet extends HttpServlet {
 				String admin_phone = request.getParameter("admin_phone");
 				String admin_email = request.getParameter("admin_email");
 				String admin_dept = request.getParameter("admin_dept"); 
-				String admin_joindate = request.getParameter("admin_joindate");
-				 
+								 
 				
 				adminDAO dao = new adminDAO();
-				int cnt = dao.join(admin_id, admin_pwd, admin_name, admin_phone, admin_email,admin_dept, admin_joindate);
+				int cnt = dao.join(admin_id, admin_pwd, admin_name, admin_phone, admin_email,admin_dept);
 				
 				if(cnt>0) {
 					System.out.println("가입 성공");
@@ -49,7 +48,7 @@ public class joinServlet extends HttpServlet {
 					
 				}else {
 					System.out.println("가입 실패..");
-					response.sendRedirect(".jsp");
+					response.sendRedirect("notice.jsp");
 				}
 	}
 

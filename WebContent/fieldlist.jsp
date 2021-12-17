@@ -51,11 +51,9 @@
 			</div>
 		</div>
 
-<<<<<<< HEAD
 		<!-- Sidebar -->
 		<div id="sidebar">
 			<div class="inner">
-=======
                      <!-- Header -->
                         <header id="header">
                            <a href="fieldlist.jsp" class="logo" style="font-size: 20px;"><strong>현장 목록</strong></a>
@@ -67,8 +65,6 @@
                               
                            </ul>
                         </header>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
-
 				<!-- Search -->
 				<section id="search" class="alt">
 					<form method="post" action="#">
@@ -79,7 +75,6 @@
 
 				<nav id="menu">
 
-<<<<<<< HEAD
 					<ul>
 						<li><a href="login.jsp">로그인</a></li>
 						<li><a href="mypage.jsp">회원정보수정</a></li>
@@ -98,7 +93,7 @@
 						<!-- <li><a href="elements.html">SafeBox List Manage</a></li> -->
 						<!-- <li><a href="safebox.html">SafeBox List</a></li> -->
 						<!-- <li>
-=======
+
 							<!-- Menu -->
 								<nav id="menu">
 									<header class="major">
@@ -112,7 +107,6 @@
 										<!-- <li><a href="elements.html">SafeBox List Manage</a></li> -->
 										<!-- <li><a href="safebox.html">SafeBox List</a></li> -->
 										<!-- <li>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
 											<span class="opener">Submenu</span>
 											<ul>
 												<li><a href="#">Lorem Dolor</a></li>
