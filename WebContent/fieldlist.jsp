@@ -1,3 +1,6 @@
+<%@page import="com.model.fieldVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.fieldDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
@@ -13,12 +16,16 @@
 </head>
 
 <body class="is-preload">
+	<%
+		fieldDAO fielddao = new fieldDAO();
+	 	ArrayList<fieldVO> array_field_all = fielddao.fieldAllList();
+	%>
 	<div id="wrapper">
 		<div id="main">
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="fieldlist.html" class="logo" style="font-size: 20px;"><strong>현장
+					<a href="fieldlist.jsp" class="logo" style="font-size: 20px;"><strong>현장
 							목록</strong></a>
 					<ul class="icons">
 						<li><a href="fieldAdd.jsp" class="logo"><span
@@ -32,42 +39,34 @@
 				<!-- Section -->
 				<section>
 					<div class="posts"> 
+					<%for(fieldVO vo1_field : array_field_all){%>
 						<article>
 							<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-							<h3>현장명</h3>
-							<p>현장주소</p>
+							<h3><%=vo1_field.getField_seq() %>. <%=vo1_field.getField_name() %></h3>
+							<p><%=vo1_field.getField_addr() %></p>
 							<ul class="actions">
 								<li><a href="sensorValue.jsp" class="button primary"
 									style="margin-right: 10px;">SAFEBOX 확인</a>
-									<a href="fieldUpdate.jsp" class="button"
+									<a href="fieldUpdateCheckService?field_seq=<%=vo1_field.getField_seq()%>" class="button"
 									style="margin-right: 10px;">현장 정보 수정</a>
-									<a href="safeboxEdit.jsp" class="button">설치 SAFEBOX 목록</a>
+									<a href="safeboxListCheckService?field_seq=<%=vo1_field.getField_seq()%>" class="button">설치 SAFEBOX 목록</a>
 								</li>
 							</ul>
 						</article>
+						<%}%>
 					</div>
 				</section>
 
 			</div>
 		</div>
 
-<<<<<<< HEAD
+
 		<!-- Sidebar -->
 		<div id="sidebar">
 			<div class="inner">
-=======
-                     <!-- Header -->
-                        <header id="header">
-                           <a href="fieldlist.jsp" class="logo" style="font-size: 20px;"><strong>현장 목록</strong></a>
-                           <ul class="icons">
-                              <li><a href="fieldAdd.jsp" class="logo"><span class="label">현장추가</span></a></li>
-                              <li><a href="notice.jsp" class="logo"><span class="label"><strong>경고발생현황</strong></span></a></li>
-                              <li><a href="board_list.jsp".html" class="logo"><span class="label">관리일지</span></a></li>
-                               
-                              
-                           </ul>
-                        </header>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
+
+                     
+
 
 				<!-- Search -->
 				<section id="search" class="alt">
@@ -79,26 +78,14 @@
 
 				<nav id="menu">
 
-<<<<<<< HEAD
+
 					<ul>
 						<li><a href="login.jsp">로그인</a></li>
 						<li><a href="mypage.jsp">회원정보수정</a></li>
 					</ul>
 				</nav>
 
-				<!-- Menu -->
-				<nav id="menu">
-					<header class="major">
-						<h2>현장 관리 메뉴</h2>
-					</header>
-					<ul>
-						<li><a href="fieldlist.jsp">현장 목록 </a></li>
-						<li><a href="board_list.jsp">관리 일지</a></li>
-						<li><a href="notice.jsp">경고 발생 현황</a></li>
-						<!-- <li><a href="elements.html">SafeBox List Manage</a></li> -->
-						<!-- <li><a href="safebox.html">SafeBox List</a></li> -->
-						<!-- <li>
-=======
+				
 							<!-- Menu -->
 								<nav id="menu">
 									<header class="major">
@@ -109,55 +96,19 @@
 										<li><a href="sensorList.jsp">센서 목록 </a></li>
 										<li><a href="board_list.jsp">관리 일지</a></li>
                               			<li><a href="notice.jsp">경고 발생 현황</a></li>
-										<!-- <li><a href="elements.html">SafeBox List Manage</a></li> -->
-										<!-- <li><a href="safebox.html">SafeBox List</a></li> -->
-										<!-- <li>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
-											<span class="opener">Submenu</span>
-											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
-											</ul>
-										</li> -->
+										
 
 					</ul>
 				</nav>
 
-				<!-- Section -->
-				<!-- <section>
-									<header class="major">
-										<h2>Ante interdum</h2>
-									</header>
-									<div class="mini-posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-								</section> -->
+				
 
 				<!-- Section -->
 				<section>
 					<header class="major">
 						<h2>내 정보</h2>
 					</header>
-					<p>Sed varius enim lorem ullamcorper dolore aliquam aenean
-						ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin
-						sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat
-						tempus aliquam.</p>
+					
 					<ul class="contact">
 						<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
 						<li class="icon solid fa-phone">(000) 000-0000</li>

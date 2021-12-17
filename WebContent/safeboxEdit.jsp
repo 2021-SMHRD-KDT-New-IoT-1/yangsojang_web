@@ -1,3 +1,8 @@
+<%@page import="com.model.fieldVO"%>
+<%@page import="com.model.fieldDAO"%>
+<%@page import="com.model.safeboxVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.safeboxDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
@@ -15,6 +20,15 @@
 	</head>
 	<body class="is-preload">
 
+		<%
+			int field_seq_session = (int)session.getAttribute("field_seq_session2");
+			safeboxDAO safeboxdao = new safeboxDAO();
+			ArrayList<safeboxVO> safebox_array_all = safeboxdao.safeboxAllList(field_seq_session);
+			
+			fieldDAO fielddao = new fieldDAO();
+			fieldVO fieldvo = fielddao.fieldOne(field_seq_session);
+		
+		%>
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -24,12 +38,9 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="safeboxEdit.jsp".html" class="logo" style="font-size: 20px;"><strong>SafeBox 관리</strong></a>
+									<a href="safeboxEdit.jsp" class="logo" style="font-size: 20px;"><strong>SafeBox 관리</strong></a>
 									<ul class="icons">
-										<!-- <form action="safeboxadd.html"><input type="submit" value="SAFEBOX 추가" class="primary" /></form> -->
-										<li><a href="safeboxadd.jsp" class="logo"><span class="label"><strong>Safebox추가</strong></span></a></li>
-										<li><a href="safeboxUpdate.jsp" class="logo"><span class="label">Safebox정보수정</span></a></li>
-										
+										<li><a href="safeboxAddCheckService?field_seq=<%=field_seq_session %>" class="logo"><span class="label"><strong>Safebox추가</strong></span></a></li>
 									</ul>
 								</header>
 
@@ -38,31 +49,38 @@
 								<section>
 									
 
-									<h2>현장명</h2>
+									<h2>현장 [<%=fieldvo.getField_name() %>]의 SAFEBOX LIST </h2>
 									
 													<div class="table-wrapper">
+													
 														<table>
 															<thead>
 																<tr>
 																	<th>SAFEBOX 번호</th>
 																	<th>SAFEBOX ID</th>
 																	<th>SAFEBOX 위치</th>
+																	<th>SAFEBOX 설치일</th>
 																	<th>설치된 센서</th>	
+																	<th>SAFEBOX 정보수정</th>
 																	<th>SAFEBOX 설치제거</th>
 																</tr>
 															</thead>
 															<tbody>
+															<%for(safeboxVO vo2_safebox : safebox_array_all){%>
 																<tr>
-																	<td>Item1</td>
-																	<td>Item1</td>
-																	<td>Ante turpis integer aliquet porttitor.</td>
-																	<td>Item1</td>
-																	<td><a href="safeboxDeleteService?safebox_seq=>" class="logo" style="outline: none; text-decoration: none;">제거</a></td>
+																	<td><%=vo2_safebox.getDevice_seq() %></td>
+																	<td><%=vo2_safebox.getDevice_id() %></td>
+																	<td><%=vo2_safebox.getDevice_location() %></td>
+																	<td><%=vo2_safebox.getReg_date() %></td>
+																	<td></td>
+																	<td><a href="safeboxUpdateCheckService?safebox_seq=<%=vo2_safebox.getDevice_seq() %>" class="logo" style="outline: none; text-decoration: none;">수정</a></td>
+																	<td><a href="safeboxDeleteService?safebox_seq=<%=vo2_safebox.getDevice_seq() %>" class="logo" style="outline: none; text-decoration: none;">제거</a></td>
 																</tr>
-																
+																<%}%>
 															</tbody>
 															
 														</table>
+														
 													</div>
 												
 

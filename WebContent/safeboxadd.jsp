@@ -14,7 +14,11 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="is-preload">
-
+		<%
+			int field_seq_session = (int)session.getAttribute("field_seq_session3");
+			session.setAttribute("field_seq_session_4", field_seq_session);	
+		
+		%>
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -24,7 +28,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="safeboxadd.html" class="logo" style="font-size: 20px;"><strong>SafeBox 추가</strong> </a>
+									<a href="safeboxadd.jsp" class="logo" style="font-size: 20px;"><strong>SafeBox 추가</strong> </a>
 									<ul class="icons">
 										
 									</ul>
@@ -38,14 +42,14 @@
 
 									<!-- <span class="image main"><img src="images/pic11.jpg" alt="" /></span> -->
 
-									<form method="post" action="#">
+									<form method="post" action="safeboxAddService">
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="demo-name" id="demo-name" value="" placeholder="기기ID" />
+                                                    <input type="text" name="device_name" id="demo-name" value="" placeholder="기기 ID" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="email" name="demo-email" id="demo-email" value="" placeholder="설치 장소" />
+                                                    <input type="text" name="device_location" id="demo-email" value="" placeholder="설치 장소" />
                                                 </div>
                                                 
                                                 

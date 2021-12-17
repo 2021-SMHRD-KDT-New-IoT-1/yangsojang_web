@@ -4,21 +4,23 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class fieldDAO {
-	private Connection conn = null;
-	private PreparedStatement psmt = null;
-	private ResultSet rs = null;
-	int cnt;
-	private fieldVO vo;
-
 	
+	Connection conn = null;
+	PreparedStatement psmt = null;
+	ResultSet rs = null;
+	int cnt = 0;
+	fieldVO vo1_field = null;
+	fieldVO vo2_field = null;
+	ArrayList<fieldVO> array_field_all = null;
+	String site_name;
 
 	// 커넥션 함수 생성
 	public void connection() {
 
 		try {
-
 			// 1. 드라이버 동적 로딩
 			Class.forName("org.mariadb.jdbc.Driver");//드라이버에 접속할수 있게 해주는 라이브러리
 			String url = "jdbc:mariadb://211.48.228.15:3306/iot_db";
@@ -50,101 +52,136 @@ public class fieldDAO {
 	   }
 	
 	//현장 추가
-	
-	public int getNext() { //현장 번호 매기기 위한 함수
-		String sql = "SELECT site_seq FROM site_loc ORDER BY site_seq";
-		try {
-			connection();
-			rs = psmt.executeQuery();
-			if(rs.next()) {
-				return rs.getInt(1) +1; //마지막 부여된 번호에  1을 더해서 번호를 부여한다.
-			}
-			return 1; //첫번째 게시물인 경우
-			
-		} catch (Exception e) {
-			 e.printStackTrace();
-		} finally {
-			close();
-		}
-		return -1; //데이터베이스 오류가 난 경우 -1반환
-	}
-	
-	 public int fieldAdd(String fieldName, String fieldAddr, String fieldMemo) {
+	 public int fieldAdd(String field_name, String field_addr, String field_memo) {
 
 	      //받아온 값을 db 테이블에 삽입
 	      try {
 	         connection();
 	      
-	         String sql = "INSERT INTO site_loc (site_seq, site_name, site_addr, site_memo) VALUES (site_seq.nextval,?,?,?)";
+	         String sql = "insert into site_loc(site_name, site_addr, site_memo) values(?,?,?)";
 	         
 	         psmt = conn.prepareStatement(sql);
-	         
-	         psmt.setInt(1, getNext());
-	         psmt.setString(2, fieldName);
-	         psmt.setString(3, fieldAddr);
-	         psmt.setString(4, fieldMemo);
+	         psmt.setString(1, field_name);
+	         psmt.setString(2, field_addr);
+	         psmt.setString(3, field_memo);
 
-	         rs=psmt.executeQuery();   
-	         return psmt.executeUpdate();
+	         cnt = psmt.executeUpdate();
 	      
 	      } catch (Exception e) {
-	         System.out.println("추가 실패!");
+	         System.out.println("추가 실패..");
 	         e.getStackTrace();//해당 예외가 출력된다.
 	      }finally {
 	         close();
 	      }
-	      return -1;
+	      return cnt;
 	   }
 	 
-	//현장 삭제
-		 public fieldVO fieldDelete(String fieldName, String fieldAddr, String fieldmemo) {
-
+	 //현장 리스트 확인
+	 public ArrayList<fieldVO> fieldAllList() {
+		 array_field_all = new ArrayList<fieldVO>();      
 		      
 		      try {
 		         connection();
-		      
-		         String sql = "delete from site_loc where fieldName =?";
 		         
+		         String sql = "select site_seq, site_name, site_addr from site_loc";
 		         psmt = conn.prepareStatement(sql);
-		         psmt.setString(1, fieldName);
-		        
-		         cnt = psmt.executeUpdate();
-		      
-		      } catch (Exception e) {
-		         System.out.println("삭제 실패!");
-		         e.getStackTrace();
-		      }finally {
-		         close();
-		      }
-		      return vo;
-		   }
-		 
-		 
-		 //현장 수정
-		 public fieldVO fieldUpdate(String fieldName, String fieldAddr, String fieldmemo) {
-
-		      //받아온 값을 db 테이블에 삽입
-		      try {
-		         connection();
-		      
-		         String sql = "UPDATE  site_loc SET site_name=?, site_addr=?, site_memo=? WHERE site_name=?";
+		                  
+		         rs = psmt.executeQuery();
 		         
-		         psmt = conn.prepareStatement(sql);
-		         psmt.setString(1, fieldName);
-		         psmt.setString(2, fieldAddr);
-		         psmt.setString(3, fieldmemo);
-
+		         while(rs.next()) {
+		            System.out.println("현장 리스트 불러오기 성공..");
 		            
-		         cnt = psmt.executeUpdate();
-		      
+		            int get_site_seq = rs.getInt("site_seq");
+		            String get_site_name = rs.getString("site_name");
+		            String get_site_addr = rs.getString("site_addr");
+		            
+		            vo1_field = new fieldVO(get_site_seq, get_site_name, get_site_addr);
+		            array_field_all.add(vo1_field);
+		         }   
+		         
 		      } catch (Exception e) {
-		         System.out.println("수정 실패!");
-		         e.getStackTrace();
+		         System.out.println("현장 전체 리스트 불러오기 실패..");
+		         e.printStackTrace();
 		      }finally {
 		         close();
-		      }
-		      return vo;
-		   }
-	   
+		         }
+		      return array_field_all;
+		      
+		   }   
+	 
+	 //현장 one select 확인
+	 public fieldVO fieldOne(int site_seq) {
+		 
+		      try {
+		         connection();
+		         
+		         String sql = "select site_name from site_loc where site_seq=?";
+		         psmt = conn.prepareStatement(sql);
+		                  
+		         psmt.setInt(1, site_seq);  
+		         
+		         rs = psmt.executeQuery();
+		         
+		         while(rs.next()) {
+		            System.out.println("현장one 이름 불러오기 성공..");
+		            
+		            String get_site_name = rs.getString("site_name");
+		            
+		            vo2_field = new fieldVO(get_site_name);
+		         }   
+		         
+		      } catch (Exception e) {
+		         System.out.println("현장one 이름 불러오기 실패..");
+		         e.printStackTrace();
+		      }finally {
+		         close();
+		         }
+		      return vo2_field;
+		      
+		   }   
+	
+	 //현장 정보 수정
+	 public int fieldUpdate(String field_name, String field_addr, String field_memo, int site_seq) {
+	      try {
+	         connection();
+	         
+	         String sql = "update site_loc set site_name = ?, site_addr=?, site_memo=? where site_seq=?";
+	         psmt = conn.prepareStatement(sql);
+	            
+	         psmt.setString(1, field_name);      
+	         psmt.setString(2, field_addr);   
+	         psmt.setString(3, field_memo);
+	         psmt.setInt(4, site_seq);
+	                  
+	         cnt = psmt.executeUpdate();
+	         
+	      } catch (Exception e) {
+	         System.out.println("현장 정보 수정 실패..");
+	         e.printStackTrace();
+	      }finally {
+	         close();
+	      }
+	      return cnt;
+	   }
+		 
+	 	//현장 정보 삭제
+		public int fieldDelete(int field_seq_int) {
+		      try {
+		         connection();
+
+		         String sql = "delete from site_loc where site_seq=?";
+		         psmt = conn.prepareStatement(sql);
+		         psmt.setInt(1, field_seq_int);   
+		         
+		         cnt = psmt.executeUpdate();
+		         
+		      } catch (Exception e) {
+		         System.out.println("현장 삭제 실패..");
+		         e.printStackTrace();
+		      }finally {
+		         close();
+		         }
+		      return cnt;
+		   }	 
 
 }

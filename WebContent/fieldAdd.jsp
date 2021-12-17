@@ -36,64 +36,20 @@
 
 									<!-- <span class="image main"><img src="images/pic11.jpg" alt="" /></span> -->
 
-									<form method="post" action="fieldAddAction.jsp">
+									<form method="post" action="fieldAddService">
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
                                                 <div class="col-6 col-12-xsmall"> 
                                                
-                                                    <input type="text" name="fieldName" id="demo-name" value="" placeholder="현장명" />
+                                                    <input type="text" name="field_name" id="demo-name" value="" placeholder="현장명" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="fieldAddr" id="demo-email" value="" placeholder="주소" />
+                                                    <input type="text" name="field_addr" id="demo-email" value="" placeholder="주소" />
                                                 </div>
                                                 <div class="col-12">
-                                                    <textarea name="fieldMemo" id="demo-message" placeholder="메모" rows="6"></textarea>
+                                                    <textarea name="field_memo" id="demo-message" placeholder="메모" rows="6"></textarea>
                                                 </div>
-                                                <!-- <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="demo-id" id="demo-name" value="" placeholder="아이디" />
-                                                </div>
-                                                <div class="col-6 col-12-xsmall">
-                                                    <input type="password" name="demo-pw" id="demo-email" value="" placeholder="비밀번호" />
-                                                </div>
-                                                <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="demo-phone" id="demo-email" value="" placeholder="전화번호" />
-                                                </div> -->
-                                            <!-- Break -->
-                                            <!-- <div class="col-12">
-                                                <select name="demo-category" id="demo-category">
-                                                    <option value="">- 소속 -</option>
-                                                    <option value="1">Manufacturing</option>
-                                                    <option value="1">Shipping</option>
-                                                    <option value="1">Administration</option>
-                                                    <option value="1">Human Resources</option>
-                                                </select>
-                                            </div> -->
-                                            <!-- Break -->
-                                            <!-- <div class="col-4 col-12-small">
-                                                <input type="radio" id="demo-priority-low" name="demo-priority" checked>
-                                                <label for="demo-priority-low">Low</label>
-                                            </div>
-                                            <div class="col-4 col-12-small">
-                                                <input type="radio" id="demo-priority-normal" name="demo-priority">
-                                                <label for="demo-priority-normal">Normal</label>
-                                            </div>
-                                            <div class="col-4 col-12-small">
-                                                <input type="radio" id="demo-priority-high" name="demo-priority">
-                                                <label for="demo-priority-high">High</label>
-                                            </div> -->
-                                            <!-- Break -->
-                                            <!-- <div class="col-6 col-12-small">
-                                                <input type="checkbox" id="demo-copy" name="demo-copy">
-                                                <label for="demo-copy">Email me a copy</label>
-                                            </div>
-                                            <div class="col-6 col-12-small">
-                                                <input type="checkbox" id="demo-human" name="demo-human" checked>
-                                                <label for="demo-human">I am a human</label>
-                                            </div> -->
-                                            <!-- Break -->
-                                            <!-- <div class="col-12">
-                                                <textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-                                            </div> -->
+                                                
                                             <!-- Break -->
                                             <div class="col-12" style="text-align: center;">
                                                 <ul class="actions" >
