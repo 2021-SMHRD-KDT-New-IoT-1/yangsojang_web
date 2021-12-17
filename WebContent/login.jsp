@@ -90,14 +90,14 @@
                                                     <input type="email" name="admin_email" id="input_email" value="" placeholder="이메일" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="admin_phone" id="demo-email" value="" placeholder="전화번호" />
+                                                    <input type="text" name="admin_phone" id="input_phone" value="" placeholder="전화번호" />
                                                 </div>
 												<div class="col-6 col-12-xsmall">
                                                     <input type="password" name="admin_pwd" id="input_pwd" value="" placeholder="비밀번호" />
                                                 </div>
                                             	<div class="col-12">
                                                		 <input type="text" name="admin_dept" id="input_deft" value="" placeholder="소속" />
-                                      
+
                                             	</div>
                                             
                                             <div class="col-12" style="text-align: center;">
@@ -228,6 +228,7 @@
 					}
 				});
 			}
+
 			function join() {
 				
 				var input_id = document.getElementById("input_id");
@@ -254,6 +255,8 @@
 					}
 				});
 			}
+			 
+			
 			</script>
 	</body>
 </html>
