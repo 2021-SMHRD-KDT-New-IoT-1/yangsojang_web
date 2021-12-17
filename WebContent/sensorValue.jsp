@@ -49,7 +49,7 @@
 
                      <!-- Header -->
                         <header id="header">
-                           <a href="index.html" class="logo" style="font-size: 20px;"><strong>현장명</strong>  <br> 현장 주소</a>
+                           <a href="sensorValue.jsp" class="logo" style="font-size: 20px;"><strong>현장명</strong>  <br> 현장 주소</a>
                            
                            <ul class="icons">
                               
@@ -67,7 +67,7 @@
 									</header> -->
 									<div class="posts">
 										<article class="article">
-											<a href="#" class="image"></a>
+											
 											<h3>SAFEBOX ID</h3>
 											<p>기기 위치</p>
 													<div class="table-wrapper">
@@ -114,134 +114,19 @@
                                                          <td></td>
                                                          <td></td>
                                                          <td></td>
-                                                         <td><form action="sensorManage.html"><input type="submit" value="설정"></form></td>											
+                                                         <td><form action="sensorManage.jsp"><input type="submit" value="설정"></form></td>											
                                                       </tr>
-																<tr>
-																	<td >Item1</td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-																	<td></td>
-																	<td><form action="sensorManage.html"><input type="submit" value="설정"></form></td>											
-																</tr>
-																<tr>
-																	<td>Item1</td>
-                                                                    
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-																	<td></td>
-																	<td><form action="sensorManage.html"><input type="submit" value="설정"></form></td>											
-																</tr>
-																<tr>
-																	<td>Item1</td>
-                                                                    
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-																	<td></td>
-																	<td><form action="sensorManage.html"><input type="submit" value="설정"></form></td>											
-																</tr>
+																
+																
 																
 															</tbody>
 															
 														</table>
 													</div>
-											<!-- <ul class="actions" style="text-align: center;">
-												<li><a href="safebox.html" class="button">상세 확인</a></li>
-											</ul> -->
+											
 										</article>
-                              <article class="article">
-											<a href="#" class="image"></a>
-											<h3>SAFEBOX ID</h3>
-											<p>기기 위치</p>
-													<div class="table-wrapper">
-														<table>
-															<thead>
-																<tr>
-                                                   <th>센서 ID</th>
-                                                   <th>ON/OFF</th>
-                                                   <th>기기상태</th>
-                                                   <th>진동세기</th>
-                                                   <th>현재세기</th>
-                                                   <th>측정주기</th>
-                                                   <th>설정변경</th>
-																</tr>
-															</thead>
-															<tbody  class="ttbody">
-																<tr>
-																	<td >Item1</td>
-                                                   <td style="vertical-align:bottom;"><label class="switch-button"><input type="checkbox"/> <div class="onoff-switch"></div> </label></td>
-                                                   <td ></td>
-                                                   <td></td>
-                                                   <td></td>
-																	<td></td>
-																	<td><form action="sensorManage.html"><input type="submit" value="설정"></form></td>											
-																</tr>
-                                                <table>
-                                                   <thead>
-                                                      <tr>
-                                                         <th>센서 ID</th>
-                                                         <th>ON/OFF</th>
-                                                         <th>기기상태</th>
-                                                         <th>기준농도</th>
-                                                         <th>현재농도</th>
-                                                         <th>측정주기</th>
-                                                         <th>설정변경</th>
-      
-                                                      </tr>
-                                                   </thead>
-                                                   <tbody  class="ttbody">
-                                                      <tr>
-                                                         <td >Item1</td>
-                                                         <td style="vertical-align:bottom;"><label class="switch-button"><input type="checkbox"/> <div class="onoff-switch"></div> </label></td>
-                                                         <td ></td>
-                                                         <td></td>
-                                                         <td></td>
-                                                         <td></td>
-                                                         <td><form action="sensorManage.html"><input type="submit" value="설정"></form></td>											
-                                                      </tr>
-																<tr>
-																	<td >Item1</td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-																	<td></td>
-																	<td><form action="sensorManage.html"><input type="submit" value="설정"></form></td>											
-																</tr>
-																<tr>
-																	<td>Item1</td>
-                                                                    
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-																	<td></td>
-																	<td><form action="sensorManage.html"><input type="submit" value="설정"></form></td>											
-																</tr>
-																<tr>
-																	<td>Item1</td>
-                                                                    
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-																	<td></td>
-																	<td><form action="sensorManage.html"><input type="submit" value="설정"></form></td>											
-																</tr>
-																
-															</tbody>
-															
-														</table>
-													</div>
-											<!-- <ul class="actions" style="text-align: center;">
-												<li><a href="safebox.html" class="button">상세 확인</a></li>
-											</ul> -->
-										</article>
+                             
+													
 						</div>
 					</section>
                </div>
@@ -273,19 +158,10 @@
 									</header>
 									<ul>
 										<li><a href="fieldlist.jsp">현장 목록 </a></li>
+										<li><a href="sensorList.jsp">센서 목록 </a></li>
 										<li><a href="board_list.jsp">관리 일지</a></li>
                               			<li><a href="notice.jsp">경고 발생 현황</a></li>
-										<!-- <li><a href="elements.html">SafeBox List Manage</a></li> -->
-										<!-- <li><a href="safebox.html">SafeBox List</a></li> -->
-										<!-- <li>
-											<span class="opener">Submenu</span>
-											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
-											</ul>
-										</li> -->
+										
 										
 									</ul>
 								</nav>

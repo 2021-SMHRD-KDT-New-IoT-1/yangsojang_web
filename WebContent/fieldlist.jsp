@@ -51,9 +51,23 @@
 			</div>
 		</div>
 
+<<<<<<< HEAD
 		<!-- Sidebar -->
 		<div id="sidebar">
 			<div class="inner">
+=======
+                     <!-- Header -->
+                        <header id="header">
+                           <a href="fieldlist.jsp" class="logo" style="font-size: 20px;"><strong>현장 목록</strong></a>
+                           <ul class="icons">
+                              <li><a href="fieldAdd.jsp" class="logo"><span class="label">현장추가</span></a></li>
+                              <li><a href="notice.jsp" class="logo"><span class="label"><strong>경고발생현황</strong></span></a></li>
+                              <li><a href="board_list.jsp".html" class="logo"><span class="label">관리일지</span></a></li>
+                               
+                              
+                           </ul>
+                        </header>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
 
 				<!-- Search -->
 				<section id="search" class="alt">
@@ -65,6 +79,7 @@
 
 				<nav id="menu">
 
+<<<<<<< HEAD
 					<ul>
 						<li><a href="login.jsp">로그인</a></li>
 						<li><a href="mypage.jsp">회원정보수정</a></li>
@@ -83,6 +98,21 @@
 						<!-- <li><a href="elements.html">SafeBox List Manage</a></li> -->
 						<!-- <li><a href="safebox.html">SafeBox List</a></li> -->
 						<!-- <li>
+=======
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>현장 관리 메뉴</h2>
+									</header>
+									<ul>
+										<li><a href="fieldlist.jsp">현장 목록 </a></li>
+										<li><a href="sensorList.jsp">센서 목록 </a></li>
+										<li><a href="board_list.jsp">관리 일지</a></li>
+                              			<li><a href="notice.jsp">경고 발생 현황</a></li>
+										<!-- <li><a href="elements.html">SafeBox List Manage</a></li> -->
+										<!-- <li><a href="safebox.html">SafeBox List</a></li> -->
+										<!-- <li>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
 											<span class="opener">Submenu</span>
 											<ul>
 												<li><a href="#">Lorem Dolor</a></li>
