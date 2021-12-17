@@ -46,6 +46,7 @@
 				</header>
 				
 				<!-- Section -->
+				
 				<section>
 					<div class="posts"> 
 					<%for(fieldVO vo1_field : array_field_all){%>
@@ -65,6 +66,7 @@
 						<%}%>
 					</div>
 				</section>
+				
 
 			</div>
 		</div>
@@ -101,19 +103,32 @@
 
 
 				<!-- Menu -->
+				<% if(vo!=null){%>
 				<nav id="menu">
 					<header class="major">
 						<h2>현장 관리 메뉴</h2>
 					</header>
 					<ul>
 						<li><a href="fieldlist.jsp">현장 목록 </a></li>
-						<li><a href="sensorList.jsp">센서 목록 </a></li>
 						<li><a href="board_list.jsp">관리 일지</a></li>
 						<li><a href="notice.jsp">경고 발생 현황</a></li>
 
 						
 					</ul>
 				</nav>
+				<%}else{%>
+				<nav id="menu">
+					<header class="major">
+						<h2>현장 관리 메뉴</h2>
+					</header>
+					<ul>
+						<li><a href="#">로그인이 필요합니다. </a></li>
+						
+
+						
+					</ul>
+				</nav>
+				<%} %>
 
 				
 
