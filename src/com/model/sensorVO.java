@@ -30,15 +30,8 @@ public class sensorVO {
 		this.reg_date = reg_date;
 		this.device_seq = device_seq;
 	}
-
-	// 센서 수정 페이지 - 센서 리스트 확인 생성자
-	public sensorVO(String sensor_name, String sensor_id) {
-		super();
-		this.sensor_name = sensor_name;
-		this.sensor_id = sensor_id;
-	}
 	
-	// 센서 수정 생성자
+	// 센서 수정 페이지 생성자
 	public sensorVO(String sensor_name, String sensor_id, int device_seq) {
 		super();
 		this.sensor_name = sensor_name;

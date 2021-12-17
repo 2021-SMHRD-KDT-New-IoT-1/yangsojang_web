@@ -49,25 +49,25 @@
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
                                             
+                                               
                                                 <div class="col-6 col-12-xsmall">
-                                                
                                                 	<select name="sensor_id" id="demo-category">
-                                                    	<option value=""> 센서 선택 : 센서 이름/ID </option>
+                                                    	<option value=""> 수정할 센서 선택 : 이름 / ID / 설치된 SAFEBOX 번호 </option>
                                                     	<%for(sensorVO vo1_sensor : sensor_array){%>
-                                                    	<option name="sensor_id"><%=vo1_sensor.getSensor_name() %>/<%=vo1_sensor.getSensor_id() %></option>
+                                                    	<option name="sensor_id"><%=vo1_sensor.getSensor_name() %>/<%=vo1_sensor.getSensor_id() %>/<%=vo1_sensor.getDevice_seq() %></option>
                                                     	<%}%>
                                                 	</select>
-                                                </div>
+                                                	</div>
                                                 
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="sensor_name_update" id="demo-email" value="" placeholder="변경 센서 이름" />
+                                                    <input type="text" name="sensor_name_update" id="demo-email" value="" placeholder="센서 이름" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="sensor_id_update" id="demo-email" value="" placeholder="변경 센서  ID" />
+                                                    <input type="text" name="sensor_id_update" id="demo-email" value="" placeholder="센서  ID" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
                                                 	<select name="device_seq_update" id="demo-category">
-                                                    	<option value=""> SAFEBOX 선택 </option>
+                                                    	<option value=""> SAFEBOX 선택 : ID/번호 </option>
                                                     	<%for(safeboxVO vo1_safebox : safebox_array){%>
                                                     	<option name="device_seq"><%=vo1_safebox.getDevice_id()%>/<%=vo1_safebox.getDevice_seq()%></option>
                                                     	<%}%>
@@ -80,6 +80,7 @@
                                                     
                                                 </ul>
                                             </div>
+                                        </div>
                                         </div>
                                     </form>
 

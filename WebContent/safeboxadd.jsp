@@ -47,78 +47,8 @@
                                                 <div class="col-6 col-12-xsmall">
                                                     <input type="email" name="demo-email" id="demo-email" value="" placeholder="설치 장소" />
                                                 </div>
-                                                <div style="width: 100%;"><span>설치된 센서</span></div>
-                                                <div class="col-6 col-12-small">
-													<input type="checkbox" id="1" name="1">
-													<label for="1">1</label>
-												</div>
-												<div class="col-6 col-12-small">
-													<input type="checkbox" id="2" name="2" checked>
-													<label for="2">2</label>
-												</div>
-												<div class="col-6 col-12-small">
-													<input type="checkbox" id="3" name="3" checked>
-													<label for="3">3</label>
-												</div>
-												<div class="col-6 col-12-small">
-													<input type="checkbox" id="4" name="4" checked>
-													<label for="4">4</label>
-												</div>
-												<div class="col-6 col-12-small">
-													<input type="checkbox" id="5" name="5" checked>
-													<label for="5">5</label>
-												</div>
                                                 
                                                 
-                                                <div class="col-12">
-                                                    <textarea name="demo-message" id="demo-message" placeholder="메모" rows="6"></textarea>
-                                                </div>
-                                                <!-- <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="demo-id" id="demo-name" value="" placeholder="아이디" />
-                                                </div>
-                                                <div class="col-6 col-12-xsmall">
-                                                    <input type="password" name="demo-pw" id="demo-email" value="" placeholder="비밀번호" />
-                                                </div>
-                                                <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="demo-phone" id="demo-email" value="" placeholder="전화번호" />
-                                                </div> -->
-                                            <!-- Break -->
-                                            <!-- <div class="col-12">
-                                                <select name="demo-category" id="demo-category">
-                                                    <option value="">- 소속 -</option>
-                                                    <option value="1">Manufacturing</option>
-                                                    <option value="1">Shipping</option>
-                                                    <option value="1">Administration</option>
-                                                    <option value="1">Human Resources</option>
-                                                </select>
-                                            </div> -->
-                                            <!-- Break -->
-                                            <!-- <div class="col-4 col-12-small">
-                                                <input type="radio" id="demo-priority-low" name="demo-priority" checked>
-                                                <label for="demo-priority-low">Low</label>
-                                            </div>
-                                            <div class="col-4 col-12-small">
-                                                <input type="radio" id="demo-priority-normal" name="demo-priority">
-                                                <label for="demo-priority-normal">Normal</label>
-                                            </div>
-                                            <div class="col-4 col-12-small">
-                                                <input type="radio" id="demo-priority-high" name="demo-priority">
-                                                <label for="demo-priority-high">High</label>
-                                            </div> -->
-                                            <!-- Break -->
-                                            <!-- <div class="col-6 col-12-small">
-                                                <input type="checkbox" id="demo-copy" name="demo-copy">
-                                                <label for="demo-copy">Email me a copy</label>
-                                            </div>
-                                            <div class="col-6 col-12-small">
-                                                <input type="checkbox" id="demo-human" name="demo-human" checked>
-                                                <label for="demo-human">I am a human</label>
-                                            </div> -->
-                                            <!-- Break -->
-                                            <!-- <div class="col-12">
-                                                <textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-                                            </div> -->
-                                            <!-- Break -->
                                             <div class="col-12" style="text-align: center;">
                                                 <ul class="actions" >
                                                     <li><input type="submit" value="추가" class="primary" style="margin-right: 10px;" ><input type="reset" value="초기화" style="margin-left: 10px;"></li>
@@ -128,23 +58,7 @@
                                         </div>
                                     </form>
 
-									<!-- <hr class="major" />
-
-									<h2></h2>
-									<p></p>
-									<p></p>
-
-									<hr class="major" />
-
-									<h2></h2>
-									<p></p>
-									<p></p>
-
-									<hr class="major" />
-
-									<h2></h2>
-									<p></p>
-									<p></p> -->
+									
 
 								</section>
 
@@ -177,46 +91,15 @@
 									</header>
 									<ul>
 										<li><a href="fieldlist.jsp">현장 목록 </a></li>
+										<li><a href="sensorList.jsp">센서 목록 </a></li>
 										<li><a href="board_list.jsp">관리 일지</a></li>
                               			<li><a href="notice.jsp">경고 발생 현황</a></li>
-										<!-- <li><a href="elements.html">SafeBox List Manage</a></li> -->
-										<!-- <li><a href="safebox.html">SafeBox List</a></li> -->
-										<!-- <li>
-											<span class="opener">Submenu</span>
-											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
-											</ul>
-										</li> -->
+									
 										
 									</ul>
 								</nav>
 
-							<!-- Section -->
-								<!-- <section>
-									<header class="major">
-										<h2>Ante interdum</h2>
-									</header>
-									<div class="mini-posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-								</section> -->
+							
 
 							<!-- Section -->
 								<section>

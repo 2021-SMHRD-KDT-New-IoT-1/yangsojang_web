@@ -78,7 +78,7 @@ public class sensorDAO {
 	      try {
 	         connection();
 	         
-	         String sql = "select sensor_name, sensor_id from tbl_sensor";
+	         String sql = "select sensor_name, sensor_id, device_seq from tbl_sensor";
 	         psmt = conn.prepareStatement(sql);
 	                  
 	         rs = psmt.executeQuery();
@@ -88,8 +88,9 @@ public class sensorDAO {
 	            
 	            String get_sensor_name = rs.getString("sensor_name");
 	            String get_sensor_id = rs.getString("sensor_id");
+	            int get_device_seq = rs.getInt("device_seq");
 	            
-	            vo1_sensor = new sensorVO(get_sensor_name, get_sensor_id);
+	            vo1_sensor = new sensorVO(get_sensor_name, get_sensor_id, get_device_seq);
 	            sensor_array.add(vo1_sensor);
 	         }   
 	         

@@ -141,44 +141,12 @@
 										<li><a href="sensorList.jsp">센서 목록 </a></li>
 										<li><a href="board_list.jsp">관리 일지</a></li>
                               			<li><a href="notice.jsp">경고 발생 현황</a></li>
-										<!-- <li><a href="elements.html">SafeBox List Manage</a></li> -->
-										<!-- <li><a href="safebox.html">SafeBox List</a></li> -->
-										<!-- <li>
-											<span class="opener">Submenu</span>
-											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
-											</ul>
-										</li> -->
+										
 										
 									</ul>
 								</nav>
 
-							<!-- Section -->
-								<!-- <section>
-									<header class="major">
-										<h2>Ante interdum</h2>
-									</header>
-									<div class="mini-posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-								</section> -->
+							
 
 							<!-- Section -->
 								<section>

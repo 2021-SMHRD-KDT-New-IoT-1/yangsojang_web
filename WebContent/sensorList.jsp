@@ -38,8 +38,8 @@
 									<a href="sensorList.jsp" class="logo" style="font-size: 20px;"><strong>센서 관리</strong></a>
 									<ul class="icons">
 										<!-- <form action="safeboxadd.html"><input type="submit" value="SAFEBOX 추가" class="primary" /></form> -->
-										<li><a href="sensorAdd.jsp" class="logo"><span class="label"><strong>센서 추가</strong></span></a></li>
-										<li><a href="sensorUpdate.jsp" class="logo"><span class="label">센서 정보 수정</span></a></li>
+										<li><a href="sensorAdd.jsp" class="logo"><span class="label"><strong>센서추가</strong></span></a></li>
+										<li><a href="sensorUpdate.jsp" class="logo"><span class="label">센서정보수정</span></a></li>
 									</ul>
 								</header>
 

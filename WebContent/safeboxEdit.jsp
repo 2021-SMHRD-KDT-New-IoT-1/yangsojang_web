@@ -27,7 +27,8 @@
 									<a href="safeboxEdit.jsp".html" class="logo" style="font-size: 20px;"><strong>SafeBox 관리</strong></a>
 									<ul class="icons">
 										<!-- <form action="safeboxadd.html"><input type="submit" value="SAFEBOX 추가" class="primary" /></form> -->
-										<li><a href="safeboxadd.jsp" class="logo"><span class="label"><strong>Safebox 추가</strong></span></a></li>
+										<li><a href="safeboxadd.jsp" class="logo"><span class="label"><strong>Safebox추가</strong></span></a></li>
+										<li><a href="safeboxUpdate.jsp" class="logo"><span class="label">Safebox정보수정</span></a></li>
 										
 									</ul>
 								</header>
@@ -43,20 +44,20 @@
 														<table>
 															<thead>
 																<tr>
+																	<th>SAFEBOX 번호</th>
 																	<th>SAFEBOX ID</th>
 																	<th>SAFEBOX 위치</th>
-																	<th>설치된 센서</th>
-																	<th>정보수정</th>
+																	<th>설치된 센서</th>	
 																	<th>SAFEBOX 설치제거</th>
 																</tr>
 															</thead>
 															<tbody>
 																<tr>
 																	<td>Item1</td>
+																	<td>Item1</td>
 																	<td>Ante turpis integer aliquet porttitor.</td>
 																	<td>Item1</td>
-																	<td><form action="safeboxUpdate.html"><input type="submit" value="수정"></form></td>
-																	<td><input type="button" value="삭제"></td>
+																	<td><a href="safeboxDeleteService?safebox_seq=>" class="logo" style="outline: none; text-decoration: none;">제거</a></td>
 																</tr>
 																
 															</tbody>

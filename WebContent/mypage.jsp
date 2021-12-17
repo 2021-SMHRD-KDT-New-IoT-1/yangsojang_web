@@ -34,9 +34,7 @@
 
 							<!-- Content -->
 								<section>
-									<!-- <header class="main">
-										<h1></h1>
-									</header> -->
+									
 
 									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
 
@@ -68,33 +66,7 @@
                                                     <option value="1">Human Resources</option>
                                                 </select>
                                             </div>
-                                            <!-- Break -->
-                                            <!-- <div class="col-4 col-12-small">
-                                                <input type="radio" id="demo-priority-low" name="demo-priority" checked>
-                                                <label for="demo-priority-low">Low</label>
-                                            </div>
-                                            <div class="col-4 col-12-small">
-                                                <input type="radio" id="demo-priority-normal" name="demo-priority">
-                                                <label for="demo-priority-normal">Normal</label>
-                                            </div>
-                                            <div class="col-4 col-12-small">
-                                                <input type="radio" id="demo-priority-high" name="demo-priority">
-                                                <label for="demo-priority-high">High</label>
-                                            </div> -->
-                                            <!-- Break -->
-                                            <!-- <div class="col-6 col-12-small">
-                                                <input type="checkbox" id="demo-copy" name="demo-copy">
-                                                <label for="demo-copy">Email me a copy</label>
-                                            </div>
-                                            <div class="col-6 col-12-small">
-                                                <input type="checkbox" id="demo-human" name="demo-human" checked>
-                                                <label for="demo-human">I am a human</label>
-                                            </div> -->
-                                            <!-- Break -->
-                                            <!-- <div class="col-12">
-                                                <textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-                                            </div> -->
-                                            <!-- Break -->
+                                           
                                             <div class="col-12" style="text-align: center;">
                                                 <ul class="actions" >
                                                     <li><input type="submit" value="수정" class="primary" style="margin-right: 10px;" ><input type="reset" value="초기화" style="margin-left: 10px;"></li>
@@ -104,23 +76,7 @@
                                         </div>
                                     </form>
 
-									<!-- <hr class="major" />
-
-									<h2></h2>
-									<p></p>
-									<p></p>
-
-									<hr class="major" />
-
-									<h2></h2>
-									<p></p>
-									<p></p>
-
-									<hr class="major" />
-
-									<h2></h2>
-									<p></p>
-									<p></p> -->
+									
 
 								</section>
 

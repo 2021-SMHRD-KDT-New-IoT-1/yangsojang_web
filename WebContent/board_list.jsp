@@ -39,9 +39,10 @@
 								<header id="header">
 									<a href="safeboxcheck.jsp" class="logo" style="font-size: 20px;"><strong>관리 일지 목록</strong></a>
 									<ul class="icons">
-										<li><a href="fieldlist.jsp" class="logo"><span class="label"><strong>현장목록</strong></span></a></li>
+									<li><a href="notice.jsp" class="logo"><span class="label"><strong>경고발생현황</strong></span></a></li>
+										<li><a href="fieldlist.jsp" class="logo"><span class="label">현장목록</span></a></li>
                               			
-                                        <li><a href="notice.jsp" class="logo"><span class="label">경고발생현황</span></a></li>  										
+                                          										
 									</ul>
 								</header>
 

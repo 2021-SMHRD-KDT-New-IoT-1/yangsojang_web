@@ -27,19 +27,17 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="notice.html" class="logo" style="font-size: 20px;"><strong>경고 발생 현황</strong>  </a>
+									<a href="notice.jsp" class="logo" style="font-size: 20px;"><strong>경고 발생 현황</strong>  </a>
 									<ul class="icons">
-										<li><a href="fieldlist.html" class="logo"><span class="label"><strong>현장목록</strong></span></a></li>
+										<li><a href="fieldlist.jsp" class="logo"><span class="label"><strong>현장목록</strong></span></a></li>
                               			
-                                        <li><a href="board_list.html".html" class="logo"><span class="label">관리일지</span></a></li>  										
+                                        <li><a href="board_list.jsp".html" class="logo"><span class="label">관리일지</span></a></li>  										
 									</ul>
 								</header>
 
 							<!-- Content -->
 								<section>
-									<!-- <header class="main">
-										<h1></h1>
-									</header> -->
+									
 
 									<div class="table-wrapper">
                                         <table>
