@@ -16,19 +16,19 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="is-preload">
-<<<<<<< HEAD
+
 		<%
 			int field_seq_session = (int)session.getAttribute("field_seq_session3");
 			session.setAttribute("field_seq_session_4", field_seq_session);	
-		
-		%>
-=======
-			<%
-			//현재 로그인 상태인지 확인 (vo == null > 로그인 하지 않은 상태)
+			
 			adminVO vo = (adminVO)session.getAttribute("admin");
 			adminDAO dao = new adminDAO();
-			%>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
+		
+		%>
+
+			
+			
+
 		<!-- Wrapper -->
 			<div id="wrapper">
 
