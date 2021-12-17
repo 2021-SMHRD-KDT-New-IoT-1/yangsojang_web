@@ -77,31 +77,32 @@
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
                                                 <div class="col-6 col-12-xsmall">                                              
-													<input type="text" name="admin_id" id="demo-name" value="" placeholder="아이디" />
+													<input type="text" name="admin_id" id="input_id" value="" placeholder="아이디" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
                                                     <input type="button" onclick="idCheck()" value="ID 중복체크" class="primary" />
                                                 </div>
 												<div class="col-6 col-12-xsmall">
                             
-													<input type="text" name="admin_name" id="demo-name" value="" placeholder="이름" />
+													<input type="text" name="admin_name" id="input_name" value="" placeholder="이름" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="email" name="admin_email" id="demo-email" value="" placeholder="이메일" />
+                                                    <input type="email" name="admin_email" id="input_email" value="" placeholder="이메일" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="admin_phone" id="demo-email" value="" placeholder="전화번호" />
+                                                    <input type="text" name="admin_phone" id="input_phone" value="" placeholder="전화번호" />
                                                 </div>
 												<div class="col-6 col-12-xsmall">
-                                                    <input type="password" name="admin_pwd" id="demo-email" value="" placeholder="비밀번호" />
+                                                    <input type="password" name="admin_pwd" id="input_pwd" value="" placeholder="비밀번호" />
                                                 </div>
                                             	<div class="col-12">
-                                               		 <input type="text" name="admin_dept" id="demo-email" value="" placeholder="소속" />
+                                               		 <input type="text" name="admin_dept" id="input_deft" value="" placeholder="소속" />
+                                               		 <span id="sp_result"></span>
                                             	</div>
                                             
                                             <div class="col-12" style="text-align: center;">
                                                 <ul class="actions">
-                                                    <li><input type="submit" value="회원가입" class="primary" /></li>
+                                                    <li><input type="submit" onclick="join()" value="회원가입" class="primary" /></li>
 													
                                                     <!-- <li><input type="reset" value="Reset" /></li> -->
                                                 </ul>
@@ -194,6 +195,52 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			
+			
+			<script>
+			function idCheck() {
+				
+				var input = document.getElementById("input_id");
+				
+				$.ajax({
+					type : "post", //데이터 전송 요청 방식
+					data : {"admin_id" : input.value}, //전송하는 데이터
+					url : "idCheckServlet", //데이터를 전송, 요청하는 서버 페이지
+					dataType : "text", //응답데이터의 형식
+					success : function(data){ //통신 성공
+						
+						if(data=="true"){
+							alert('이미 사용중인 아이디 입니다.')
+						}else{
+							alert('사용 가능한 아이디입니다.')
+						}
+					},
+					error : function(){ //통신 실패
+					}
+				});
+			}
+			function join() {
+				
+				var input = document.getElementById("input_id");
+								
+				$.ajax({
+					type : "post", //데이터 전송 요청 방식
+					data : {"" : }, //전송하는 데이터
+					url : "", //데이터를 전송, 요청하는 서버 페이지
+					dataType : "text", //응답데이터의 형식
+					success : function(data){ //통신 성공
+						
+						if(data=="true"){
+							alert('회원가입 완료되었습니다.')
+						}else{
+							alert('사용 가능한 아이디입니다.')
+						}
+					},
+					error : function(){ //통신 실패
+					}
+				});
+			}
+			
+			</script>
 	</body>
 </html>
