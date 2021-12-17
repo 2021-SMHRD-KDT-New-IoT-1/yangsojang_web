@@ -56,17 +56,10 @@
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
                                                     <input type="text" name="admin_phone" id="demo-email" placeholder="전화번호" />
-                                                </div>
-                                            <!-- Break -->
-                                            <div class="col-12">
-                                                <select name="admin_dept" id="demo-category">
-                                                    <option value="">- 소속 -</option>
-                                                    <option value="1">Manufacturing</option>
-                                                    <option value="2">Shipping</option>
-                                                    <option value="3">Administration</option>
-                                                    <option value="4">Human Resources</option>
-                                                </select>
-                                            </div>
+                                                </div>   
+                                           		<div class="col-12">
+                                                	<input type="text" name="admin_dept" id="demo-email" value="" placeholder="소속" />
+                                           		</div>
                                            
                                             <div class="col-12" style="text-align: center;">
                                                 <ul class="actions">
@@ -165,12 +158,16 @@
 									<header class="major">
 										<h2>내 정보</h2>
 									</header>
-									
 									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
-										<li class="icon solid fa-phone">(000) 000-0000</li>
-										<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
-										Nashville, TN 00000-0000</li>
+										<% if(vo!=null){%>
+										<li class="icon solid fa-envelope"><%=vo.getAdmin_email() %></li>
+										<li class="icon solid fa-phone"><%=vo.getAdmin_phone() %></li>
+										<li class="icon solid fa-home"><%=vo.getAdmin_dept() %></li>
+										<%}else{ %>
+										<li class="icon solid fa-envelope">이메일</li>
+										<li class="icon solid fa-phone">전화번호</li>
+										<li class="icon solid fa-home">소속</li>
+										<%} %>
 									</ul>
 								</section>
 
