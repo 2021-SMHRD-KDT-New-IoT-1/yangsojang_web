@@ -10,10 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.model.fieldDAO;
-import com.model.sensorDAO;
 
-@WebServlet("/fieldAddService")
-public class fieldAddService extends HttpServlet {
+@WebServlet("/fieldAddCheckService")
+public class fieldAddCheckService extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -23,14 +22,9 @@ public class fieldAddService extends HttpServlet {
 		String field_addr = request.getParameter("field_addr");
 		String field_memo = request.getParameter("field_memo");
 		
-		
 		fieldDAO dao = new fieldDAO();
 		int cnt = dao.fieldAdd(field_name, field_addr, field_memo);
 		
-		if(cnt>0) {
-			
-			System.out.println("현장 추가 성공!");
-			
 			String cnt_string = String.valueOf(cnt);
 			
 			//출력 스트링(통로)
@@ -38,11 +32,9 @@ public class fieldAddService extends HttpServlet {
 			//통로를 통해서 응답데이터를 출력
 			out.print(cnt_string);
 			
-			response.sendRedirect("fieldlist.jsp");
-		}else {
-			System.out.println("현장 추가 실패!");
-			response.sendRedirect("fieldAdd.jsp");
-		}
+			
+		
+		
 	}
 
 }
