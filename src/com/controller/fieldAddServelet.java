@@ -21,6 +21,7 @@ public class fieldAddServelet extends HttpServlet {
 		request.setCharacterEncoding("euc-kr");
 		String admin_id = null;
 		HttpSession session =request.getSession();
+		fieldVO vo = null;
 		
 		if(session.getAttribute("admin_id") != null){
 			admin_id = (String) session.getAttribute("userID");
@@ -34,7 +35,7 @@ public class fieldAddServelet extends HttpServlet {
 			
 		}else{
 			//현장명과 주소중 하나가 빠져 있을 경우 뒤로 둘려보낸다.
-			if(fieldVO.getFieldName() == null || fieldVO.getFieldAddr() == null){
+			if(vo.getFieldName() == null || vo.getFieldAddr() == null){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('현장명과 주소를 올바르게 입력해 주세요.')");
@@ -43,7 +44,7 @@ public class fieldAddServelet extends HttpServlet {
 			}else{
 				
 				fieldDAO fielddao = new fieldDAO();
-				int result = fielddao.fieldAdd(fieldVO.getFieldName(), fieldVO.getFieldAddr(), fieldVO.getFieldMemo());
+				int result = fielddao.fieldAdd(vo.getFieldName(), vo.getFieldAddr(), vo.getFieldMemo());
 				if(result ==-1){//데이터베이스 오류가 난 경우.
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
