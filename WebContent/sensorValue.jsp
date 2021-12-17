@@ -76,35 +76,16 @@
 										<article class="article">
 											
 											<h3>SAFEBOX ID</h3>
+											<label class="switch-button"><input type="checkbox"/> <div class="onoff-switch"></div> </label>
 											<p>기기 위치</p>
 													<div class="table-wrapper">
-														<table>
-															<thead>
-																<tr>
-                                                   <th>센서 ID</th>
-                                                   <th>ON/OFF</th>
-                                                   <th>기기상태</th>
-                                                   <th>진동세기</th>
-                                                   <th>현재세기</th>
-                                                   <th>측정주기</th>
-                                                   <th>설정변경</th>
-																</tr>
-															</thead>
-															<tbody  class="ttbody">
-																<tr>
-																	<td >Item1</td>
-                                                   <td style="vertical-align:bottom;"><label class="switch-button"><input type="checkbox"/> <div class="onoff-switch"></div> </label></td>
-                                                   <td style="vertical-align:middle;"><img src="images/정상동그라미.png" ></td>
-                                                   <td></td>
-                                                   <td></td>
-																	<td></td>
-																	<td><form action="sensorManage.jsp"><input type="submit" value="설정"></form></td>											
-																</tr>
+														
+																
                                                 <table>
                                                    <thead>
                                                       <tr>
                                                          <th>센서 ID</th>
-                                                         <th>ON/OFF</th>
+                                                         
                                                          <th>기기상태</th>
                                                          <th>기준농도</th>
                                                          <th>현재농도</th>
@@ -116,7 +97,7 @@
                                                    <tbody  class="ttbody">
                                                       <tr>
                                                          <td >Item1</td>
-                                                         <td style="vertical-align:bottom;"><label class="switch-button"><input type="checkbox"/> <div class="onoff-switch"></div> </label></td>
+                                                         
                                                          <td style="vertical-align:middle;"><img src="images/비정상동그라미.png" ></td>
                                                          <td></td>
                                                          <td></td>
@@ -153,33 +134,43 @@
                         <nav id="menu">
 									
 								<ul>
-										<li>
 										<% if(vo==null){%>
-										<a href="login.jsp">로그인</a>
+										<li><a href="login.jsp">로그인</a></li>
 										<%}else{ %>
-										</li>
-										<li>
-										<a href="mypage.jsp">회원정보수정</a>
-										</li>
+										
+										<li><a href="mypage.jsp">회원정보수정</a></li>										
 										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
 										<%} %>
 									</ul>
 								</nav>
 
 							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>현장 관리 메뉴</h2>
-									</header>
-									<ul>
-										<li><a href="fieldlist.jsp">현장 목록 </a></li>
-										<li><a href="sensorList.jsp">센서 목록 </a></li>
-										<li><a href="board_list.jsp">관리 일지</a></li>
-                              			<li><a href="notice.jsp">경고 발생 현황</a></li>
-										
-										
-									</ul>
-								</nav>
+								<% if(vo!=null){%>
+				<nav id="menu">
+					<header class="major">
+						<h2>현장 관리 메뉴</h2>
+					</header>
+					<ul>
+						<li><a href="fieldlist.jsp">현장 목록 </a></li>
+						<li><a href="board_list.jsp">관리 일지</a></li>
+						<li><a href="notice.jsp">경고 발생 현황</a></li>
+
+						
+					</ul>
+				</nav>
+				<%}else{%>
+				<nav id="menu">
+					<header class="major">
+						<h2>현장 관리 메뉴</h2>
+					</header>
+					<ul>
+						<li><a href="#">로그인이 필요합니다. </a></li>
+						
+
+						
+					</ul>
+				</nav>
+				<%} %>
 
 							<!-- Section -->
 								<!-- <section>

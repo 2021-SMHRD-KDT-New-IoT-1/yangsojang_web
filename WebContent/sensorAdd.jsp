@@ -25,6 +25,9 @@
 			adminVO vo = (adminVO)session.getAttribute("admin");
 			adminDAO dao = new adminDAO();
 			
+			int device_seq_int_session = (int)session.getAttribute("device_seq_int_session");
+			session.setAttribute("device_seq_int_session_2", device_seq_int_session);
+			
 		%>
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -53,14 +56,7 @@
                                                 <div class="col-6 col-12-xsmall">
                                                     <input type="text" name="sensor_id" id="demo-email" value="" placeholder="센서 ID" />
                                                 </div>
-                                               	<div class="col-6 col-12-xsmall">
-                                                	<select name="device_seq" id="demo-category">
-                                                    	<option value="">- SAFEBOX -</option>
-                                                    	<%for(safeboxVO vo1_safebox : safebox_array){%>
-                                                    	<option name="device_seq"><%=vo1_safebox.getDevice_id()%>/<%=vo1_safebox.getDevice_seq()%></option>
-                                                    	<%}%>
-                                                	</select>
-                                                </div>
+                                               	
                                             <div class="col-12" style="text-align: center;">
                                                 <ul class="actions" >
                                                     <li><input type="submit" value="추가" class="primary" style="margin-right: 10px;" ><input type="reset" value="초기화" style="margin-left: 10px;"></li>
@@ -91,33 +87,43 @@
 								<nav id="menu">
 									
 									<ul>
-										<li>
 										<% if(vo==null){%>
-										<a href="login.jsp">로그인</a>
+										<li><a href="login.jsp">로그인</a></li>
 										<%}else{ %>
-										</li>
-										<li>
-										<a href="mypage.jsp">회원정보수정</a>
-										</li>
+										
+										<li><a href="mypage.jsp">회원정보수정</a></li>										
 										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
 										<%} %>
 									</ul>
 								</nav>
 
 							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>현장 관리 메뉴</h2>
-									</header>
-									<ul>
-										<li><a href="fieldlist.jsp">현장 목록 </a></li>
-										<li><a href="sensorList.jsp">센서 목록 </a></li>
-										<li><a href="board_list.jsp">관리 일지</a></li>
-                              			<li><a href="notice.jsp">경고 발생 현황</a></li>
-										
-										
-									</ul>
-								</nav>
+								<% if(vo!=null){%>
+				<nav id="menu">
+					<header class="major">
+						<h2>현장 관리 메뉴</h2>
+					</header>
+					<ul>
+						<li><a href="fieldlist.jsp">현장 목록 </a></li>
+						<li><a href="board_list.jsp">관리 일지</a></li>
+						<li><a href="notice.jsp">경고 발생 현황</a></li>
+
+						
+					</ul>
+				</nav>
+				<%}else{%>
+				<nav id="menu">
+					<header class="major">
+						<h2>현장 관리 메뉴</h2>
+					</header>
+					<ul>
+						<li><a href="#">로그인이 필요합니다. </a></li>
+						
+
+						
+					</ul>
+				</nav>
+				<%} %>
 
 							<!-- Section -->
 								<section>

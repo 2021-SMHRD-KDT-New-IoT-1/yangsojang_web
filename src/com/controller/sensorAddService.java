@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.eclipse.jdt.internal.compiler.parser.ParserBasicInformation;
 
@@ -20,12 +21,12 @@ public class sensorAddService extends HttpServlet {
 		
 		String sensor_name = request.getParameter("sensor_name");
 		String sensor_id = request.getParameter("sensor_id");
-		String device_seq = request.getParameter("device_seq");
-		String device_seq_string = device_seq.substring(device_seq.lastIndexOf("/")+1);
-		int device_seq_int = Integer.parseInt(device_seq_string);
+								
+		HttpSession session = request.getSession();
+		int device_seq_int_session = (int)session.getAttribute("device_seq_int_session_2");
 		
 		sensorDAO dao = new sensorDAO();
-		int cnt = dao.sensorAdd(sensor_name, sensor_id, device_seq_int);
+		int cnt = dao.sensorAdd(sensor_name, sensor_id, device_seq_int_session);
 		
 		if(cnt>0) {
 			System.out.println("센서 추가 성공!");

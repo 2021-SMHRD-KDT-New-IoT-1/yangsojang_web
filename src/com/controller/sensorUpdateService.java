@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.model.sensorDAO;
 
@@ -16,16 +17,14 @@ public class sensorUpdateService extends HttpServlet {
 		
 		request.setCharacterEncoding("euc-kr");
 		
-		String sensor_id = request.getParameter("sensor_id");
 		String sensor_name_update = request.getParameter("sensor_name_update");
 		String sensor_id_update = request.getParameter("sensor_id_update");
-		String device_seq_update = request.getParameter("device_seq_update");
-	
-		String sensor_id_string = sensor_id.substring(sensor_id.lastIndexOf("/")+1);
-		String device_seq_string = device_seq_update.substring(device_seq_update.lastIndexOf("/")+1);
+		
+		HttpSession session = request.getSession();
+		int sensor_seq_int_session = (int)session.getAttribute("sensor_seq_int_session");
 		
 		sensorDAO dao = new sensorDAO();
-		int cnt = dao.sensorUpdate(sensor_id_string, sensor_name_update, sensor_id_update, device_seq_string);
+		int cnt = dao.sensorUpdate(sensor_name_update, sensor_id_update, sensor_seq_int_session);
 		
 		if(cnt>0) {
 			System.out.println("센서 수정 성공!");

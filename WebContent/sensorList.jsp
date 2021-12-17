@@ -26,7 +26,12 @@
 			adminVO vo = (adminVO)session.getAttribute("admin");
 			adminDAO dao = new adminDAO();
 			sensorDAO sensordao = new sensorDAO();
-			ArrayList<sensorVO> sensor_array_all = sensordao.sensorAllList();
+			
+			int safebox_seq_int_session = (int)session.getAttribute("safebox_seq_int_session");
+			
+			ArrayList<sensorVO> sensor_array_all = sensordao.sensorAllList(safebox_seq_int_session);
+			
+			
 		%>
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -41,13 +46,13 @@
 									<a href="sensorList.jsp" class="logo" style="font-size: 20px;"><strong>센서 관리</strong></a>
 									<ul class="icons">
 										<!-- <form action="safeboxadd.html"><input type="submit" value="SAFEBOX 추가" class="primary" /></form> -->
-										<li><a href="sensorAdd.jsp" class="logo"><span class="label"><strong>센서추가</strong></span></a></li>
-										<li><a href="sensorUpdate.jsp" class="logo"><span class="label">센서정보수정</span></a></li>
+										<li><a href="sensorAddCheckService?device_seq=<%=safebox_seq_int_session%>" class="logo"><span class="label"><strong>센서추가</strong></span></a></li>
+										
 									</ul>
 								</header>
 
 									<!-- Elements -->
-										<h2 id="elements"></h2>
+										<h2 id="elements"><%--기기 번호, 아이디  <%= %> --%></h2>
 											
 													<div class="table-wrapper">
 														<table>
@@ -57,7 +62,7 @@
 																	<th>센서 이름</th>
 																	<th>센서 ID</th>
 																	<th>등록일자</th>
-																	<th>설치된 SAFEBOX 번호</th>
+																	<th>센서  수정</th>
 																	<th>센서 삭제</th>
 																</tr>
 															</thead>
@@ -68,7 +73,7 @@
 																	<td><%=vo2_sensor.getSensor_name() %></td>
 																	<td><%=vo2_sensor.getSensor_id() %></td>
 																	<td><%=vo2_sensor.getReg_date() %></td>
-																	<td><%=vo2_sensor.getDevice_seq() %></td>
+																	<td><a href="sensorUpdateCheckService?sensor_seq=<%=vo2_sensor.getSensor_seq()%>" class="logo" style="outline: none; text-decoration: none;">수정</a></td>
 																	<td><a href="sensorDeleteService?sensor_seq=<%=vo2_sensor.getSensor_seq()%>" class="logo" style="outline: none; text-decoration: none;">삭제</a></td>
 																</tr>
 																<%}%>
@@ -97,67 +102,43 @@
 
 								<nav id="menu">
 									<ul>
-										<li>
 										<% if(vo==null){%>
-										<a href="login.jsp">로그인</a>
+										<li><a href="login.jsp">로그인</a></li>
 										<%}else{ %>
-										</li>
-										<li>
-										<a href="mypage.jsp">회원정보수정</a>
-										</li>
+										
+										<li><a href="mypage.jsp">회원정보수정</a></li>										
 										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
 										<%} %>
 									</ul>
 								</nav>
 
 							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>현장 관리 메뉴</h2>
-									</header>
-									<ul>
-										<li><a href="fieldlist.jsp">현장 목록 </a></li>
-										<li><a href="sensorList.jsp">센서 목록 </a></li>
-										<li><a href="board_list.jsp">관리 일지</a></li>
-                              			<li><a href="notice.jsp">경고 발생 현황</a></li>
-										<!-- <li><a href="elements.html">SafeBox List Manage</a></li> -->
-										<!-- <li><a href="safebox.html">SafeBox List</a></li> -->
-										<!-- <li>
-											<span class="opener">Submenu</span>
-											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
-											</ul>
-										</li> -->
-										
-									</ul>
-								</nav>
+								<% if(vo!=null){%>
+				<nav id="menu">
+					<header class="major">
+						<h2>현장 관리 메뉴</h2>
+					</header>
+					<ul>
+						<li><a href="fieldlist.jsp">현장 목록 </a></li>
+						<li><a href="board_list.jsp">관리 일지</a></li>
+						<li><a href="notice.jsp">경고 발생 현황</a></li>
 
-							<!-- Section -->
-								<!-- <section>
-									<header class="major">
-										<h2>Ante interdum</h2>
-									</header>
-									<div class="mini-posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-								</section> -->
+						
+					</ul>
+				</nav>
+				<%}else{%>
+				<nav id="menu">
+					<header class="major">
+						<h2>현장 관리 메뉴</h2>
+					</header>
+					<ul>
+						<li><a href="#">로그인이 필요합니다. </a></li>
+						
+
+						
+					</ul>
+				</nav>
+				<%} %>
 
 							<!-- Section -->
 								<section>

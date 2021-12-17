@@ -16,18 +16,17 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="is-preload">
-<<<<<<< HEAD
+
 		<%
 			int safebox_seq_int_session = (int)session.getAttribute("safebox_seq_int_session");
 			session.setAttribute("safebox_seq_int_session_2", safebox_seq_int_session);	
-		%>
-=======
-<%
-			//현재 로그인 상태인지 확인 (vo == null > 로그인 하지 않은 상태)
+			
 			adminVO vo = (adminVO)session.getAttribute("admin");
 			adminDAO dao = new adminDAO();
-			%>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
+		%>
+
+
+
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -88,33 +87,43 @@
 								<nav id="menu">
 									
 									<ul>
-										<li>
 										<% if(vo==null){%>
-										<a href="login.jsp">로그인</a>
+										<li><a href="login.jsp">로그인</a></li>
 										<%}else{ %>
-										</li>
-										<li>
-										<a href="mypage.jsp">회원정보수정</a>
-										</li>
+										
+										<li><a href="mypage.jsp">회원정보수정</a></li>										
 										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
 										<%} %>
 									</ul>
 								</nav>
 
 							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>현장 관리 메뉴</h2>
-									</header>
-									<ul>
-										<li><a href="fieldlist.jsp">현장 목록 </a></li>
-										<li><a href="sensorList.jsp">센서 목록 </a></li>
-										<li><a href="board_list.jsp">관리 일지</a></li>
-                              			<li><a href="notice.jsp">경고 발생 현황</a></li>
-										
-										
-									</ul>
-								</nav>
+								<% if(vo!=null){%>
+				<nav id="menu">
+					<header class="major">
+						<h2>현장 관리 메뉴</h2>
+					</header>
+					<ul>
+						<li><a href="fieldlist.jsp">현장 목록 </a></li>
+						<li><a href="board_list.jsp">관리 일지</a></li>
+						<li><a href="notice.jsp">경고 발생 현황</a></li>
+
+						
+					</ul>
+				</nav>
+				<%}else{%>
+				<nav id="menu">
+					<header class="major">
+						<h2>현장 관리 메뉴</h2>
+					</header>
+					<ul>
+						<li><a href="#">로그인이 필요합니다. </a></li>
+						
+
+						
+					</ul>
+				</nav>
+				<%} %>
 
 							<!-- Section -->
 								<!-- <section>

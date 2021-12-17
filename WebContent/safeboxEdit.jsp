@@ -1,13 +1,11 @@
-<<<<<<< HEAD
+
 <%@page import="com.model.fieldVO"%>
 <%@page import="com.model.fieldDAO"%>
 <%@page import="com.model.safeboxVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.safeboxDAO"%>
-=======
 <%@page import="com.model.adminDAO"%>
 <%@page import="com.model.adminVO"%>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
@@ -24,7 +22,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="is-preload">
-<<<<<<< HEAD
+
 
 		<%
 			int field_seq_session = (int)session.getAttribute("field_seq_session2");
@@ -33,15 +31,14 @@
 			
 			fieldDAO fielddao = new fieldDAO();
 			fieldVO fieldvo = fielddao.fieldOne(field_seq_session);
-		
-		%>
-=======
-			<%
-			//현재 로그인 상태인지 확인 (vo == null > 로그인 하지 않은 상태)
+			
 			adminVO vo = (adminVO)session.getAttribute("admin");
 			adminDAO dao = new adminDAO();
-			%>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
+		
+		%>
+
+			
+
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -85,7 +82,7 @@
 																	<td><%=vo2_safebox.getDevice_id() %></td>
 																	<td><%=vo2_safebox.getDevice_location() %></td>
 																	<td><%=vo2_safebox.getReg_date() %></td>
-																	<td></td>
+																	<td><a href="safeboxsensorCheckService?safebox_seq=<%=vo2_safebox.getDevice_seq() %>" class="logo" style="outline: none; text-decoration: none;">확인</a></td>
 																	<td><a href="safeboxUpdateCheckService?safebox_seq=<%=vo2_safebox.getDevice_seq() %>" class="logo" style="outline: none; text-decoration: none;">수정</a></td>
 																	<td><a href="safeboxDeleteService?safebox_seq=<%=vo2_safebox.getDevice_seq() %>" class="logo" style="outline: none; text-decoration: none;">제거</a></td>
 																</tr>
@@ -116,33 +113,43 @@
 								<nav id="menu">
 									
 									<ul>
-										<li>
 										<% if(vo==null){%>
-										<a href="login.jsp">로그인</a>
+										<li><a href="login.jsp">로그인</a></li>
 										<%}else{ %>
-										</li>
-										<li>
-										<a href="mypage.jsp">회원정보수정</a>
-										</li>
+										
+										<li><a href="mypage.jsp">회원정보수정</a></li>										
 										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
 										<%} %>
 									</ul>
 								</nav>
 
 							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>현장 관리 메뉴</h2>
-									</header>
-									<ul>
-										<li><a href="fieldlist.jsp">현장 목록 </a></li>
-										<li><a href="sensorList.jsp">센서 목록 </a></li>
-										<li><a href="board_list.jsp">관리 일지</a></li>
-                              			<li><a href="notice.jsp">경고 발생 현황</a></li>
-										
-										
-									</ul>
-								</nav>
+								<% if(vo!=null){%>
+				<nav id="menu">
+					<header class="major">
+						<h2>현장 관리 메뉴</h2>
+					</header>
+					<ul>
+						<li><a href="fieldlist.jsp">현장 목록 </a></li>
+						<li><a href="board_list.jsp">관리 일지</a></li>
+						<li><a href="notice.jsp">경고 발생 현황</a></li>
+
+						
+					</ul>
+				</nav>
+				<%}else{%>
+				<nav id="menu">
+					<header class="major">
+						<h2>현장 관리 메뉴</h2>
+					</header>
+					<ul>
+						<li><a href="#">로그인이 필요합니다. </a></li>
+						
+
+						
+					</ul>
+				</nav>
+				<%} %>
 
 							
 							<!-- Section -->
