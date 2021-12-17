@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.adminDAO"%>
+<%@page import="com.model.adminVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
@@ -14,7 +17,11 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="is-preload">
-
+			<%
+			//현재 로그인 상태인지 확인 (vo == null > 로그인 하지 않은 상태)
+			adminVO vo = (adminVO)session.getAttribute("admin");
+			adminDAO dao = new adminDAO();
+			%>
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -66,33 +73,33 @@
 									<a class="logo" name = "join"  style="font-size: 20px;"><strong>회원가입</strong> </a>
 								</header>
 								<section>
-									<form method="post" action="#">
+									<form method="post" action="joinServlet">
 										
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="demo-name" id="demo-name" value="" placeholder="이름" />
+                                                    <input type="text" name="admin_name" id="demo-name" value="" placeholder="이름" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="email" name="demo-email" id="demo-email" value="" placeholder="이메일" />
+                                                    <input type="email" name="admin_email" id="demo-email" value="" placeholder="이메일" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="demo-id" id="demo-name" value="" placeholder="아이디" />
+                                                    <input type="text" name="admin_id" id="demo-name" value="" placeholder="아이디" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="password" name="demo-pw" id="demo-email" value="" placeholder="비밀번호" />
+                                                    <input type="password" name="admin_pwd" id="demo-email" value="" placeholder="비밀번호" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="demo-phone" id="demo-email" value="" placeholder="전화번호" />
+                                                    <input type="text" name="admin_phone" id="demo-email" value="" placeholder="전화번호" />
                                                 </div>
                                             <!-- Break -->
                                             <div class="col-12">
-                                                <select name="demo-category" id="demo-category">
+                                                <select name="admin_dept" id="demo-category">
                                                     <option value="">- 소속 -</option>
                                                     <option value="1">Manufacturing</option>
-                                                    <option value="1">Shipping</option>
-                                                    <option value="1">Administration</option>
-                                                    <option value="1">Human Resources</option>
+                                                    <option value="2">Shipping</option>
+                                                    <option value="3">Administration</option>
+                                                    <option value="4">Human Resources</option>
                                                 </select>
                                             </div>
                                             
@@ -126,8 +133,18 @@
 								<nav id="menu">
 									
 									<ul>
-										<li><a href="login.jsp">로그인</a></li>
-										<li><a href="mypage.jsp">회원정보수정</a></li>
+										<li>
+										<% if(vo==null){%>
+										<a href="login.jsp">로그인</a>
+										<%}else{ %>
+										<%} %>
+										</li>
+										<li>
+										<% if(vo!=null){%>
+										<a href="mypage.jsp">회원정보수정</a>
+										<%}else{ %>
+										<%} %>
+										</li>
 									</ul>
 								</nav>
 

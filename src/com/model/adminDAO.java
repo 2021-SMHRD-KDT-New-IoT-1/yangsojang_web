@@ -45,7 +45,7 @@ public class adminDAO {
 	      }
 	   }
 	 //회원가입 메소드
-	   public int join(String admin_id, String admin_pwd,String admin_name,String admin_phone,String admin_email,String admin_dept,String admin_joindate) {
+	   public int join(String admin_id, String admin_pwd,String admin_name,String admin_phone,String admin_email,String admin_dept) {
 
 	      try {
 	         connection();
@@ -115,8 +115,8 @@ public class adminDAO {
 	         
 	         String sql = "update tbl_admin set admin_pwd = ?, admin_name=?, admin_phone=?, admin_email=?, admin_dept=?";
 	         psmt = conn.prepareStatement(sql);
-	            
-	         psmt.setString(1, admin_pwd);      
+	         
+	         psmt.setString(1, admin_pwd); 
 	         psmt.setString(2, admin_name);   
 	         psmt.setString(3, admin_phone);
 	         psmt.setString(4, admin_email);

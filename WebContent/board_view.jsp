@@ -1,3 +1,5 @@
+<%@page import="com.model.adminDAO"%>
+<%@page import="com.model.adminVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
@@ -25,7 +27,11 @@
 	
 	</style>
 	<body class="is-preload">
-
+<%
+			//현재 로그인 상태인지 확인 (vo == null > 로그인 하지 않은 상태)
+			adminVO vo = (adminVO)session.getAttribute("admin");
+			adminDAO dao = new adminDAO();
+			%>
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -107,8 +113,16 @@
 								<nav id="menu">
 									
 									<ul>
-										<li><a href="login.jsp">로그인</a></li>
-										<li><a href="mypage.jsp">회원정보수정</a></li>
+										<li>
+										<% if(vo==null){%>
+										<a href="login.jsp">로그인</a>
+										<%}else{ %>
+										</li>
+										<li>
+										<a href="mypage.jsp">회원정보수정</a>
+										</li>
+										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
+										<%} %>
 									</ul>
 								</nav>
 

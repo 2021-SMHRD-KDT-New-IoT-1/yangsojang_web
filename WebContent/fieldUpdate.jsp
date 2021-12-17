@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 <%@page import="com.model.fieldVO"%>
+=======
+<%@page import="com.model.adminDAO"%>
+<%@page import="com.model.adminVO"%>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
@@ -15,10 +20,18 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="is-preload">
+<<<<<<< HEAD
 		<%
 			int vo_field_session = (int)session.getAttribute("field_seq_session");
 			session.setAttribute("field_seq_session_again", vo_field_session);
 		%>
+=======
+			<%
+			//현재 로그인 상태인지 확인 (vo == null > 로그인 하지 않은 상태)
+			adminVO vo = (adminVO)session.getAttribute("admin");
+			adminDAO dao = new adminDAO();
+			%>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -101,8 +114,16 @@
 								<nav id="menu">
 									
 									<ul>
-										<li><a href="login.jsp">로그인</a></li>
-										<li><a href="mypage.jsp">회원정보수정</a></li>
+										<li>
+										<% if(vo==null){%>
+										<a href="login.jsp">로그인</a>
+										<%}else{ %>
+										</li>
+										<li>
+										<a href="mypage.jsp">회원정보수정</a>
+										</li>
+										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
+										<%} %>
 									</ul>
 								</nav>
 

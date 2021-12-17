@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 <%@page import="com.model.fieldVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.fieldDAO"%>
+=======
+<%@page import="com.model.adminDAO"%>
+<%@page import="com.model.adminVO"%>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
@@ -14,12 +19,19 @@
 <!-- bootStrap의 css를 사용하겠다 명시 -->
 <link rel="stylesheet" href="assets/css/main.css" />
 </head>
-
 <body class="is-preload">
+<<<<<<< HEAD
 	<%
 		fieldDAO fielddao = new fieldDAO();
 	 	ArrayList<fieldVO> array_field_all = fielddao.fieldAllList();
 	%>
+=======
+			<%
+			//현재 로그인 상태인지 확인 (vo == null > 로그인 하지 않은 상태)
+			adminVO vo = (adminVO)session.getAttribute("admin");
+			adminDAO dao = new adminDAO();
+			%>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
 	<div id="wrapper">
 		<div id="main">
 			<div class="inner">
@@ -60,14 +72,31 @@
 			</div>
 		</div>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
 		<!-- Sidebar -->
 		<div id="sidebar">
 			<div class="inner">
+<<<<<<< HEAD
 
                      
 
 
+=======
+                     <!-- Header -->
+                        <header id="header">
+                           <a href="fieldlist.jsp" class="logo" style="font-size: 20px;"><strong>현장 목록</strong></a>
+                           <ul class="icons">
+                              <li><a href="fieldAdd.jsp" class="logo"><span class="label">현장추가</span></a></li>
+                              <li><a href="notice.jsp" class="logo"><span class="label"><strong>경고발생현황</strong></span></a></li>
+                              <li><a href="board_list.jsp".html" class="logo"><span class="label">관리일지</span></a></li>
+                               
+                              
+                           </ul>
+                        </header>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
 				<!-- Search -->
 				<section id="search" class="alt">
 					<form method="post" action="#">
@@ -78,14 +107,41 @@
 
 				<nav id="menu">
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
 					<ul>
-						<li><a href="login.jsp">로그인</a></li>
-						<li><a href="mypage.jsp">회원정보수정</a></li>
-					</ul>
+										<li>
+										<% if(vo==null){%>
+										<a href="login.jsp">로그인</a>
+										<%}else{ %>
+										</li>
+										<li>
+										<a href="mypage.jsp">회원정보수정</a>
+										</li>
+										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
+										<%} %>
+									</ul>
 				</nav>
 
+<<<<<<< HEAD
 				
+=======
+				<!-- Menu -->
+				<nav id="menu">
+					<header class="major">
+						<h2>현장 관리 메뉴</h2>
+					</header>
+					<ul>
+						<li><a href="fieldlist.jsp">현장 목록 </a></li>
+						<li><a href="board_list.jsp">관리 일지</a></li>
+						<li><a href="notice.jsp">경고 발생 현황</a></li>
+						<!-- <li><a href="elements.html">SafeBox List Manage</a></li> -->
+						<!-- <li><a href="safebox.html">SafeBox List</a></li> -->
+						<!-- <li>
+
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
 							<!-- Menu -->
 								<nav id="menu">
 									<header class="major">
@@ -96,7 +152,21 @@
 										<li><a href="sensorList.jsp">센서 목록 </a></li>
 										<li><a href="board_list.jsp">관리 일지</a></li>
                               			<li><a href="notice.jsp">경고 발생 현황</a></li>
+<<<<<<< HEAD
 										
+=======
+										<!-- <li><a href="elements.html">SafeBox List Manage</a></li> -->
+										<!-- <li><a href="safebox.html">SafeBox List</a></li> -->
+										<!-- <li>
+											<span class="opener">Submenu</span>
+											<ul>
+												<li><a href="#">Lorem Dolor</a></li>
+												<li><a href="#">Ipsum Adipiscing</a></li>
+												<li><a href="#">Tempus Magna</a></li>
+												<li><a href="#">Feugiat Veroeros</a></li>
+											</ul>
+										</li> -->
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
 
 					</ul>
 				</nav>

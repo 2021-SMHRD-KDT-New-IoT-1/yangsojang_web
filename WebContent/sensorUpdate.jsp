@@ -1,3 +1,5 @@
+<%@page import="com.model.adminDAO"%>
+<%@page import="com.model.adminVO"%>
 <%@page import="com.model.sensorVO"%>
 <%@page import="com.model.sensorDAO"%>
 <%@page import="com.model.safeboxVO"%>
@@ -21,6 +23,8 @@
 	<body class="is-preload">
 
 		<%
+			adminVO vo = (adminVO)session.getAttribute("admin");
+			adminDAO dao = new adminDAO();
 			safeboxDAO safeboxdao = new safeboxDAO();
 			sensorDAO sensordao = new sensorDAO();
 			ArrayList<safeboxVO> safebox_array = safeboxdao.safeboxList();
@@ -104,8 +108,16 @@
 								<nav id="menu">
 									
 									<ul>
-										<li><a href="login.jsp">로그인</a></li>
-										<li><a href="mypage.jsp">회원정보수정</a></li>
+										<li>
+										<% if(vo==null){%>
+										<a href="login.jsp">로그인</a>
+										<%}else{ %>
+										</li>
+										<li>
+										<a href="mypage.jsp">회원정보수정</a>
+										</li>
+										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
+										<%} %>
 									</ul>
 								</nav>
 
