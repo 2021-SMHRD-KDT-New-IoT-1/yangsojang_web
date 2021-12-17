@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -50,6 +51,10 @@ public class joinServlet extends HttpServlet {
 					System.out.println("가입 실패..");
 					response.sendRedirect("notice.jsp");
 				}
+				//출력 스트링(통로)
+				PrintWriter out = response.getWriter();
+				//통로를 통해서 응답데이터를 출력
+				out.print(cnt);
 	}
 
 }
