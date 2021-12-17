@@ -1,3 +1,5 @@
+<%@page import="com.model.adminDAO"%>
+<%@page import="com.model.adminVO"%>
 <%@page import="sun.font.Script"%>
 <%@page import="com.model.fieldVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -18,6 +20,8 @@
 </head>
 <body>
 	<%
+		adminVO vo = (adminVO)session.getAttribute("admin");
+		adminDAO dao = new adminDAO();
 		String admin_id = null;
 		if(session.getAttribute("admin_id") != null){
 			admin_id = (String) session.getAttribute("userID");

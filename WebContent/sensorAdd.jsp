@@ -1,3 +1,5 @@
+<%@page import="com.model.adminDAO"%>
+<%@page import="com.model.adminVO"%>
 <%@page import="com.model.safeboxVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.safeboxDAO"%>
@@ -20,6 +22,8 @@
 		<%
 			safeboxDAO safeboxdao = new safeboxDAO();
 			ArrayList<safeboxVO> safebox_array = safeboxdao.safeboxList();
+			adminVO vo = (adminVO)session.getAttribute("admin");
+			adminDAO dao = new adminDAO();
 			
 		%>
 		<!-- Wrapper -->
@@ -87,8 +91,16 @@
 								<nav id="menu">
 									
 									<ul>
-										<li><a href="login.jsp">로그인</a></li>
-										<li><a href="mypage.jsp">회원정보수정</a></li>
+										<li>
+										<% if(vo==null){%>
+										<a href="login.jsp">로그인</a>
+										<%}else{ %>
+										</li>
+										<li>
+										<a href="mypage.jsp">회원정보수정</a>
+										</li>
+										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
+										<%} %>
 									</ul>
 								</nav>
 

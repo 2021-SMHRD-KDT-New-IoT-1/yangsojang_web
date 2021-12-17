@@ -18,8 +18,8 @@ public class updateServlet extends HttpServlet {
 request.setCharacterEncoding("euc-kr");
 		
 		HttpSession session = request.getSession(); //세션객체 생성
-		adminVO vo = (adminVO)session.getAttribute("member"); //현재 로그인한 사용자의 정보
-		String admin_id = vo.getAdmin_id(); //현재 로그인한 사용자의 이메일
+		adminVO vo = (adminVO)session.getAttribute("admin"); //현재 로그인한 사용자의 정보
+//		String admin_id = vo.getAdmin_id(); //현재 로그인한 사용자의 이메일
 		
 		//수정에 사용할 정보
 		String admin_pwd = request.getParameter("admin_pwd");
@@ -33,18 +33,18 @@ request.setCharacterEncoding("euc-kr");
 //		String result = loc_no.substring(loc_no.lastIndexOf("/")+1);
 					
 		adminDAO dao = new adminDAO();
-		int cnt = dao.update(admin_id, admin_pwd, admin_name, admin_phone, admin_email, admin_dept);
+		int cnt = dao.update(admin_pwd, admin_name, admin_phone, admin_email, admin_dept);
 		
 		if(cnt>0) {
 			System.out.println("수정 성공");
 			
-			vo = new adminVO(admin_id, admin_pwd, admin_name, admin_phone, admin_email, admin_dept);
+			vo = new adminVO(admin_pwd, admin_name, admin_phone, admin_email, admin_dept);
 			session.setAttribute("admin", vo); //수정한 값으로 업뎃
 			
-			response.sendRedirect("login.jsp");
+			response.sendRedirect("notice.jsp");
 		}else {
 			System.out.println("수정 실패");
-			response.sendRedirect("notice.jsp");
+			response.sendRedirect("mypage.jsp");
 		}
 	}
 

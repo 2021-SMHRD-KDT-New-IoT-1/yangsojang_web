@@ -109,19 +109,18 @@ public class adminDAO {
 		   }
 	   
 	 //수정 메소드
-	   public int update(String admin_id, String admin_pwd,String admin_name,String admin_phone,String admin_email,String admin_dept) {
+	   public int update(String admin_pwd,String admin_name,String admin_phone,String admin_email,String admin_dept) {
 	      try {
 	         connection();
 	         
 	         String sql = "update tbl_admin set admin_pwd = ?, admin_name=?, admin_phone=?, admin_email=?, admin_dept=?";
 	         psmt = conn.prepareStatement(sql);
 	         
-	         psmt.setString(1, admin_id);
-	         psmt.setString(2, admin_pwd); 
-	         psmt.setString(3, admin_name);   
-	         psmt.setString(4, admin_phone);
-	         psmt.setString(5, admin_email);
-	         psmt.setString(6, admin_dept);
+	         psmt.setString(1, admin_pwd); 
+	         psmt.setString(2, admin_name);   
+	         psmt.setString(3, admin_phone);
+	         psmt.setString(4, admin_email);
+	         psmt.setString(5, admin_dept);
 	         //psmt.setNString(6, admin_id);
 	        
 	         cnt = psmt.executeUpdate();
