@@ -9,8 +9,9 @@ public class adminVO {
 	private String admin_email;
 	private String admin_dept;
 	private String admin_joindate;
+	private String admin_seq;
 	
-	//전체 정보, 업데이트 생성자
+	//전체정보  생성자
 	public adminVO(String admin_id, String admin_pwd,String admin_name,String admin_phone,String admin_email,String admin_dept) {
 		super();
 		this.admin_id = admin_id;
@@ -30,14 +31,15 @@ public class adminVO {
 	}
 	
 	//업데이트 생성자
-	public adminVO(String admin_pwd,String admin_name,String admin_phone,String admin_email,String admin_dept) {
+	public adminVO(String admin_pwd,String admin_name,String admin_phone,String admin_email, String admin_dept) {
 		super();
-		
+	
 		this.admin_pwd = admin_pwd;
 		this.admin_name = admin_name;
 		this.admin_phone = admin_phone;
 		this.admin_email = admin_email;
 		this.admin_dept = admin_dept;
+		this.admin_seq = admin_seq;
 	}
 	
 	public String getAdmin_id() {

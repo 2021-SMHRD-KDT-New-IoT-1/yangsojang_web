@@ -19,21 +19,20 @@ request.setCharacterEncoding("euc-kr");
 		
 		HttpSession session = request.getSession(); //세션객체 생성
 		adminVO vo = (adminVO)session.getAttribute("admin"); //현재 로그인한 사용자의 정보
-//		String admin_id = vo.getAdmin_id(); //현재 로그인한 사용자의 이메일
 		
+		String admin_id = vo.getAdmin_id();
 		//수정에 사용할 정보
 		String admin_pwd = request.getParameter("admin_pwd");
 		String admin_name = request.getParameter("admin_name");
 		String admin_phone = request.getParameter("admin_phone");
 		String admin_email = request.getParameter("admin_email");
 		String admin_dept = request.getParameter("admin_dept");
-		
+	
 		// String user_no = request.getParameter("user_no");
 		
-//		String result = loc_no.substring(loc_no.lastIndexOf("/")+1);
-					
+
 		adminDAO dao = new adminDAO();
-		int cnt = dao.update(admin_pwd, admin_name, admin_phone, admin_email, admin_dept);
+		int cnt = dao.update(admin_pwd, admin_name, admin_phone, admin_email, admin_dept, admin_id);
 		
 		if(cnt>0) {
 			System.out.println("수정 성공");

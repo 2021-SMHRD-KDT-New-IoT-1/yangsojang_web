@@ -21,8 +21,6 @@
 </head>
 <body class="is-preload">
 
-	
-
 			<%
 			//현재 로그인 상태인지 확인 (vo == null > 로그인 하지 않은 상태)
 			adminVO vo = (adminVO)session.getAttribute("admin");
@@ -76,8 +74,9 @@
 		<div id="sidebar">
 			<div class="inner">
 
-                     
 
+                     <!-- Header -->
+                        
 				<!-- Search -->
 				<section id="search" class="alt">
 					<form method="post" action="#">
@@ -114,8 +113,8 @@
 						<li><a href="sensorList.jsp">센서 목록 </a></li>
 						<li><a href="board_list.jsp">관리 일지</a></li>
 						<li><a href="notice.jsp">경고 발생 현황</a></li>
-						
 
+						
 					</ul>
 				</nav>
 
@@ -126,14 +125,18 @@
 					<header class="major">
 						<h2>내 정보</h2>
 					</header>
-					
+		
 					<ul class="contact">
-						<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
-						<li class="icon solid fa-phone">(000) 000-0000</li>
-						<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
-							Nashville, TN 00000-0000
-						</li>
-					</ul>
+										<% if(vo!=null){%>
+										<li class="icon solid fa-envelope"><%=vo.getAdmin_email() %></li>
+										<li class="icon solid fa-phone"><%=vo.getAdmin_phone() %></li>
+										<li class="icon solid fa-home"><%=vo.getAdmin_dept() %></li>
+										<%}else{ %>
+										<li class="icon solid fa-envelope">이메일</li>
+										<li class="icon solid fa-phone">전화번호</li>
+										<li class="icon solid fa-home">소속</li>
+										<%} %>
+									</ul>
 				</section>
 
 				<!-- Footer -->

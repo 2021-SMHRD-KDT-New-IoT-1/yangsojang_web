@@ -74,34 +74,30 @@
 								</header>
 								<section>
 									<form method="post" action="joinServlet">
-										
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
+                                                <div class="col-6 col-12-xsmall">                                              
+													<input type="text" name="admin_id" id="demo-name" value="" placeholder="아이디" />
+                                                </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="admin_name" id="demo-name" value="" placeholder="이름" />
+                                                    <input type="button" onclick="idCheck()" value="ID 중복체크" class="primary" />
+                                                </div>
+												<div class="col-6 col-12-xsmall">
+                            
+													<input type="text" name="admin_name" id="demo-name" value="" placeholder="이름" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
                                                     <input type="email" name="admin_email" id="demo-email" value="" placeholder="이메일" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="admin_id" id="demo-name" value="" placeholder="아이디" />
-                                                </div>
-                                                <div class="col-6 col-12-xsmall">
-                                                    <input type="password" name="admin_pwd" id="demo-email" value="" placeholder="비밀번호" />
-                                                </div>
-                                                <div class="col-6 col-12-xsmall">
                                                     <input type="text" name="admin_phone" id="demo-email" value="" placeholder="전화번호" />
                                                 </div>
-                                            <!-- Break -->
-                                            <div class="col-12">
-                                                <select name="admin_dept" id="demo-category">
-                                                    <option value="">- 소속 -</option>
-                                                    <option value="1">Manufacturing</option>
-                                                    <option value="2">Shipping</option>
-                                                    <option value="3">Administration</option>
-                                                    <option value="4">Human Resources</option>
-                                                </select>
-                                            </div>
+												<div class="col-6 col-12-xsmall">
+                                                    <input type="password" name="admin_pwd" id="demo-email" value="" placeholder="비밀번호" />
+                                                </div>
+                                            	<div class="col-12">
+                                               		 <input type="text" name="admin_dept" id="demo-email" value="" placeholder="소속" />
+                                            	</div>
                                             
                                             <div class="col-12" style="text-align: center;">
                                                 <ul class="actions">
@@ -137,14 +133,12 @@
 										<% if(vo==null){%>
 										<a href="login.jsp">로그인</a>
 										<%}else{ %>
-										<%} %>
 										</li>
 										<li>
-										<% if(vo!=null){%>
 										<a href="mypage.jsp">회원정보수정</a>
-										<%}else{ %>
-										<%} %>
 										</li>
+										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
+										<%} %>
 									</ul>
 								</nav>
 
@@ -172,10 +166,15 @@
 									</header>
 									
 									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
-										<li class="icon solid fa-phone">(000) 000-0000</li>
-										<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
-										Nashville, TN 00000-0000</li>
+										<% if(vo!=null){%>
+										<li class="icon solid fa-envelope"><%=vo.getAdmin_email() %></li>
+										<li class="icon solid fa-phone"><%=vo.getAdmin_phone() %></li>
+										<li class="icon solid fa-home"><%=vo.getAdmin_dept() %></li>
+										<%}else{ %>
+										<li class="icon solid fa-envelope">이메일</li>
+										<li class="icon solid fa-phone">전화번호</li>
+										<li class="icon solid fa-home">소속</li>
+										<%} %>
 									</ul>
 								</section>
 
