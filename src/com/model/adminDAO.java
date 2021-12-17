@@ -75,7 +75,7 @@ public class adminDAO {
 		      try {
 		         connection();
 		         
-		         String sql = "select admin_id, admin_pwd, admin_name, admin_phone, admin_email, admin_dept from tbl_admin where admin_id=? and admin_pw=?";
+		         String sql = "select admin_id, admin_pwd, admin_name, admin_phone, admin_email, admin_dept from tbl_admin where admin_id=? and admin_pwd=?";
 		         psmt = conn.prepareStatement(sql);
 		         psmt.setString(1, admin_id);   
 		         psmt.setString(2, admin_pwd);      
@@ -84,23 +84,23 @@ public class adminDAO {
 		         
 		         if(rs.next()) {
 		            System.out.println("로그인 성공!");
-		            String get_admin_no = rs.getString("admin_no");
 		            String get_admin_id = rs.getString("admin_id");
+		            String get_admin_pwd = rs.getString("admin_pwd");
 		            String admin_name = rs.getString("admin_name");
 		            String admin_phone = rs.getString("admin_phone");
 		            String admin_email = rs.getString("admin_email");
 		            String admin_dept= rs.getString("admin_dept");
-		            String admin_joindate= rs.getString("admin_joindate");
 		            
 		            
-		            vo = new adminVO(get_admin_id, admin_pwd, admin_name, admin_phone, admin_email, admin_dept, admin_joindate);
+		            
+		            vo = new adminVO(admin_id, admin_pwd, admin_name, admin_phone, admin_email,admin_dept);
 		                  
 		         }else {
-		            System.out.println("로그인 실패!");
+		            System.out.println("로그인 실패..");
 		         }
 		         
 		      } catch (Exception e) {
-		         System.out.println("로그인 실패");
+		         System.out.println("로그인 실패!");
 		         e.printStackTrace();
 		      }finally {
 		         close();

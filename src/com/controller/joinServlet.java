@@ -49,7 +49,7 @@ public class joinServlet extends HttpServlet {
 					
 				}else {
 					System.out.println("가입 실패..");
-					response.sendRedirect("main.jsp");
+					response.sendRedirect(".jsp");
 				}
 	}
 

@@ -10,7 +10,6 @@ public class fieldDAO {
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	int cnt;
-	fieldVO vo;
 	
 
 	// 커넥션 함수 생성

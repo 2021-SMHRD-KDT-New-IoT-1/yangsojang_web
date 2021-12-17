@@ -27,14 +27,15 @@ public class loginServlet extends HttpServlet {
 		
 
 		if (vo != null) {
+			
 			// 세션 객체 생성
 			HttpSession session = request.getSession();
 			// 세션 값 설정
 			session.setAttribute("member", vo);
 
-			response.sendRedirect("main.jsp");
+			response.sendRedirect("notice.jsp");
 		} else {
-			response.sendRedirect("main.jsp");
+			response.sendRedirect("login.jsp");
 		}
 		
 	}
