@@ -42,13 +42,13 @@
 
 									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
 
-									<form method="post" action="#">
+									<form method="post" action="loginServlet">
                                         <div class="row gtr-uniform">
                                             <div class="col-6 col-12-xsmall" style="text-align: center;">
-                                                <input type="text" name="demo-id" id="demo-name" value="" placeholder="아이디" />
+                                                <input type="text" name="admin_id" id="demo-name" value="" placeholder="아이디" />
                                             </div>
                                             <div class="col-6 col-12-xsmall" style="text-align: center;">
-                                                <input type="password" name="demo-pw" id="demo-email" value="" placeholder="비밀번호" />
+                                                <input type="password" name="admin_pwd" id="demo-email" value="" placeholder="비밀번호" />
                                             </div>
                                         
                                             <!-- Break -->
