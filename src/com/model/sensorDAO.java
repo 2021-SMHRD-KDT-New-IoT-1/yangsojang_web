@@ -59,7 +59,7 @@ public class sensorDAO {
 	         psmt.setString(1, sensor_name);
 	         psmt.setString(2, sensor_id);
 	         psmt.setInt(3, device_seq);
-
+	         
 	         cnt = psmt.executeUpdate();
 	      
 	      } catch (Exception e) {
@@ -105,14 +105,15 @@ public class sensorDAO {
 	   }   
 	
 	//센서 목록 페이지 센서 리스트 불러오기
-		public ArrayList<sensorVO> sensorAllList() {
+		public ArrayList<sensorVO> sensorAllList(int device_seq) {
 			sensor_array_all = new ArrayList<sensorVO>();      
 		      
 		      try {
 		         connection();
 		         
-		         String sql = "select sensor_seq, sensor_name, sensor_id, reg_date, device_seq from tbl_sensor";
+		         String sql = "select sensor_seq, sensor_name, sensor_id, reg_date, device_seq from tbl_sensor where device_seq=?";
 		         psmt = conn.prepareStatement(sql);
+		         psmt.setInt(1, device_seq);
 		                  
 		         rs = psmt.executeQuery();
 		         
@@ -140,17 +141,16 @@ public class sensorDAO {
 		   }   
 	
 	//센서 정보 수정 
-	public int sensorUpdate(String sensor_id_string, String sensor_name_update, String sensor_id_update, String device_seq_string) {
+	public int sensorUpdate(String sensor_name_update, String sensor_id_update, int sensor_seq_int_session) {
 	      try {
 	         connection();
 	         
-	         String sql = "update tbl_sensor set sensor_name = ?, sensor_id=?, device_seq=? where sensor_id=?";
+	         String sql = "update tbl_sensor set sensor_name = ?, sensor_id=? where sensor_seq=?";
 	         psmt = conn.prepareStatement(sql);
 	            
 	         psmt.setString(1, sensor_name_update);      
-	         psmt.setString(2, sensor_id_update);   
-	         psmt.setString(3, device_seq_string);
-	         psmt.setString(4, sensor_id_string);
+	         psmt.setString(2, sensor_id_update);  
+	         psmt.setInt(3, sensor_seq_int_session);
 	                  
 	         cnt = psmt.executeUpdate();
 	         

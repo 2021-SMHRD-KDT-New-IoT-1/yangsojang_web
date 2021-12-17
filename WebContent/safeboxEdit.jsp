@@ -82,7 +82,7 @@
 																	<td><%=vo2_safebox.getDevice_id() %></td>
 																	<td><%=vo2_safebox.getDevice_location() %></td>
 																	<td><%=vo2_safebox.getReg_date() %></td>
-																	<td></td>
+																	<td><a href="safeboxsensorCheckService?safebox_seq=<%=vo2_safebox.getDevice_seq() %>" class="logo" style="outline: none; text-decoration: none;">확인</a></td>
 																	<td><a href="safeboxUpdateCheckService?safebox_seq=<%=vo2_safebox.getDevice_seq() %>" class="logo" style="outline: none; text-decoration: none;">수정</a></td>
 																	<td><a href="safeboxDeleteService?safebox_seq=<%=vo2_safebox.getDevice_seq() %>" class="logo" style="outline: none; text-decoration: none;">제거</a></td>
 																</tr>
@@ -113,14 +113,11 @@
 								<nav id="menu">
 									
 									<ul>
-										<li>
 										<% if(vo==null){%>
-										<a href="login.jsp">로그인</a>
+										<li><a href="login.jsp">로그인</a></li>
 										<%}else{ %>
-										</li>
-										<li>
-										<a href="mypage.jsp">회원정보수정</a>
-										</li>
+										
+										<li><a href="mypage.jsp">회원정보수정</a></li>										
 										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
 										<%} %>
 									</ul>

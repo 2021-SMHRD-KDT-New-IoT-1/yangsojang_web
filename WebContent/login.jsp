@@ -89,7 +89,8 @@
                                                 <div class="col-6 col-12-xsmall">
                                                     <input type="email" name="admin_email" id="demo-email" value="" placeholder="이메일" />
                                                 </div>
-                                                <div class="col-6 col-12-xsmall">
+                                                <div class="col-6 c
+                                                ol-12-xsmall">
                                                     <input type="text" name="admin_phone" id="demo-email" value="" placeholder="전화번호" />
                                                 </div>
 												<div class="col-6 col-12-xsmall">
@@ -129,14 +130,11 @@
 								<nav id="menu">
 									
 									<ul>
-										<li>
 										<% if(vo==null){%>
-										<a href="login.jsp">로그인</a>
+										<li><a href="login.jsp">로그인</a></li>
 										<%}else{ %>
-										</li>
-										<li>
-										<a href="mypage.jsp">회원정보수정</a>
-										</li>
+										
+										<li><a href="mypage.jsp">회원정보수정</a></li>										
 										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
 										<%} %>
 									</ul>

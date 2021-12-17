@@ -29,6 +29,9 @@
 			sensorDAO sensordao = new sensorDAO();
 			ArrayList<safeboxVO> safebox_array = safeboxdao.safeboxList();
 			ArrayList<sensorVO> sensor_array = sensordao.sensorList();
+			
+			int sensor_seq_int_session = (int)session.getAttribute("sensor_seq_int_session");
+			session.setAttribute("sensor_seq_int_session_2", sensor_seq_int_session);
 		%>
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -51,32 +54,14 @@
 
 									<form method="post" action="sensorUpdateService">
                                         <div class="row gtr-uniform">
-                                            <div class="row gtr-uniform">
-                                            
-                                               
-                                                <div class="col-6 col-12-xsmall">
-                                                	<select name="sensor_id" id="demo-category">
-                                                    	<option value=""> 수정할 센서 선택 : 이름 / ID / 설치된 SAFEBOX 번호 </option>
-                                                    	<%for(sensorVO vo1_sensor : sensor_array){%>
-                                                    	<option name="sensor_id"><%=vo1_sensor.getSensor_name() %>/<%=vo1_sensor.getSensor_id() %>/<%=vo1_sensor.getDevice_seq() %></option>
-                                                    	<%}%>
-                                                	</select>
-                                                	</div>
-                                                
+                                            <div class="row gtr-uniform">                                        
                                                 <div class="col-6 col-12-xsmall">
                                                     <input type="text" name="sensor_name_update" id="demo-email" value="" placeholder="센서 이름" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
                                                     <input type="text" name="sensor_id_update" id="demo-email" value="" placeholder="센서  ID" />
                                                 </div>
-                                                <div class="col-6 col-12-xsmall">
-                                                	<select name="device_seq_update" id="demo-category">
-                                                    	<option value=""> SAFEBOX 선택 : ID/번호 </option>
-                                                    	<%for(safeboxVO vo1_safebox : safebox_array){%>
-                                                    	<option name="device_seq"><%=vo1_safebox.getDevice_id()%>/<%=vo1_safebox.getDevice_seq()%></option>
-                                                    	<%}%>
-                                                	</select>
-                                                </div>
+                                                
                                                           
                                             <div class="col-12" style="text-align: center;">
                                                 <ul class="actions" >
@@ -108,14 +93,11 @@
 								<nav id="menu">
 									
 									<ul>
-										<li>
 										<% if(vo==null){%>
-										<a href="login.jsp">로그인</a>
+										<li><a href="login.jsp">로그인</a></li>
 										<%}else{ %>
-										</li>
-										<li>
-										<a href="mypage.jsp">회원정보수정</a>
-										</li>
+										
+										<li><a href="mypage.jsp">회원정보수정</a></li>										
 										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
 										<%} %>
 									</ul>
