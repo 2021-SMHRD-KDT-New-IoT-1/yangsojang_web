@@ -1,3 +1,6 @@
+<%@page import="com.model.safeboxVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.safeboxDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
@@ -14,7 +17,11 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="is-preload">
-
+		<%
+			safeboxDAO safeboxdao = new safeboxDAO();
+			ArrayList<safeboxVO> safebox_array = safeboxdao.safeboxList();
+			
+		%>
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -24,50 +31,43 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="safeboxUpdate.html" class="logo" style="font-size: 20px;"><strong>SafeBox 정보 수정</strong> </a>
-									
+									<a href="sensorAdd.jsp" class="logo" style="font-size: 20px;"><strong>센서 추가</strong> </a>
+									<ul class="icons">
+										
+									</ul>
 								</header>
 
 							<!-- Content -->
 								<section>
-									<!-- <header class="main">
-										<h1></h1>
-									</header> -->
 
-									<!-- <span class="image main"><img src="images/pic11.jpg" alt="" /></span> -->
-
-									<form method="post" action="#">
+									<form method="post" action="sensorAddService">
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
-                                            <div class="col-6 col-12-xsmall">
-                                                
-                                                	<select name="sensor_id" id="demo-category">
-                                                    	<option value=""> 수정할 SAFEBOX 선택 : 번호/ID </option>
-                                                    	<%-- <%for(sensorVO vo1_sensor : sensor_array){%>
-                                                    	<option name="sensor_id"><%=vo1_sensor.getSensor_name() %>/<%=vo1_sensor.getSensor_id() %></option>
-                                                    	<%}%> --%>
+                                                <div class="col-6 col-12-xsmall">
+                                                    <input type="text" name="sensor_name" id="demo-name" value="" placeholder="센서  이름" />
+                                                </div>
+                                                <div class="col-6 col-12-xsmall">
+                                                    <input type="text" name="sensor_id" id="demo-email" value="" placeholder="센서 ID" />
+                                                </div>
+                                               	<div class="col-6 col-12-xsmall">
+                                                	<select name="device_seq" id="demo-category">
+                                                    	<option value="">- SAFEBOX -</option>
+                                                    	<%for(safeboxVO vo1_safebox : safebox_array){%>
+                                                    	<option name="device_seq"><%=vo1_safebox.getDevice_id()%>/<%=vo1_safebox.getDevice_seq()%></option>
+                                                    	<%}%>
                                                 	</select>
                                                 </div>
-                                                <div class="col-6 col-12-xsmall">
-                                                	<h1></h1>
-                                                </div>
-                                                <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="demo-name" id="demo-name" value="" placeholder="기기ID" />
-                                                </div>
-                                                <div class="col-6 col-12-xsmall">
-                                                    <input type="email" name="demo-email" id="demo-email" value="" placeholder="설치 장소" />
-                                                </div>
-                                                
                                             <div class="col-12" style="text-align: center;">
                                                 <ul class="actions" >
-                                                    <li><input type="submit" value="수정" class="primary" style="margin-right: 10px;" ><input type="reset" value="초기화" style="margin-left: 10px;"></li>
+                                                    <li><input type="submit" value="추가" class="primary" style="margin-right: 10px;" ><input type="reset" value="초기화" style="margin-left: 10px;"></li>
                                                     
                                                 </ul>
                                             </div>
                                         </div>
                                     </form>
 
-								
+									
+
 								</section>
 
 						</div>
@@ -108,35 +108,10 @@
 								</nav>
 
 							<!-- Section -->
-								<!-- <section>
-									<header class="major">
-										<h2>Ante interdum</h2>
-									</header>
-									<div class="mini-posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-								</section> -->
-
-							<!-- Section -->
 								<section>
 									<header class="major">
 										<h2>내 정보</h2>
 									</header>
-									
 									<ul class="contact">
 										<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
 										<li class="icon solid fa-phone">(000) 000-0000</li>
@@ -163,4 +138,4 @@
 			<script src="assets/js/main.js"></script>
 
 	</body>
-</html>v
+</html>

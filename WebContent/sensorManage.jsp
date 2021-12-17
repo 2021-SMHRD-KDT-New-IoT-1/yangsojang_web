@@ -256,40 +256,7 @@
 										<ul class="actions" style="text-align: center;">
 										<li><input type="submit" value="Update" class="primary" style="margin-right: 10PX;"/><input type="reset" value="Reset" style="margin-left: 10px;"></li>
 										</ul>
-                                        <!-- <div class="row gtr-uniform">
-                                            <div class="col-6 col-12-xsmall" style="text-align: center;">
-                                                <input type="text" name="demo-id" id="demo-name" value="" placeholder="기준농도" />
-                                            </div>
-                                            <div class="col-6 col-12-xsmall" style="text-align: center;">
-                                                <input type="email" name="demo-pw" id="demo-email" value="" placeholder="측정주기" />
-                                            </div> -->
                                         
-                                            <!-- Break -->
-                                            <!-- <div class="col-12" style="text-align: center;">
-                                                <ul class="actions">
-                                                    <li><input type="submit" value="Update" class="primary" /></li> -->
-                                                    <!-- <li><input type="reset" value="Reset" /></li> -->
-                                                <!-- </ul>
-                                            </div>
-                                        </div> -->
-                                
-									<!-- <hr class="major" />
-
-									<h2></h2>
-									<p></p>
-									<p></p>
-
-									<hr class="major" />
-
-									<h2></h2>
-									<p></p>
-									<p></p>
-
-									<hr class="major" />
-
-									<h2></h2>
-									<p></p>
-									<p></p> -->
 
 								</section>
 
@@ -322,46 +289,15 @@
 									</header>
 									<ul>
 										<li><a href="fieldlist.jsp">현장 목록 </a></li>
+										<li><a href="sensorList.jsp">센서 목록 </a></li>
 										<li><a href="board_list.jsp">관리 일지</a></li>
                               			<li><a href="notice.jsp">경고 발생 현황</a></li>
-										<!-- <li><a href="elements.html">SafeBox List Manage</a></li> -->
-										<!-- <li><a href="safebox.html">SafeBox List</a></li> -->
-										<!-- <li>
-											<span class="opener">Submenu</span>
-											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
-											</ul>
-										</li> -->
+										
 										
 									</ul>
 								</nav>
 
-							<!-- Section -->
-								<!-- <section>
-									<header class="major">
-										<h2>Ante interdum</h2>
-									</header>
-									<div class="mini-posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-								</section> -->
+							
 
 							<!-- Section -->
 								<section>

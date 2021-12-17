@@ -24,7 +24,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="fieldUpdate.html" class="logo" style="font-size: 20px;"><strong>현장 정보 수정 </strong> </a>
+									<a href="fieldUpdate.jsp" class="logo" style="font-size: 20px;"><strong>현장 정보 수정 </strong> </a>
 									
 								</header>
 
@@ -36,7 +36,7 @@
 
 									<!-- <span class="image main"><img src="images/pic11.jpg" alt="" /></span> -->
 
-									<form method="post" action="#">
+									<form method="post" action="fieldUpdateAction.java">
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
                                                 <div class="col-6 col-12-xsmall">
@@ -96,7 +96,9 @@
                                             <!-- Break -->
                                             <div class="col-12" style="text-align: center;">
                                                 <ul class="actions" >
-                                                    <li><input type="submit" value="수정" class="primary" style="margin-right: 10px;" ><input type="submit" value="삭제" class="primary" style="margin-right: 10px;" ><input type="reset" value="초기화" style="margin-left: 10px;"></li>
+                                                    <li><input type="submit" value="수정" class="primary" style="margin-right: 10px;" >
+                                                    <input type="submit" value="삭제" class="primary" style="margin-right: 10px;" >
+                                                    <input type="reset" value="초기화" style="margin-left: 10px;"></li>
                                                     
                                                 </ul>
                                             </div>
@@ -152,6 +154,7 @@
 									</header>
 									<ul>
 										<li><a href="fieldlist.jsp">현장 목록 </a></li>
+										<li><a href="sensorList.jsp">센서 목록 </a></li>
 										<li><a href="board_list.jsp">관리 일지</a></li>
                               			<li><a href="notice.jsp">경고 발생 현황</a></li>
 										<!-- <li><a href="elements.html">SafeBox List Manage</a></li> -->

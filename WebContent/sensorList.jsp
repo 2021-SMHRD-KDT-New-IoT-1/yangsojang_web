@@ -1,3 +1,8 @@
+<%@page import="com.model.safeboxVO"%>
+<%@page import="com.model.safeboxDAO"%>
+<%@page import="com.model.sensorVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.sensorDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
@@ -8,13 +13,18 @@
 -->
 <html>
 	<head>
-		<title>Generic - Editorial by HTML5 UP</title>
+		<title>Elements - Editorial HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="is-preload">
 
+		<%
+			
+			sensorDAO sensordao = new sensorDAO();
+			ArrayList<sensorVO> sensor_array_all = sensordao.sensorAllList();
+		%>
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -23,51 +33,49 @@
 						<div class="inner">
 
 							<!-- Header -->
-								<header id="header">
-									<a href="safeboxUpdate.html" class="logo" style="font-size: 20px;"><strong>SafeBox 정보 수정</strong> </a>
-									
+								
+							<header id="header">
+									<a href="sensorList.jsp" class="logo" style="font-size: 20px;"><strong>센서 관리</strong></a>
+									<ul class="icons">
+										<!-- <form action="safeboxadd.html"><input type="submit" value="SAFEBOX 추가" class="primary" /></form> -->
+										<li><a href="sensorAdd.jsp" class="logo"><span class="label"><strong>센서추가</strong></span></a></li>
+										<li><a href="sensorUpdate.jsp" class="logo"><span class="label">센서정보수정</span></a></li>
+									</ul>
 								</header>
 
-							<!-- Content -->
-								<section>
-									<!-- <header class="main">
-										<h1></h1>
-									</header> -->
+									<!-- Elements -->
+										<h2 id="elements"></h2>
+											
+													<div class="table-wrapper">
+														<table>
+															<thead>
+																<tr>
+																	<th>센서 번호</th>
+																	<th>센서 이름</th>
+																	<th>센서 ID</th>
+																	<th>등록일자</th>
+																	<th>설치된 SAFEBOX 번호</th>
+																	<th>센서 삭제</th>
+																</tr>
+															</thead>
+															<tbody>
+															<%for(sensorVO vo2_sensor : sensor_array_all){%>
+																<tr>
+																	<td><%=vo2_sensor.getSensor_seq() %></td>
+																	<td><%=vo2_sensor.getSensor_name() %></td>
+																	<td><%=vo2_sensor.getSensor_id() %></td>
+																	<td><%=vo2_sensor.getReg_date() %></td>
+																	<td><%=vo2_sensor.getDevice_seq() %></td>
+																	<td><a href="sensorDeleteService?sensor_seq=<%=vo2_sensor.getSensor_seq()%>" class="logo" style="outline: none; text-decoration: none;">삭제</a></td>
+																</tr>
+																<%}%>
+															</tbody>
+															
+														</table>
+													</div>
+											
+										
 
-									<!-- <span class="image main"><img src="images/pic11.jpg" alt="" /></span> -->
-
-									<form method="post" action="#">
-                                        <div class="row gtr-uniform">
-                                            <div class="row gtr-uniform">
-                                            <div class="col-6 col-12-xsmall">
-                                                
-                                                	<select name="sensor_id" id="demo-category">
-                                                    	<option value=""> 수정할 SAFEBOX 선택 : 번호/ID </option>
-                                                    	<%-- <%for(sensorVO vo1_sensor : sensor_array){%>
-                                                    	<option name="sensor_id"><%=vo1_sensor.getSensor_name() %>/<%=vo1_sensor.getSensor_id() %></option>
-                                                    	<%}%> --%>
-                                                	</select>
-                                                </div>
-                                                <div class="col-6 col-12-xsmall">
-                                                	<h1></h1>
-                                                </div>
-                                                <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="demo-name" id="demo-name" value="" placeholder="기기ID" />
-                                                </div>
-                                                <div class="col-6 col-12-xsmall">
-                                                    <input type="email" name="demo-email" id="demo-email" value="" placeholder="설치 장소" />
-                                                </div>
-                                                
-                                            <div class="col-12" style="text-align: center;">
-                                                <ul class="actions" >
-                                                    <li><input type="submit" value="수정" class="primary" style="margin-right: 10px;" ><input type="reset" value="초기화" style="margin-left: 10px;"></li>
-                                                    
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </form>
-
-								
 								</section>
 
 						</div>
@@ -102,7 +110,17 @@
 										<li><a href="sensorList.jsp">센서 목록 </a></li>
 										<li><a href="board_list.jsp">관리 일지</a></li>
                               			<li><a href="notice.jsp">경고 발생 현황</a></li>
-										
+										<!-- <li><a href="elements.html">SafeBox List Manage</a></li> -->
+										<!-- <li><a href="safebox.html">SafeBox List</a></li> -->
+										<!-- <li>
+											<span class="opener">Submenu</span>
+											<ul>
+												<li><a href="#">Lorem Dolor</a></li>
+												<li><a href="#">Ipsum Adipiscing</a></li>
+												<li><a href="#">Tempus Magna</a></li>
+												<li><a href="#">Feugiat Veroeros</a></li>
+											</ul>
+										</li> -->
 										
 									</ul>
 								</nav>
@@ -136,7 +154,6 @@
 									<header class="major">
 										<h2>내 정보</h2>
 									</header>
-									
 									<ul class="contact">
 										<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
 										<li class="icon solid fa-phone">(000) 000-0000</li>
@@ -163,4 +180,4 @@
 			<script src="assets/js/main.js"></script>
 
 	</body>
-</html>v
+</html>

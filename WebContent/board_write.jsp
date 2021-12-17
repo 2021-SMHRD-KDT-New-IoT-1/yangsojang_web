@@ -35,7 +35,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="board_write.html" class="logo" style="font-size: 20px;"><strong>관리 일지 작성</strong> </a>
+									<a href="board_write.jsp" class="logo" style="font-size: 20px;"><strong>관리 일지 작성</strong> </a>
 									<ul class="icons">
 										
 									</ul>
@@ -67,7 +67,7 @@
 											<div class="col-12" style=" vertical-align : middle;">
 												<ul class="pagination" >
 													<li><form action="#"><input type="submit" value="등록" class="primary" /></form></li>
-													<li><form action="board_list.html"><input type="submit" value="취소" class="primary" /></form></li>
+													<li><form action="board_list.jsp"><input type="submit" value="취소" class="primary" /></form></li>
 												</ul>
 												
 											
@@ -105,6 +105,7 @@
 									</header>
 									<ul>
 										<li><a href="fieldlist.jsp">현장 목록 </a></li>
+										<li><a href="sensorList.jsp">센서 목록 </a></li>
 										<li><a href="board_list.jsp">관리 일지</a></li>
                               			<li><a href="notice.jsp">경고 발생 현황</a></li>
 										<!-- <li><a href="elements.html">SafeBox List Manage</a></li> -->
