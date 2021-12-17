@@ -2,50 +2,98 @@ package com.model;
 
 public class fieldVO {
 	
-	private String fieldSeq; //현장번호pk
-	private String fieldName; //현장이름
-	private String fieldAddr; //현장주소
-	private String fieldMemo; //현장메모
+	private int field_seq; //현장번호pk
+	private String field_name; //현장이름
+	private String field_addr; //현장주소
+	private String field_memo; //현장메모
+	private String field_file;
 	
-	public fieldVO(String fieldSeq, String fieldName, String fieldAddr, String fieldMemo) {
-		
-		this.fieldSeq = fieldSeq;
-		this.fieldName = fieldName;
-		this.fieldAddr = fieldAddr;
-		this.fieldMemo = fieldMemo;
+	//전체 생성자
+	public fieldVO(int field_seq, String field_name, String field_addr, String field_memo, String field_file) {
+		super();
+		this.field_seq = field_seq;
+		this.field_name = field_name;
+		this.field_addr = field_addr;
+		this.field_memo = field_memo;
+		this.field_file = field_file;
+	}
+	
+	//현장 추가 생성자
+	public fieldVO(String field_name, String field_addr, String field_memo, String field_file) {
+		super();
+		this.field_name = field_name;
+		this.field_addr = field_addr;
+		this.field_memo = field_memo;
+		this.field_file = field_file;
+	}
+	
+	//현장 리스트 생성자
+	public fieldVO(int field_seq, String field_name, String field_addr) {
+		super();
+		this.field_seq = field_seq;
+		this.field_name = field_name;
+		this.field_addr = field_addr;
+	}
+	
+	// 현장 one select 생성자
+	public fieldVO(int field_seq) {
+		super();
+		this.field_seq = field_seq;
+	}
+	
+	// 현장 one select 생성자
+	public fieldVO(String field_name) {
+		super();
+		this.field_name = field_name;
 	}
 
-	public String getFieldSeq() {
-		return fieldSeq;
+
+	public int getField_seq() {
+		return field_seq;
 	}
 
-	public void setFieldSeq(String fieldSeq) {
-		this.fieldSeq = fieldSeq;
+	
+
+	
+	public void setField_seq(int field_seq) {
+		this.field_seq = field_seq;
 	}
 
-	public String getFieldName() {
-		return fieldName;
+	public String getField_name() {
+		return field_name;
 	}
 
-	public void setFieldName(String fieldName) {
-		this.fieldName = fieldName;
+	public void setField_name(String field_name) {
+		this.field_name = field_name;
 	}
 
-	public String getFieldAddr() {
-		return fieldAddr;
+	public String getField_addr() {
+		return field_addr;
 	}
 
-	public void setFieldAddr(String fieldAddr) {
-		this.fieldAddr = fieldAddr;
+	public void setField_addr(String field_addr) {
+		this.field_addr = field_addr;
 	}
 
-	public String getFieldMemo() {
-		return fieldMemo;
+	public String getField_memo() {
+		return field_memo;
 	}
 
-	public void setFieldmemo(String fieldMemo) {
-		this.fieldMemo = fieldMemo;
+	public void setField_memo(String field_memo) {
+		this.field_memo = field_memo;
 	}
+
+	public String getField_file() {
+		return field_file;
+	}
+
+	public void setField_file(String field_file) {
+		this.field_file = field_file;
+	}
+	
+	
+	
+	
 	
 	
 	

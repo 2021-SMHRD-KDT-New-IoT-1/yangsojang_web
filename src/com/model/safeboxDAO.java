@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import javax.servlet.http.HttpSession;
+
 import java.sql.DriverManager;
 
 public class safeboxDAO {
@@ -14,7 +18,9 @@ public class safeboxDAO {
 	int cnt = 0;
 	ArrayList<safeboxVO> safebox_array = null;
 	safeboxVO vo1_safebox = null;
-
+	ArrayList<safeboxVO> safebox_array_all = null;
+	safeboxVO vo2_safebox = null;
+	
 	   public void connection() {
 	      try {
 	    	  Class.forName("org.mariadb.jdbc.Driver");
@@ -46,27 +52,23 @@ public class safeboxDAO {
 	   }
 	
 	   //기기 추가
-	   public int join(String admin_id, String admin_pw, String admin_name, String admin_tel, String admin_email, String admin_job, String loc_no) {
-
-	      //받아온 값을 db 테이블에 삽입
+	   public int safeboxAdd(String device_name, String device_location, int field_seq) {
+	      
 	      try {
 	         connection();
 	      
-	         String sql = "insert into ADMIN_MEMBER (admin_no, admin_id, admin_pw, admin_name, admin_tel, admin_email, admin_job, loc_no) values (admin_seq.nextval,?,?,?,?,?,?,?)";
+	         String sql = "insert into tbl_device (device_id, device_location, site_seq) values (?,?,?)";
 	         
 	         psmt = conn.prepareStatement(sql);
-//	         psmt.setString(1, );
-//	         psmt.setString(2, );
-//	         psmt.setString(3, );
-//	         psmt.setString(4, );
-//	         psmt.setString(5, );
-//	         psmt.setString(6, );
-//	         psmt.setString(7, );
+	         psmt.setString(1, device_name);
+	         psmt.setString(2, device_location);
+	         psmt.setInt(3, field_seq);
+
 	            
 	         cnt = psmt.executeUpdate();
 	      
 	      } catch (Exception e) {
-	         System.out.println("가입 실패!");
+	         System.out.println("기기 추가 실패..");
 	         e.getStackTrace();
 	      }finally {
 	         close();
@@ -74,7 +76,7 @@ public class safeboxDAO {
 	      return cnt;
 	   }
 	   
-	   //기기 리스트 확인
+	   //기기 부분 리스트 확인
 	   public ArrayList<safeboxVO> safeboxList() {
 		   safebox_array = new ArrayList<safeboxVO>();      
 	      
@@ -106,5 +108,82 @@ public class safeboxDAO {
 	      
 	   }
 	   
+	   //기기 전체 리스트 확인
+	   public ArrayList<safeboxVO> safeboxAllList(int field_seq) {
+		   safebox_array_all = new ArrayList<safeboxVO>();      
+	      
+	      try {
+	         connection();
+	         
+	         String sql = "select device_seq, device_id, device_location, reg_date from tbl_device where site_seq=?";
+	         psmt = conn.prepareStatement(sql);
+	         psmt.setInt(1, field_seq);
+	                  
+	         rs = psmt.executeQuery();
+	         
+	         while(rs.next()) {
+	            System.out.println("기기 리스트 불러오기 성공..");
+	            
+	            int get_device_seq = rs.getInt("device_seq");
+	            String get_device_id = rs.getString("device_id");
+	            String get_device_location = rs.getString("device_location");
+	            String get_reg_date = rs.getString("reg_date");
+	            
+	            vo2_safebox = new safeboxVO(get_device_seq, get_device_id, get_device_location, get_reg_date);
+	            safebox_array_all.add(vo2_safebox);
+	         }   
+	         
+	      } catch (Exception e) {
+	         System.out.println("기기 전체 리스트 불러오기 실패..");
+	         e.printStackTrace();
+	      }finally {
+	         close();
+	         }
+	      return safebox_array_all;
+	      
+	   }
+	   
+	 //기기 정보 수정 
+		public int safeboxUpdate(String device_id, String device_location, int device_seq) {
+		      try {
+		         connection();
+		         
+		         String sql = "update tbl_device set device_id = ?, device_location=? where device_seq=?";
+		         psmt = conn.prepareStatement(sql);
+		            
+		         psmt.setString(1, device_id);      
+		         psmt.setString(2, device_location);   
+		         psmt.setInt(3, device_seq);
+		         
+		         cnt = psmt.executeUpdate();
+		         
+		      } catch (Exception e) {
+		         System.out.println("기기 정보 수정 실패..");
+		         e.printStackTrace();
+		      }finally {
+		         close();
+		      }
+		      return cnt;
+		   }
+		
+		//센서 정보 삭제
+		public int safeboxDelete(int safebox_seq_int) {
+		      try {
+		         connection();
+
+		         String sql = "delete from tbl_device where device_seq=?";
+		         psmt = conn.prepareStatement(sql);
+		         psmt.setInt(1, safebox_seq_int);   
+		         
+		         cnt = psmt.executeUpdate();
+		         
+		      } catch (Exception e) {
+		         System.out.println("기기 정보 삭제 실패..");
+		         e.printStackTrace();
+		      }finally {
+		         close();
+		         }
+		      return cnt;
+		   }
 	   
 }

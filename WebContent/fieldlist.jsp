@@ -1,3 +1,7 @@
+
+<%@page import="com.model.fieldVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.fieldDAO"%>
 <%@page import="com.model.adminDAO"%>
 <%@page import="com.model.adminVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -18,13 +22,15 @@
 			//현재 로그인 상태인지 확인 (vo == null > 로그인 하지 않은 상태)
 			adminVO vo = (adminVO)session.getAttribute("admin");
 			adminDAO dao = new adminDAO();
+			fieldDAO fielddao = new fieldDAO();
+		 	ArrayList<fieldVO> array_field_all = fielddao.fieldAllList();
 			%>
 	<div id="wrapper">
 		<div id="main">
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="fieldlist.html" class="logo" style="font-size: 20px;"><strong>현장
+					<a href="fieldlist.jsp" class="logo" style="font-size: 20px;"><strong>현장
 							목록</strong></a>
 					<ul class="icons">
 						<li><a href="fieldAdd.jsp" class="logo"><span
@@ -38,19 +44,21 @@
 				<!-- Section -->
 				<section>
 					<div class="posts"> 
+					<%for(fieldVO vo1_field : array_field_all){%>
 						<article>
 							<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-							<h3>현장명</h3>
-							<p>현장주소</p>
+							<h3><%=vo1_field.getField_seq() %>. <%=vo1_field.getField_name() %></h3>
+							<p><%=vo1_field.getField_addr() %></p>
 							<ul class="actions">
 								<li><a href="sensorValue.jsp" class="button primary"
 									style="margin-right: 10px;">SAFEBOX 확인</a>
-									<a href="fieldUpdate.jsp" class="button"
+									<a href="fieldUpdateCheckService?field_seq=<%=vo1_field.getField_seq()%>" class="button"
 									style="margin-right: 10px;">현장 정보 수정</a>
-									<a href="safeboxEdit.jsp" class="button">설치 SAFEBOX 목록</a>
+									<a href="safeboxListCheckService?field_seq=<%=vo1_field.getField_seq()%>" class="button">설치 SAFEBOX 목록</a>
 								</li>
 							</ul>
 						</article>
+						<%}%>
 					</div>
 				</section>
 
@@ -60,6 +68,7 @@
 		<!-- Sidebar -->
 		<div id="sidebar">
 			<div class="inner">
+
                      <!-- Header -->
                         <header id="header">
                            <a href="fieldlist.jsp" class="logo" style="font-size: 20px;"><strong>현장 목록</strong></a>
@@ -129,39 +138,17 @@
 												<li><a href="#">Feugiat Veroeros</a></li>
 											</ul>
 										</li> -->
-
 					</ul>
 				</nav>
 
-				<!-- Section -->
-				<!-- <section>
-									<header class="major">
-										<h2>Ante interdum</h2>
-									</header>
-									<div class="mini-posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-								</section> -->
+				
 
 				<!-- Section -->
 				<section>
 					<header class="major">
 						<h2>내 정보</h2>
 					</header>
+		
 					<ul class="contact">
 										<% if(vo!=null){%>
 										<li class="icon solid fa-envelope"><%=vo.getAdmin_email() %></li>

@@ -16,11 +16,18 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="is-preload">
+<<<<<<< HEAD
+		<%
+			int safebox_seq_int_session = (int)session.getAttribute("safebox_seq_int_session");
+			session.setAttribute("safebox_seq_int_session_2", safebox_seq_int_session);	
+		%>
+=======
 <%
 			//현재 로그인 상태인지 확인 (vo == null > 로그인 하지 않은 상태)
 			adminVO vo = (adminVO)session.getAttribute("admin");
 			adminDAO dao = new adminDAO();
 			%>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -30,7 +37,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="safeboxUpdate.html" class="logo" style="font-size: 20px;"><strong>SafeBox 정보 수정</strong> </a>
+									<a href="safeboxUpdate.jsp" class="logo" style="font-size: 20px;"><strong>SafeBox 정보 수정</strong> </a>
 									
 								</header>
 
@@ -42,26 +49,14 @@
 
 									<!-- <span class="image main"><img src="images/pic11.jpg" alt="" /></span> -->
 
-									<form method="post" action="#">
+									<form method="post" action="safeboxUpdateService">
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
-                                            <div class="col-6 col-12-xsmall">
-                                                
-                                                	<select name="sensor_id" id="demo-category">
-                                                    	<option value=""> 수정할 SAFEBOX 선택 : 번호/ID </option>
-                                                    	<%-- <%for(sensorVO vo1_sensor : sensor_array){%>
-                                                    	<option name="sensor_id"><%=vo1_sensor.getSensor_name() %>/<%=vo1_sensor.getSensor_id() %></option>
-                                                    	<%}%> --%>
-                                                	</select>
+                                                <div class="col-6 col-12-xsmall">
+                                                    <input type="text" name="device_id" id="demo-name" value="" placeholder="기기ID" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                	<h1></h1>
-                                                </div>
-                                                <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="demo-name" id="demo-name" value="" placeholder="기기ID" />
-                                                </div>
-                                                <div class="col-6 col-12-xsmall">
-                                                    <input type="email" name="demo-email" id="demo-email" value="" placeholder="설치 장소" />
+                                                    <input type="text" name="device_location" id="demo-email" value="" placeholder="설치 장소" />
                                                 </div>
                                                 
                                             <div class="col-12" style="text-align: center;">
