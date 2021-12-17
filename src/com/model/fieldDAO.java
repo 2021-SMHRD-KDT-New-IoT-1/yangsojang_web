@@ -10,10 +10,8 @@ public class fieldDAO {
 	private PreparedStatement psmt = null;
 	private ResultSet rs = null;
 	int cnt;
-<<<<<<< HEAD
-=======
 	private fieldVO vo;
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
+
 	
 
 	// 커넥션 함수 생성
