@@ -106,11 +106,15 @@
 													</dl>
 													<dl>
 														<dt>荤柳梅何</dt>
+<<<<<<< HEAD
 														<dd><div class="filebox">
 																<input class="upload-name" value=" " placeholder="梅何颇老">
 																<label for="file">颇老茫扁</label>
 																<input type="file" id="file">
 															</div></dd>
+=======
+														<dd><a href="#" class="button icon solid fa-download">梅何</a></dd>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
 														
 													</dl>
 												</div>
