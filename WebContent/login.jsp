@@ -97,7 +97,7 @@
                                                 </div>
                                             	<div class="col-12">
                                                		 <input type="text" name="admin_dept" id="input_deft" value="" placeholder="소속" />
-                                               		 
+
                                             	</div>
                                             
                                             <div class="col-12" style="text-align: center;">
@@ -218,7 +218,6 @@
 					url : "idCheckServlet", //데이터를 전송, 요청하는 서버 페이지
 					dataType : "text", //응답데이터의 형식
 					success : function(data){ //통신 성공
-						
 						if(data=="true"){
 							alert('이미 사용중인 아이디 입니다.')
 						}else{
@@ -229,7 +228,33 @@
 					}
 				});
 			}
-			
+
+			function join() {
+				
+				var input_id = document.getElementById("input_id");
+				var input_pwd = document.getElementById("input_pwd");
+				var input_name = document.getElementById("input_name");
+				var input_phone = document.getElementById("input_phone");
+				var input_email = document.getElementById("input_email");
+				var input_dept = document.getElementById("input_dept");
+								
+				$.ajax({
+					type : "post", //데이터 전송 요청 방식
+					data : {"admin_id" : 	input_id.value,
+							"admin_pwd" :	input_pwd.value,
+							"admin_name":	input_name.value,
+							"admin_phone":	input_phone.vlaue,
+							"admin_email":	input_email.value,
+							"admin_dept":	input_dept.value}, //전송하는 데이터
+					url : "joinServlet", //데이터를 전송, 요청하는 서버 페이지
+					dataType : "text", //응답데이터의 형식
+					success : function(){ //통신 성공
+						alert('회원가입 완료되었습니다.')
+					},
+					error : function(){ //통신 실패
+					}
+				});
+			}
 			 
 			
 			</script>
