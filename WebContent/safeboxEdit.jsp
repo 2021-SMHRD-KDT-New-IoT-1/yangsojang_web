@@ -70,7 +70,6 @@
 																	<th>SAFEBOX ID</th>
 																	<th>SAFEBOX 위치</th>
 																	<th>SAFEBOX 설치일</th>
-																	<th>설치된 센서</th>	
 																	<th>SAFEBOX 정보수정</th>
 																	<th>SAFEBOX 설치제거</th>
 																</tr>
@@ -82,7 +81,7 @@
 																	<td><%=vo2_safebox.getDevice_id() %></td>
 																	<td><%=vo2_safebox.getDevice_location() %></td>
 																	<td><%=vo2_safebox.getReg_date() %></td>
-																	<td><a href="safeboxsensorCheckService?safebox_seq=<%=vo2_safebox.getDevice_seq() %>" class="logo" style="outline: none; text-decoration: none;">확인</a></td>
+																	<%-- <td><a href="safeboxsensorCheckService?safebox_seq=<%=vo2_safebox.getDevice_seq() %>" class="logo" style="outline: none; text-decoration: none;">확인</a></td> --%>
 																	<td><a href="safeboxUpdateCheckService?safebox_seq=<%=vo2_safebox.getDevice_seq() %>" class="logo" style="outline: none; text-decoration: none;">수정</a></td>
 																	<td><a href="safeboxDeleteService?safebox_seq=<%=vo2_safebox.getDevice_seq() %>" class="logo" style="outline: none; text-decoration: none;">제거</a></td>
 																</tr>

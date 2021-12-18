@@ -1,3 +1,6 @@
+<%@page import="com.model.safeboxVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.safeboxDAO"%>
 <%@page import="com.model.adminDAO"%>
 <%@page import="com.model.adminVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -60,6 +63,10 @@
 			//현재 로그인 상태인지 확인 (vo == null > 로그인 하지 않은 상태)
 			adminVO vo = (adminVO)session.getAttribute("admin");
 			adminDAO dao = new adminDAO();
+			
+			
+			safeboxDAO safeboxdao = new safeboxDAO();
+			ArrayList<safeboxVO> safebox_array_all = safeboxdao.safeboxList();
 			%>
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -87,8 +94,15 @@
 												</div>
 												<div class="info">
 													<dl>
-														<dt>글쓴이</dt>
-														<dd><input type="text" placeholder="글쓴이 입력"></dd>
+														<dt>SAFEBOX 선택</dt>
+														<dd>
+															<select name="demo-category" id="demo-category">
+			                                                    <option value=""> SAFEBOX LIST </option>
+			                                                    <%for(safeboxVO vo2_safebox : safebox_array_all){%>
+			                                                    <option value=""><%=vo2_safebox.getDevice_seq() %>. <%=vo2_safebox.getDevice_id() %></option>
+			                                                    <%}%>
+			                                                </select>
+														</dd>
 													</dl>
 													<dl>
 														<dt>사진첨부</dt>
@@ -97,6 +111,7 @@
 																<label for="file">파일찾기</label>
 																<input type="file" id="file">
 															</div></dd>
+														
 													</dl>
 												</div>
 												<div class="cont">
