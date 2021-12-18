@@ -24,6 +24,35 @@
 		.board_write {
 			position: relative;
 		}
+		.filebox .upload-name {
+			display: inline-block;
+			height: 40px;
+			padding: 0 10px;
+			vertical-align: middle;
+			margin-bottom: 12px;
+			border: 1px solid #dddddd;
+			width: 50%;
+			color: #999999;
+		}
+		.filebox label {
+			display: inline-block;
+			padding: 10px 20px;
+			color: #fff;
+			vertical-align: middle;
+			
+			background-color: #999999;
+			cursor: pointer;
+			height: 40px;
+			margin-left: 10px;
+		}
+		.filebox input[type="file"] {
+    		position: absolute;
+    		width: 0;
+    		height: 0;
+    		padding: 0;
+    		overflow: hidden;
+    		border: 0;
+		}
 	
 	</style>
 	<body class="is-preload">
@@ -63,7 +92,11 @@
 													</dl>
 													<dl>
 														<dt>ªÁ¡¯√∑∫Œ</dt>
-														<dd><a href="#" class="button icon solid fa-download">√∑∫Œ</a></dd>
+														<dd><div class="filebox">
+																<input class="upload-name" value=" " placeholder="√∑∫Œ∆ƒ¿œ">
+																<label for="file">∆ƒ¿œ√£±‚</label>
+																<input type="file" id="file">
+															</div></dd>
 													</dl>
 												</div>
 												<div class="cont">
@@ -173,5 +206,14 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+	<script>
+	
+	$("#file").on('change',function(){
+		var fileName = $("#file").val();
+		$(".upload-name").val(fileName);
+	  });
+	
+	</script>
 	</body>
+	
 </html>
