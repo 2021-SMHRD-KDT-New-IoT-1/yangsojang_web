@@ -24,7 +24,7 @@ public class idCheckServlet extends HttpServlet {
 		adminDAO dao = new adminDAO();
 		boolean check = dao.idCheck(admin_id);
 		
-		//출력 스트링(통로)
+		//출력 스트링(통로) 넵
 		PrintWriter out = response.getWriter();
 		//통로를 통해서 응답데이터를 출력
 		out.print(check);

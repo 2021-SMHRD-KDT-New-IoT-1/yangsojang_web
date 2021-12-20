@@ -22,15 +22,20 @@ public class fieldAddCheckService extends HttpServlet {
 		String field_addr = request.getParameter("field_addr");
 		String field_memo = request.getParameter("field_memo");
 		
+		
 		fieldDAO dao = new fieldDAO();
 		int cnt = dao.fieldAdd(field_name, field_addr, field_memo);
 		
-			String cnt_string = String.valueOf(cnt);
+		if(cnt>0) {
+			System.out.println("현장 추가 성공!");			
 			
-			//출력 스트링(통로)
-			PrintWriter out = response.getWriter();
-			//통로를 통해서 응답데이터를 출력
-			out.print(cnt_string);
+		}else {
+			System.out.println("현장 추가 실패!");
+		}
+		
+		PrintWriter out = response.getWriter();
+		out.print(cnt);
+	
 			
 			
 		
