@@ -228,8 +228,9 @@
 					}
 				});
 			}
-
-			function join() {
+			</script>
+			<script>
+				 function join() {
 				
 				var input_id = document.getElementById("input_id");
 				var input_pwd = document.getElementById("input_pwd");
@@ -245,18 +246,22 @@
 							"admin_name":	input_name.value,
 							"admin_phone":	input_phone.vlaue,
 							"admin_email":	input_email.value,
-							"admin_dept":	input_dept.value}, //전송하는 데이터
+							"admin_dept":	input_dept.value} //전송하는 데이터
 					url : "joinServlet", //데이터를 전송, 요청하는 서버 페이지
 					dataType : "text", //응답데이터의 형식
-					success : function(){ //통신 성공
+					success : function(data){ //통신 성공
+						if(data>0){
 						alert('회원가입 완료되었습니다.')
+						}else{
+							
+						}
 					},
 					error : function(){ //통신 실패
 					}
 				});
 			}
-			 
-			
 			</script>
+			
+			
 	</body>
 </html>
