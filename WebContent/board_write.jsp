@@ -60,14 +60,14 @@
 												<div class="title">
 													<dl>
 														<dt>제목</dt>
-														<dd><input type="text" placeholder="제목 입력"></dd>
+														<dd><input type="text" name="board_title" placeholder="제목 입력"></dd>
 													</dl>
 												</div>
 												<div class="info">
 													<dl>
 														<dt>SAFEBOX 선택</dt>
 														<dd>
-															<select name="demo-category" id="demo-category">
+															<select name="device_id" id="demo-category">
 			                                                    <option value=""> SAFEBOX LIST </option>
 			                                                    <%for(safeboxVO vo2_safebox : safebox_array_all){%>
 			                                                    <option value=""><%=vo2_safebox.getDevice_seq() %>. <%=vo2_safebox.getDevice_id() %></option>
@@ -82,7 +82,7 @@
 													</dl>
 												</div>
 												<div class="cont">
-													<textarea placeholder="내용 입력"></textarea>
+													<textarea placeholder="내용 입력" name="mnt_content"></textarea>
 												</div>
 											</div>
 											<div class="col-12" style=" vertical-align : middle;">
