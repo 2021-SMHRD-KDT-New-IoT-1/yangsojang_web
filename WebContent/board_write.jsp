@@ -89,7 +89,7 @@
 												<div class="title">
 													<dl>
 														<dt>제목</dt>
-														<dd><input type="text" placeholder="제목 입력"></dd>
+														<dd><input type="text" id="mnt_title" placeholder="제목 입력"></dd>
 													</dl>
 												</div>
 												<div class="info">
@@ -106,15 +106,12 @@
 													</dl>
 													<dl>
 														<dt>사진첨부</dt>
-<<<<<<< HEAD
 														<dd><div class="filebox">
-																<input class="upload-name" value=" " placeholder="첨부파일">
+																<input class="upload-name" id ="mnt_file" value=" " placeholder="첨부파일">
 																<label for="file">파일찾기</label>
 																<input type="file" id="file">
 															</div></dd>
-=======
-														<dd><a href="#" class="button icon solid fa-download">첨부</a></dd>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
+														
 														
 													</dl>
 												</div>
