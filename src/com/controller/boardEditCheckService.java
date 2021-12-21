@@ -24,7 +24,7 @@ public class boardEditCheckService extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			// 세션 값 설정
-			session.setAttribute("mnt_seq_session", mnt_seq);
+			session.setAttribute("mnt_seq_session", mnt_seq_int);
 			
 			response.sendRedirect("board_edit.jsp");
 		}else {
