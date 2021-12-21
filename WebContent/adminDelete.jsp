@@ -31,7 +31,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="login.jsp" class="logo" style="font-size: 20px;"><strong>로그인</strong>  </a>
+									<a href="login.jsp" class="logo" style="font-size: 20px;"><strong>회원 탈퇴</strong>  </a>
 									<ul class="icons">
 										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -61,7 +61,7 @@
                                             <!-- Break -->
                                             <div class="col-12" style="text-align: center;">
                                                 <ul class="actions">
-                                                    <li><input type="button" onclick="login()" value="로그인" class="primary" /><a href="#join" class="button" style="margin-left: 10px;">회원가입</a></li>
+                                                    <li><input type="button" onclick="delete()" value="탈퇴" class="primary" /><a href="#join" class="button" style="margin-left: 10px;">회원가입</a></li>
 													
                                                     <!-- <li><input type="reset" value="Reset" /></li> -->
                                                 </ul>
@@ -137,7 +137,8 @@
 										<li><a href="login.jsp">로그인</a></li>
 										<%}else{ %>
 										
-										<li><a href="mypage.jsp">회원정보수정</a></li>										
+										<li><a href="mypage.jsp">회원정보수정</a></li>				
+										<li><a href="adminDelete.jsp">회원탈퇴</a></li>							
 										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
 										<%} %>
 									</ul>
@@ -211,26 +212,7 @@
 			
 			
 			<script>
-				function idCheck() {
-					
-					var input = document.getElementById("admin_id");
-					
-					$.ajax({
-						type : "post", //데이터 전송 요청 방식
-						data : {"admin_id" : input.value}, //전송하는 데이터
-						url : "idCheckServlet", //데이터를 전송, 요청하는 서버 페이지
-						dataType : "text", //응답데이터의 형식
-						success : function(data){ //통신 성공
-							if(data=="true"){
-								alert('이미 사용중인 아이디 입니다.')
-							}else{
-								alert('사용 가능한 아이디입니다.')
-							}
-						},
-						error : function(){ //통신 실패
-						}
-					});
-				}
+				
 				
 				function login() {
 					let admin_id = document.getElementById("admin_id");
@@ -261,42 +243,7 @@
 					});
 				}
 				
-				function join() {
-					
-					let admin_id = document.getElementById("admin_id");
-					let admin_pwd = document.getElementById("admin_pwd");
-					let admin_name = document.getElementById("admin_name");
-					let admin_phone = document.getElementById("admin_phone");
-					let admin_email = document.getElementById("admin_email");
-					let admin_dept = document.getElementById("admin_dept");
-									
-					$.ajax({
-						type : "post", //데이터 전송 요청 방식
-						data : {
-								"admin_id" : 	admin_id.value,
-								"admin_pwd" :	admin_pwd.value,
-								"admin_name" :	admin_name.value,
-								"admin_phone" :	admin_phone.value,
-								"admin_email" :	admin_email.value,
-								"admin_dept" :	admin_dept.value
-								},
-						url : "joinServlet", //데이터를 전송, 요청하는 서버 페이지
-						dataType : "text", //응답데이터의 형식
-						success : function(data){ //통신 성공
-							
-							if(data=="0"){
-								alert('회원가입을 다시 시도해 주세요.')
-								window.location.href = "login.jsp"; 
-							}else{
-								
-								alert('회원가입 완료되었습니다.')
-								window.location.href = "login.jsp"; 
-							}
-						},
-						error : function(){ //통신 실패
-						}
-					});
-				}
+				
 			</script>
 			
 			

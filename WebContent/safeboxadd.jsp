@@ -52,20 +52,20 @@
 
 									<!-- <span class="image main"><img src="images/pic11.jpg" alt="" /></span> -->
 
-									<form method="post" action="safeboxAddService">
+									<form method="post" action="#">
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="device_name" id="demo-name" value="" placeholder="기기 ID" />
+                                                    <input type="text" name="device_name" id="device_name" value="" placeholder="기기 ID" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="device_location" id="demo-email" value="" placeholder="설치 장소" />
+                                                    <input type="text" name="device_location" id="device_location" value="" placeholder="설치 장소" />
                                                 </div>
                                                 
                                                 
                                             <div class="col-12" style="text-align: center;">
                                                 <ul class="actions" >
-                                                    <li><input type="submit" value="추가" class="primary" style="margin-right: 10px;" ><input type="reset" value="초기화" style="margin-left: 10px;"></li>
+                                                    <li><input type="button" value="추가" class="primary" style="margin-right: 10px;" ><input type="reset" value="초기화" style="margin-left: 10px;"></li>
                                                     
                                                 </ul>
                                             </div>
@@ -168,5 +168,47 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+	<script>
+	function fieldAddCheck() {
+		
+		let device_name = document.getElementById("device_name");
+		let device_location = document.getElementById("device_location");
+		
+		
+		//if(field_name!="" && field_addr != ""){
+			
+			$.ajax({
+				
+				type : "post", //데이터 전송 요청 방식
+				data : {"device_name" : device_name.value,
+					"device_location" : device_location.value
+					}, //전송하는 데이터
+				url : "safeboxAddService", //데이터를 전송, 요청하는 서버 페이지
+				dataType : "text", 
+				success : function(data){ //통신 성공
+					
+					if(data!="0"){
+						alert("기기 추가 완료되었습니다.");
+						window.location.href = "safeboxEdit.jsp"; 
+					}else{
+						alert("기기 추가 실패 되었습니다.");
+						window.location.href = "safeboxadd.jsp"; 
+					}
+						
+					
+				},
+				error : function(){ //통신 실패
+					
+					
+				}
+			});
+		
+		//}
+		
+		
+			
+	}
+	</script>
+	
 	</body>
 </html>v

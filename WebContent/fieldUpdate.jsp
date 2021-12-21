@@ -52,22 +52,22 @@
 
 									<!-- <span class="image main"><img src="images/pic11.jpg" alt="" /></span> -->
 
-									<form method="post" action="fieldUpdateService">
+									<form method="post" action="#">
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="field_name" id="demo-name" value="" placeholder="현장명" />
+                                                    <input type="text" name="field_name" id="field_name" value="" placeholder="현장명" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="field_addr" id="demo-address" value="" placeholder="주소" />
+                                                    <input type="text" name="field_addr" id="field_addr" value="" placeholder="주소" />
                                                 </div>
                                                 <div class="col-12">
-                                                    <textarea name="field_memo" id="demo-message" placeholder="메모" rows="6"></textarea>
+                                                    <textarea name="field_memo" id="field_memo" placeholder="메모" rows="6"></textarea>
                                                 </div>
                                                
                                             <div class="col-12" style="text-align: center;">
                                                 <ul class="actions" >
-                                                    <li><input type="submit" value="수정" class="primary" style="margin-right: 10px;" >
+                                                    <li><input type="button" onclick="fieldUpdate()" value="수정" class="primary" style="margin-right: 10px;" >
                                                     <a href="fieldDeleteService?field_seq=<%=vo_field_session %>" class="button">삭제</a>
                                                     <input type="reset" value="초기화" style="margin-left: 10px;"></li>
                                                     
@@ -185,6 +185,41 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
+			<script >
+				function fieldUpdate() {
+				
+				let field_name = document.getElementById("field_name");
+				let field_addr = document.getElementById("field_addr");
+				let field_memo = document.getElementById("field_memo");
+				
+								
+				$.ajax({
+					type : "post", //데이터 전송 요청 방식
+					data : {
+							"field_name" :	field_name.value,
+							"field_addr" :	field_addr.value,
+							"field_memo" :	field_memo.value
+							},
+					url : "fieldUpdateService", //데이터를 전송, 요청하는 서버 페이지
+					dataType : "text", //응답데이터의 형식
+					success : function(data){ //통신 성공
+						
+						if(data=="0"){
+							alert('현장 정보 수정을 다시 시도해 주세요.')
+							window.location.href = "fieldUpdate.jsp"; 
+						}else{
+							
+							alert('현장 정보 수정 완료되었습니다.')
+							window.location.href = "fieldlist.jsp"; 
+						}
+					},
+					error : function(){ //통신 실패
+					}
+				});
+			}
+			
+			</script>
 
 	</body>
 </html>
