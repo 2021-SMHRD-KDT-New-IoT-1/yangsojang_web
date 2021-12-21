@@ -34,13 +34,16 @@ public class safeboxVO {
 		this.device_location = device_location;
 		this.reg_date = reg_date;
 	}
+	
+	public safeboxVO(String device_id, String device_location) {
+		super();
+		this.device_id = device_id;
+		this.device_location = device_location;
+	}
 
 	public int getDevice_seq() {
 		return device_seq;
 	}
-
-	
-
 	public void setDevice_seq(int device_seq) {
 		this.device_seq = device_seq;
 	}
