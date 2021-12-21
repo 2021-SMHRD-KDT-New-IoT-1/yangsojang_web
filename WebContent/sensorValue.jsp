@@ -51,11 +51,7 @@
 			adminVO vo = (adminVO)session.getAttribute("admin");
 			adminDAO dao = new adminDAO();
 			
-			fieldDAO fielddao = new fieldDAO();
 			
-			int field_seq = (int)session.getAttribute("field_seq_session0");
-			
-			fieldVO fieldvo = fielddao.fieldName_Addr(field_seq);
 			
 			
 			%>
@@ -85,31 +81,26 @@
 									</header> -->
 									<div class="posts">
 										<article class="article">
+											<div class="box">
+											<h3>SAFEBOX ID <label class="switch-button"><input type="checkbox"/> <div class="onoff-switch"></div> </label> <img src="images/비정상동그라미.png" ></h3>
 											
-											<h3>SAFEBOX ID</h3>
-											<label class="switch-button"><input type="checkbox"/> <div class="onoff-switch"></div> </label>
-											<p>기기 위치</p>
+											<p>기기 위치, 측정 주기</p>
+											</div>
 													<div class="table-wrapper">
 														
 																
                                                 <table>
                                                    <thead>
                                                       <tr>
-                                                         <th>센서 ID</th>
-                                                         
-                                                         <th>기기상태</th>
+                                                      	<th>센서이름</th>
                                                          <th>기준농도</th>
                                                          <th>현재농도</th>
-                                                         <th>측정주기</th>
                                                          <th>설정변경</th>
       
                                                       </tr>
                                                    </thead>
                                                    <tbody  class="ttbody">
                                                       <tr>
-                                                         <td >Item1</td>
-                                                         
-                                                         <td style="vertical-align:middle;"><img src="images/비정상동그라미.png" ></td>
                                                          <td></td>
                                                          <td></td>
                                                          <td></td>

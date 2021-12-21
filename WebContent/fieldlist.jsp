@@ -56,7 +56,7 @@
 							<h3><%=vo1_field.getField_seq() %>. <%=vo1_field.getField_name() %></h3>
 							<p><%=vo1_field.getField_addr() %></p>
 							<ul class="actions">
-								<li><a href="safeboxValueCheckService?field_seq=<%=vo1_field.getField_seq()%>" class="button primary"
+								<li><a href="sensorValue.jsp" class="button primary"
 									style="margin-right: 10px;">SAFEBOX 확인</a>
 									<a href="fieldUpdateCheckService?field_seq=<%=vo1_field.getField_seq()%>" class="button"
 									style="margin-right: 10px;">현장 정보 수정</a>

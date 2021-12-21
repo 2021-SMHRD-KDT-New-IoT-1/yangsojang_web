@@ -66,7 +66,11 @@
 												<div class="info">
 													<dl>
 														<dt>번호</dt>
+
+														<dd></dd>
+
 														<dd><%= %></dd>
+
 													</dl>
 													<dl>
 														<dt>관리자ID</dt>
