@@ -53,8 +53,9 @@
                                                     <th>번호</th>
                                                     <th>SAFEBOX ID</th>
                                                     <th>SAFEBOX 위치</th>
-                                                    <th>센서 ID</th>
+                                                    
                                                     <th>알림 내용 </th>
+                                                    <th>알림 날짜</th>
                                                     <th>확인</th>
                                                     <th></th>
                                                 </tr>
@@ -64,29 +65,13 @@
                                                     <td>1</td>
                                                     <td>safebox1</td>
                                                     <td>1공사장-1층-구역 a</td>
-                                                    <td>sensor1</td>
+                                                    
                                                     <td>농도 100ppm 노출</td>
+                                                    <td>2021-12-21</td>
                                                     <td><a href="#" class="logo" style="outline: none; text-decoration: none;">이동</a></td>
                                                     <td><div class="col-6 col-12-small"><input type="checkbox" id="1" name="1"><label for="1"></label></div></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>safebox2</td>
-                                                    <td>1공사장-2층-구역 a</td>
-                                                    <td>sensor2</td>
-                                                    <td>농도 100ppm 노출</td>
-                                                    <td><a href="#" class="logo" style="outline: none; text-decoration: none;">이동</a></td>
-                                                    <td><div class="col-6 col-12-small"><input type="checkbox" id="2" name="2"><label for="2"></label></div></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>safebox3</td>
-                                                    <td>1공사장-3층-구역 a</td>
-                                                    <td>sensor3</td>
-                                                    <td>농도 100ppm 노출</td>
-                                                    <td><a href="#" class="logo" style="outline: none; text-decoration: none;">이동</a></td>
-                                                    <td><div class="col-6 col-12-small"><input type="checkbox" id="3" name="3"><label for="3"></label></div></td>
-                                                </tr>
+                                                
                                                 
                                                 
                                             </tbody>
