@@ -38,14 +38,13 @@ public class boardVO {
 		this.mnt_file = mnt_file;
 	}
 	
-	// 관리 일지 리스트표시 생성자
+	// 관리  리스트표시 생성자
 	public boardVO(String mnt_seq, String mnt_title, String admin_id, String mnt_date) {
 		this.mnt_seq = mnt_seq;
 		this.mnt_title = mnt_title;
 		this.admin_id = admin_id;
 		this.mnt_date = mnt_date;
 	}
-	
 
 	public String getMnt_seq() {
 		return mnt_seq;
@@ -94,6 +93,17 @@ public class boardVO {
 	public void setAdmin_id(String admin_id) {
 		this.admin_id = admin_id;
 	}
+
+	public String getMnt_date() {
+		return mnt_date;
+	}
+
+	public void setMnt_date(String mnt_date) {
+		this.mnt_date = mnt_date;
+	}
+	
+
+	
 	
 	
 

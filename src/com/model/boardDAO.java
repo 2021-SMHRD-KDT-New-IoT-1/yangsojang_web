@@ -11,10 +11,12 @@ public class boardDAO {
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
 		int cnt = 0;
-		boardVO vo = null;
+		ArrayList<boardVO> board_array = null;
+		boardVO vo_board = null;
 		ArrayList<boardVO> boardall = null;
 		
-
+		
+		
 		public void connection() {
 		      try {
 		    	  Class.forName("org.mariadb.jdbc.Driver");
@@ -44,8 +46,8 @@ public class boardDAO {
 		         e.printStackTrace();
 		      }
 		   }
-		   //게시판 작성
-		   public int write(String mnt_title, String mnt_content,String mnt_file,int device_seq, String admin_id) {
+		   //관리 일지 작성 메소드
+		   public int boardwrite(String mnt_title, String mnt_content,String mnt_file,int device_seq, String admin_id) {
 			   try {
 			         connection();
 			         
@@ -61,11 +63,91 @@ public class boardDAO {
 		         cnt = psmt.executeUpdate();
 		         
 		      } catch (Exception e) {
-		         System.out.println("수정 실패!");
+		         System.out.println("관리 일지 작성 실패!");
 		         e.printStackTrace();
 		      }finally {
 		         close();
 		      }
 		      return cnt;
-		   }   
+		   }
+		   
+		   	// 일지 리스트 확인 메소드
+		   	public ArrayList<boardVO> boardArrayList() {
+			   boardall = new ArrayList<boardVO>();      
+		      
+		      try {
+		         connection();
+		         
+		         String sql = "select mnt_date, mnt_title, admin_id, mnt_seq from tbl_device_mnt";
+		         psmt = conn.prepareStatement(sql);
+		         
+		                  
+		         rs = psmt.executeQuery();
+		         
+		         while(rs.next()) {
+		            System.out.println("관리 일지 리스트 불러오기 성공..");
+		            
+		            String get_mnt_date = rs.getString("mnt_date");
+		            String get_mnt_title = rs.getString("mnt_title");
+		            String get_admin_id = rs.getString("admin_id");
+		            int get_mnt_seq = rs.getInt("mnt_seq");
+		            
+		            vo_board = new boardVO(get_mnt_date,get_mnt_title,get_admin_id, get_mnt_seq);
+		            boardall.add(vo_board);
+		         }   
+		         
+		      } catch (Exception e) {
+		         System.out.println("관리 일지 리스트 불러오기 실패..");
+		         e.printStackTrace();
+		      }finally {
+		         close();
+		         }
+		      return boardall;
+		      
+		   }
+		   	
+		   	//관리 일지 수정 메소드
+			  public int boardedit(String mnt_title,String mnt_content,String mnt_file,int device_seq) {
+				      try {
+				         connection();
+				         
+				         String sql = "update tbl_device_mnt set mnt_title = ?, mnt_content=?, mnt_file=?, device_seq=? where admin_id=?";
+				         psmt = conn.prepareStatement(sql);
+				         
+				         psmt.setString(1, mnt_title); 
+				         psmt.setString(2, mnt_content);   
+				         psmt.setString(3, mnt_file);
+				         psmt.setInt(4, device_seq);
+				     
+				        
+				         cnt = psmt.executeUpdate();
+				         
+				      } catch (Exception e) {
+				         System.out.println("일지 수정 실패!");
+				         e.printStackTrace();
+				      }finally {
+				         close();
+				      }
+				      return cnt;
+				   }
+			  
+			 // 관리 일지 삭제 메소드
+				public int boardDelete(int mnt_seq_int) {
+				      try {
+				         connection();
+
+				         String sql = "delete from tbl_device_mnt where mnt_seq=?";
+				         psmt = conn.prepareStatement(sql);
+				         psmt.setInt(1, mnt_seq_int);   
+				         
+				         cnt = psmt.executeUpdate();
+				         
+				      } catch (Exception e) {
+				         System.out.println("일지 정보 삭제 실패..");
+				         e.printStackTrace();
+				      }finally {
+				         close();
+				         }
+				      return cnt;
+				   }
  }

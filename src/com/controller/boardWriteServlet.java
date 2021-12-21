@@ -37,7 +37,7 @@ public class boardWriteServlet extends HttpServlet {
 
 		boardDAO dao = new boardDAO();
 		
-		int cnt = dao.write(mnt_title, mnt_content, mnt_file, result2, getadmin_id);
+		int cnt = dao.boardwrite(mnt_title, mnt_content, mnt_file, result2, getadmin_id);
 		
 		
 		if(cnt>0) {
