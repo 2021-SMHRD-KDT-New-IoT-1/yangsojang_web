@@ -82,13 +82,34 @@
 									<div class="posts">
 										<article class="article">
 											<div class="box">
-											<h3>SAFEBOX ID <label class="switch-button"><input type="checkbox"/> <div class="onoff-switch"></div> </label> <img src="images/비정상동그라미.png" ></h3>
-											
-											<p>기기 위치, 측정 주기</p>
+												<div class= "row">
+													<div class = "col-2">
+														<img src="images/비정상동그라미.png" >
+													</div>
+													<div class = "col-4">
+														<h3>SAFEBOX ID</h3> 
+													</div>
+													<div class = "col-3">
+														<label class="switch-button">
+														<input type="checkbox"/> 
+														<div class="onoff-switch"></div> 
+														</label> 
+													</div>
+													<div class = "col-3" >
+														<form action="sensorManage.jsp" ><input type="submit" value="주기 변경"></form>
+													</div>
+												<div class = "row" style="margin-left:6px">
+													<ul class = "alt">
+														<li><h4>기기 위치</h4>  <p>위치를 넣어주세요</p></li>
+														<li><h4>측정 주기</h4>  <p>주기를 넣어주세요</p></li>
+													</ul>
+												</div>
 											</div>
-													<div class="table-wrapper">
-														
-																
+										
+									</div>
+											
+											
+											<div class="table-wrapper">										
                                                 <table>
                                                    <thead>
                                                       <tr>
