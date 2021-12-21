@@ -34,7 +34,6 @@
 			adminVO vo = (adminVO)session.getAttribute("admin");
 			adminDAO dao = new adminDAO();
 			
-			boardDAO dao2 = new boardDAO();
 			%>
 		<!-- Wrapper -->
 			<div id="wrapper">

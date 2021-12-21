@@ -251,17 +251,17 @@
 									<BR><BR>
 									<!-- <span class="image main"><img src="images/pic11.jpg" alt="" /></span> -->
 									<div class="row gtr-uniform" >
-										<div class="col-6 col-12-xsmall" style="text-align: center;">
+										<div class="col-12 col-12-xsmall" style="text-align: center;">
 											<input type="text" name="demo-id" id="demo-name" value="" placeholder="현재 설정된 기준농도 : 10ppm  /  수정할 기준농도 입력" />
 										</div>
-										<div class="col-6 col-12-xsmall" style="text-align: center;">
-											<input type="text" name="demo-pw" id="demo-email" value="" placeholder="현재 설정된 측정주기 : 10초  /  수정할 측정주기 입력" />
-										</div>
-											
+										
 									</div>
-										<BR>
+										<br>
 										<ul class="actions" style="text-align: center;">
-										<li><input type="submit" value="Update" class="primary" style="margin-right: 10PX;"/><input type="reset" value="Reset" style="margin-left: 10px;"></li>
+										<li>
+										<input type="submit" value="Update" class="primary" style="margin-right: 10PX;"/>
+										<input type="reset" value="Reset" style="margin-left: 10px;">
+										</li>
 										</ul>
                                         
 

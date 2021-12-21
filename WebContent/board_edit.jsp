@@ -72,6 +72,7 @@
 			
 			safeboxDAO safeboxdao = new safeboxDAO();
 			ArrayList<safeboxVO> safebox_array_all = safeboxdao.safeboxList();
+			session.setAttribute("mnt_seq_session_again", mnt_seq);
 			%>
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -93,10 +94,11 @@
 									<div class="board_wrap">
 										<div class="board_write_wrap">
 											<div class="board_write">
+											<form method="post" action="boardEdit">
 												<div class="title">
 													<dl>
 														<dt>제목</dt>
-														<dd><input type="text" placeholder="제목 입력" value="<%=boardvo.getMnt_title() %>"></dd>
+														<dd><input type="text" name="mnt_title" placeholder="제목 입력" value="<%=boardvo.getMnt_title() %>"></dd>
 													</dl>
 												</div>
 												<div class="info">
@@ -119,15 +121,16 @@
 													</dl>
 												</div>
 												<div class="cont">
-													<textarea placeholder="내용 입력">
-														<%=boardvo.getMnt_content() %>
-													</textarea>
+													<textarea placeholder="내용 입력" name="mnt_content"><%=boardvo.getMnt_content() %></textarea>
 												</div>
 											</div>
+											
 											<ul class="pagination">
-												<a href="board_view.jsp" ><input type="submit" value="수정" class="primary" /></a>
-												<a href="board_list.jsp" ><input type="submit" value="취소" class="primary" /></a>	
+												<a href="board_list.jsp" ><input type="submit" value="수정" class="primary" /></a>
+												<a href="boardDeleteService?mnt_seq=<%=mnt_seq %>" class="button">삭제</a>
+												<a href="board_list.jsp" class="button">취소</a>	
 											</ul>
+											</form>
 										</div>
 									</div>
 								</section>

@@ -127,7 +127,7 @@
 											<div class="col-12" style=" vertical-align : middle;">
 												<ul class="pagination" >
 													<li><input type="submit" value="등록" class="primary" /></li>
-													<li><input type="" value="취소" class="primary" /></li>
+													<li><a href ="board_list.jsp" class="button">취소</a></li>
 												</ul>
 										</div>
 									</form>
