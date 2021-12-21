@@ -39,6 +39,8 @@
 			
 			boardDAO boarddao = new boardDAO();
 		 	ArrayList<boardVO> boardall = boarddao.boardArrayList();
+		 	
+		 	
 			%>
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -52,12 +54,9 @@
 									<a href="safeboxcheck.jsp" class="logo" style="font-size: 20px;"><strong>관리 일지 목록</strong></a>
 									<ul class="icons">
 									<li><a href="notice.jsp" class="logo"><span class="label"><strong>경고발생현황</strong></span></a></li>
-										<li><a href="fieldlist.jsp" class="logo"><span class="label">현장목록</span></a></li>
-                              			
-                                          										
+										<li><a href="fieldlist.jsp" class="logo"><span class="label">현장목록</span></a></li>								
 									</ul>
 								</header>
-
 							<!-- Content -->
 								<section>
 									<div class="board_wrap">
@@ -77,15 +76,15 @@
 												<%for(boardVO vo_board : boardall){%>
 												<div>
 													<div class="num"><%=vo_board.getMnt_seq() %></div>
-													<div class="title"><%=vo_board.getMnt_title() %></div>
+													<div class="title"><a href="boardEditCheckService?mnt_seq=<%=vo_board.getMnt_seq()%>"><%=vo_board.getMnt_title() %></a></div>
 													<div class="writer"><%=vo_board.getAdmin_id() %></div>
 													<div class="date"><%=vo_board.getMnt_date() %></div>
-													<div class="count"><a href="boardEditCheckService?mnt_seq=<%=vo_board.getMnt_seq()%>" class="button">수정</a></div>
+													<%-- <div class="count"><a href="boardEditCheckService?mnt_seq=<%=vo_board.getMnt_seq()%>" class="button">수정</a></div> --%>
 												</div>
 												<%}%>
 											</div>
 											<br><br><br>
-											<div>
+											<!-- <div>
 											<ul class="pagination">
 												<li><span class="button disabled">이전</span></li>
 												<li><a href="#" class="page active">1</a></li>
@@ -97,9 +96,9 @@
 												<li><a href="#" class="page">10</a></li>
 												<li><a href="#" class="button">다음</a></li>
 											</ul>
-											</div>
+											</div> -->
 											<ul class="pagination">
-											<a href="board_write.jsp" ><input type="submit" value="등록" class="primary" /></a>
+											<a href="board_write.jsp" class="button">등록</a>
 											</ul>	
 										</div>
 									</div>
