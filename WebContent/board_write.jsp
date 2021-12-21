@@ -89,6 +89,7 @@
 												<div class="title">
 													<dl>
 														<dt>제목</dt>
+														<dd><input type="text" id="mnt_title" placeholder="제목 입력"></dd>
 														<dd><input type="text" name="board_title" placeholder="제목 입력"></dd>
 													</dl>
 												</div>
@@ -108,13 +109,12 @@
 														<dt>사진첨부</dt>
 
 														<dd><div class="filebox">
-																<input class="upload-name" value=" " placeholder="첨부파일">
+																<input class="upload-name" id ="mnt_file" value=" " placeholder="첨부파일">
 																<label for="file">파일찾기</label>
 																<input type="file" id="file">
 															</div></dd>
 
 														<dd><a href="#" class="button icon solid fa-download">첨부</a></dd>
-
 														
 													</dl>
 												</div>
