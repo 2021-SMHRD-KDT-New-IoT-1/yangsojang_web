@@ -102,10 +102,11 @@
 									<ul>
 										<% if(vo==null){%>
 										<li><a href="login.jsp">로그인</a></li>
+										<li><a href="adminDelete.jsp">회원탈퇴</a></li>
 										<%}else{ %>
 										
 										<li><a href="mypage.jsp">회원정보수정</a></li>	
-										<li><a href="adminDelete.jsp">회원탈퇴</a></li>									
+																			
 										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
 										<%} %>
 									</ul>

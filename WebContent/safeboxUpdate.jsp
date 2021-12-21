@@ -89,9 +89,11 @@
 									<ul>
 										<% if(vo==null){%>
 										<li><a href="login.jsp">로그인</a></li>
+										<li><a href="adminDelete.jsp">회원탈퇴</a></li>	
 										<%}else{ %>
 										
-										<li><a href="mypage.jsp">회원정보수정</a></li>										
+										<li><a href="mypage.jsp">회원정보수정</a></li>		
+																		
 										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
 										<%} %>
 									</ul>
@@ -204,11 +206,11 @@
 					success : function(data){ //통신 성공
 						
 						if(data=="0"){
-							alert('현장 정보 수정을 다시 시도해 주세요.')
+							alert('기기 정보 수정을 다시 시도해 주세요.')
 							window.location.href = "safeboxUpdate.jsp"; 
 						}else{
 							
-							alert('현장 정보 수정 완료되었습니다.')
+							alert('기기 정보 수정 완료되었습니다.')
 							window.location.href = "safeboxEdit.jsp"; 
 						}
 					},

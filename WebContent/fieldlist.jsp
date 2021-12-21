@@ -55,7 +55,7 @@
 							<h3><%=vo1_field.getField_seq() %>. <%=vo1_field.getField_name() %></h3>
 							<p><%=vo1_field.getField_addr() %></p>
 							<ul class="actions">
-								<li><a href="sensorValue.jsp" class="button primary"
+								<li><a href="safeboxValueCheckService?field_seq=<%=vo1_field.getField_seq()%>" class="button primary"
 									style="margin-right: 10px;">SAFEBOX 확인</a>
 									<a href="fieldUpdateCheckService?field_seq=<%=vo1_field.getField_seq()%>" class="button"
 									style="margin-right: 10px;">현장 정보 수정</a>
@@ -93,9 +93,11 @@
 					<ul>
 										<% if(vo==null){%>
 										<li><a href="login.jsp">로그인</a></li>
+										<li><a href="adminDelete.jsp">회원탈퇴</a></li>
 										<%}else{ %>
 										
-										<li><a href="mypage.jsp">회원정보수정</a></li>										
+										<li><a href="mypage.jsp">회원정보수정</a></li>
+																				
 										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
 										<%} %>
 									</ul>

@@ -45,16 +45,19 @@ public class fieldVO {
 	public fieldVO(String field_name) {
 		super();
 		this.field_name = field_name;
+		
 	}
 
+	public fieldVO(String field_name, String field_addr) {
+		super();
+		this.field_name = field_name;
+		this.field_addr = field_addr;
+	}
 
 	public int getField_seq() {
 		return field_seq;
 	}
 
-	
-
-	
 	public void setField_seq(int field_seq) {
 		this.field_seq = field_seq;
 	}

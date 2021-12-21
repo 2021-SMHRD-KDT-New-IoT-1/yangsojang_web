@@ -65,7 +65,7 @@
                                                 
                                             <div class="col-12" style="text-align: center;">
                                                 <ul class="actions" >
-                                                    <li><input type="button" value="추가" class="primary" style="margin-right: 10px;" ><input type="reset" value="초기화" style="margin-left: 10px;"></li>
+                                                    <li><input type="button" onclick="safeboxadd()" value="추가" class="primary" style="margin-right: 10px;" ><input type="reset" value="초기화" style="margin-left: 10px;"></li>
                                                     
                                                 </ul>
                                             </div>
@@ -95,9 +95,11 @@
 									<ul>
 										<% if(vo==null){%>
 										<li><a href="login.jsp">로그인</a></li>
+										<li><a href="adminDelete.jsp">회원탈퇴</a></li>	
 										<%}else{ %>
 										
-										<li><a href="mypage.jsp">회원정보수정</a></li>										
+										<li><a href="mypage.jsp">회원정보수정</a></li>	
+																			
 										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
 										<%} %>
 									</ul>
@@ -169,7 +171,7 @@
 			<script src="assets/js/main.js"></script>
 
 	<script>
-	function fieldAddCheck() {
+	function safeboxadd() {
 		
 		let device_name = document.getElementById("device_name");
 		let device_location = document.getElementById("device_location");

@@ -52,16 +52,16 @@
 									<form method="post" action="#">
                                         <div class="row gtr-uniform">
                                             <div class="col-6 col-12-xsmall" style="text-align: center;">
-                                                <input type="text" name="admin_id" id="admin_id" value="" placeholder="아이디" />
+                                                <input type="text" name="admin_id" id="admin_id"  placeholder="아이디" />
                                             </div>
                                             <div class="col-6 col-12-xsmall" style="text-align: center;">
-                                                <input type="password" name="admin_pwd" id="admin_pwd" value="" placeholder="비밀번호" />
+                                                <input type="password" name="admin_pwd" id="admin_pwd"  placeholder="비밀번호" />
                                             </div>
                                         
                                             <!-- Break -->
                                             <div class="col-12" style="text-align: center;">
                                                 <ul class="actions">
-                                                    <li><input type="button" onclick="delete()" value="탈퇴" class="primary" /><a href="#join" class="button" style="margin-left: 10px;">회원가입</a></li>
+                                                    <li><input type="button" onclick="admindelete()" value="탈퇴" class="primary" /></li>
 													
                                                     <!-- <li><input type="reset" value="Reset" /></li> -->
                                                 </ul>
@@ -69,52 +69,8 @@
                                         </div>
                                     </form>
 								</section>
-								<header id="header">
-									<a class="logo" name = "join"  style="font-size: 20px;"><strong>회원가입</strong> </a>
-								</header>
-								<section>
-									<form method="post" action="#">
-                                        <div class="row gtr-uniform">
-                                            <div class="row gtr-uniform">
-                                                <div class="col-6 col-12-xsmall">                                              
-													<input type="text" name="admin_id" id="admin_id"  placeholder="아이디" />
-                                                </div>
-                                                <div class="col-6 col-12-xsmall">
-                                                    <input type="button" onclick="idCheck()" value="ID 중복체크" class="primary" />
-                                                </div>
-                                                <div class="col-6 col-12-xsmall">
-                                                    <input type="password" name="admin_pwd" id="admin_pwd"  placeholder="비밀번호" />
-                                                </div>
-												<div class="col-6 col-12-xsmall">
-                            
-													<input type="text" name="admin_name" id="admin_name"  placeholder="이름" />
-                                                </div>
-                                                 <div class="col-6 col-12-xsmall">
-                            
-													<input type="text" name="admin_phone" id="admin_phone"  placeholder="전화번호" />
-                                                </div>
-												
-                                                <div class="col-6 col-12-xsmall">
-                                                    <input type="email" name="admin_email" id="admin_email"  placeholder="이메일" />
-                                                </div>
-                                               
-                                            	<div class="col-12">
-                                               		 <input type="text" name="admin_dept" id="admin_dept"  placeholder="소속" />
-
-                                            	</div>
-                                            
-                                            <div class="col-12" style="text-align: center;">
-                                                <ul class="actions">
-                                                    <li><input type="button" onclick="join()" value="회원가입" class="primary" /></li>
-													
-                                                    <!-- <li><input type="reset" value="Reset" /></li> -->
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </form>
-									
-
-								</section>
+								
+								
 
 						</div>
 					</div>
@@ -135,10 +91,11 @@
 									<ul>
 										<% if(vo==null){%>
 										<li><a href="login.jsp">로그인</a></li>
+										<li><a href="adminDelete.jsp">회원탈퇴</a></li>
 										<%}else{ %>
 										
 										<li><a href="mypage.jsp">회원정보수정</a></li>				
-										<li><a href="adminDelete.jsp">회원탈퇴</a></li>							
+																	
 										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
 										<%} %>
 									</ul>
@@ -214,28 +171,29 @@
 			<script>
 				
 				
-				function login() {
+				function admindelete() {
+					
 					let admin_id = document.getElementById("admin_id");
 					let admin_pwd = document.getElementById("admin_pwd");
 					
 					$.ajax({
 						type : "post", //데이터 전송 요청 방식
 						data : {
-								"admin_id" : 	admin_id.value,
-								"admin_pwd" :	admin_pwd.value
+								"admin_id" : admin_id.value,
+								"admin_pwd" :admin_pwd.value
 								},
-						url : "loginServlet", //데이터를 전송, 요청하는 서버 페이지
+						url : "adminDeleteServlet", //데이터를 전송, 요청하는 서버 페이지
 						dataType : "text", //응답데이터의 형식
 						success : function(data){ //통신 성공
 							
-							if(data==null){
-								alert('로그인을 다시 시도해 주세요.')
-								window.location.href = "login.jsp"; 
+							if(data=="0"){
+								alert('회원 탈퇴를 다시 시도해 주세요.')
+								window.location.href = "adminDelete.jsp"; 
 							}else{
 								
-								alert('로그인 완료되었습니다.')
+								alert('회원 탈퇴 완료되었습니다.')
 								
-								window.location.href = "notice.jsp";
+								window.location.href = "login.jsp";
 							}
 						},
 						error : function(){ //통신 실패
