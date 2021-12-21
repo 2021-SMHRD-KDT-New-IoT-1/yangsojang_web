@@ -66,7 +66,7 @@
 												<div class="info">
 													<dl>
 														<dt>번호</dt>
-														<dd><%=vo2.getMnt_seq() %></dd>
+														<dd></dd>
 													</dl>
 													<dl>
 														<dt>관리자ID</dt>
