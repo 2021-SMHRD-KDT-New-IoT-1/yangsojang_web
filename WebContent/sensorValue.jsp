@@ -95,13 +95,21 @@
 														<div class="onoff-switch"></div> 
 														</label> 
 													</div>
-													<div class = "col-3" >
-														<form action="sensorManage.jsp" ><input type="submit" value="주기 변경"></form>
-													</div>
+													
 												<div class = "row" style="margin-left:6px">
 													<ul class = "alt">
 														<li><h4>기기 위치</h4>  <p>위치를 넣어주세요</p></li>
-														<li><h4>측정 주기</h4>  <p>주기를 넣어주세요</p></li>
+														<li><h4>측정 주기</h4>  <p>주기를 넣어주세요</p><form method="post" action="#">
+												<div class="row">
+													<div class="col-6">
+														<input type="text" id="" value="" placeholder="주기를 입력하세요.">
+													</div>
+													<div class="col-6">
+														<input type="submit" id="" value="확인" class="primary">
+													</div>
+												</div>
+											</form></li>
+														
 													</ul>
 												</div>
 											</div>
@@ -114,9 +122,9 @@
                                                    <thead>
                                                       <tr>
                                                       	<th>센서이름</th>
-                                                         <th>기준농도</th>
-                                                         <th>현재농도</th>
-                                                         <th>설정변경</th>
+                                                        <th>기준농도</th>
+                                                        <th>현재농도</th>
+                                                        <th>설정변경</th>
       
                                                       </tr>
                                                    </thead>
