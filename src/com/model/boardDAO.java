@@ -45,17 +45,18 @@ public class boardDAO {
 		      }
 		   }
 		   //게시판 작성
-		   public int write(String mnt_seq, String mnt_title, String mnt_content,String mnt_file) {
+		   public int write(String mnt_title, String mnt_content,String mnt_file,int device_seq, String admin_id) {
 			   try {
 			         connection();
 			         
-			   String sql = "insert into tbl_device_mnt (mnt_seq, mnt_title, mnt_content, mnt_file) values (?,?,?,?)";
+			   String sql = "insert into tbl_device_mnt (mnt_title, mnt_content, mnt_file,device_seq,admin_id) values (?,?,?,?,?)";
 		         psmt = conn.prepareStatement(sql);
 		 
-		         psmt.setString(1, mnt_seq); 
-		         psmt.setString(2, mnt_title); 
-		         psmt.setString(3, mnt_content);
-		         psmt.setString(4, mnt_file);
+		         psmt.setString(1, mnt_title);
+		         psmt.setString(2, mnt_content);
+		         psmt.setString(3, mnt_file);
+		         psmt.setInt(4, device_seq);
+		         psmt.setString(5, admin_id);
 		         
 		         cnt = psmt.executeUpdate();
 		         
