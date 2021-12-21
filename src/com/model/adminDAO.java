@@ -70,6 +70,7 @@ public class adminDAO {
 	      }
 	      return cnt;
 	   }
+	   
 	   //로그인 메소드
 	   public adminVO login(String admin_id, String admin_pwd) {
 		      try {

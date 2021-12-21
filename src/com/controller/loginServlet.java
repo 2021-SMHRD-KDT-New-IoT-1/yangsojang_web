@@ -1,6 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,10 +35,15 @@ public class loginServlet extends HttpServlet {
 			// 세션 값 설정
 			session.setAttribute("admin", vo);
 
-			response.sendRedirect("notice.jsp");
+			
 		} else {
-			response.sendRedirect("login.jsp");
+			
 		}
+		
+		//출력 스트링(통로)
+		PrintWriter out = response.getWriter();
+		//통로를 통해서 응답데이터를 출력
+		out.print(vo);
 		
 	}
 

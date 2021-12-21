@@ -1,6 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,12 +34,13 @@ public class fieldUpdateService extends HttpServlet {
 		
 		if(cnt>0) {
 			System.out.println("현장 정보 수정 성공!");
-			response.sendRedirect("fieldlist.jsp");
+			
 		}else {
 			System.out.println("현장 정보 수정 실패!");
-			response.sendRedirect("fieldUpdate.jsp");
+			
 		}
-		
+		PrintWriter out = response.getWriter();
+		out.print(cnt);
 		
 		
 	}

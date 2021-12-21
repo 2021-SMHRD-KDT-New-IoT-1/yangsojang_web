@@ -1,6 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,11 +33,14 @@ public class safeboxUpdateService extends HttpServlet {
 		
 		if(cnt>0) {
 			System.out.println("기기 정보 수정 성공!");
-			response.sendRedirect("safeboxEdit.jsp");
+			
 		}else {
 			System.out.println("기기 정보 수정 실패!");
-			response.sendRedirect("safeboxUpdate.jsp");
+			
 		}
+		
+		PrintWriter out = response.getWriter();
+		out.print(cnt);
 		
 		
 	}

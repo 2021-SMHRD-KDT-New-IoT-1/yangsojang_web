@@ -40,10 +40,10 @@ request.setCharacterEncoding("euc-kr");
 			vo = new adminVO(admin_pwd, admin_name, admin_phone, admin_email, admin_dept);
 			session.setAttribute("admin", vo); //수정한 값으로 업뎃
 			
-			response.sendRedirect("notice.jsp");
+			
 		}else {
 			System.out.println("수정 실패");
-			response.sendRedirect("mypage.jsp");
+			
 		}
 	}
 

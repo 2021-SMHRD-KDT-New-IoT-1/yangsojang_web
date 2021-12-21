@@ -48,19 +48,19 @@
 
 									<!-- <span class="image main"><img src="images/pic11.jpg" alt="" /></span> -->
 
-									<form method="post" action="safeboxUpdateService">
+									<form method="post" action="#">
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="device_id" id="demo-name" value="" placeholder="기기ID" />
+                                                    <input type="text" name="device_id" id="device_id" value="" placeholder="기기ID" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="device_location" id="demo-email" value="" placeholder="설치 장소" />
+                                                    <input type="text" name="device_location" id="device_location" value="" placeholder="설치 장소" />
                                                 </div>
                                                 
                                             <div class="col-12" style="text-align: center;">
                                                 <ul class="actions" >
-                                                    <li><input type="submit" value="수정" class="primary" style="margin-right: 10px;" ><input type="reset" value="초기화" style="margin-left: 10px;"></li>
+                                                    <li><input type="button" onclick="safeboxUpdate()" value="수정" class="primary" style="margin-right: 10px;" ><input type="reset" value="초기화" style="margin-left: 10px;"></li>
                                                     
                                                 </ul>
                                             </div>
@@ -185,5 +185,39 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+			<script >
+				function safeboxUpdate() {
+				
+				let device_id = document.getElementById("device_id");
+				let device_location = document.getElementById("device_location");
+				
+				
+								
+				$.ajax({
+					type : "post", //데이터 전송 요청 방식
+					data : {
+							"device_id" :	device_id.value,
+							"device_location" :	device_location.value
+							},
+					url : "safeboxUpdateService", //데이터를 전송, 요청하는 서버 페이지
+					dataType : "text", //응답데이터의 형식
+					success : function(data){ //통신 성공
+						
+						if(data=="0"){
+							alert('현장 정보 수정을 다시 시도해 주세요.')
+							window.location.href = "safeboxUpdate.jsp"; 
+						}else{
+							
+							alert('현장 정보 수정 완료되었습니다.')
+							window.location.href = "safeboxEdit.jsp"; 
+						}
+					},
+					error : function(){ //통신 실패
+					}
+				});
+			}
+			
+			</script>
+			
 	</body>
 </html>v

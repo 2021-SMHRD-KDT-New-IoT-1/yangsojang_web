@@ -27,7 +27,6 @@ public class joinServlet extends HttpServlet {
 				String admin_phone = request.getParameter("admin_phone");
 				String admin_email = request.getParameter("admin_email");
 				String admin_dept = request.getParameter("admin_dept"); 
-								 
 				
 				adminDAO dao = new adminDAO();
 				int cnt = dao.join(admin_id, admin_pwd, admin_name, admin_phone, admin_email,admin_dept);
@@ -36,21 +35,22 @@ public class joinServlet extends HttpServlet {
 					System.out.println("가입 성공");
 					
 					//forward 방식으로 페이지 이동
-					RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+					//RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 					
 					//request영역에 기억해야할 데이터 설정
-					request.setAttribute("admin_id", admin_id);
+					//request.setAttribute("admin_id", admin_id);
 					
 					//페이지 이동할 시 request, response 객체 전달				
-					rd.forward(request, response);
+					//rd.forward(request, response);
 					
 					//response.sendRedirect("join_success.jsp?email="+email);
 					//쿼리스트링 방식으로 데이터 전송 > 받을 때는 getParameter()로 
 					
 				}else {
 					System.out.println("가입 실패..");
-					response.sendRedirect("notice.jsp");
+					
 				}
+				
 				//출력 스트링(통로)
 				PrintWriter out = response.getWriter();
 				//통로를 통해서 응답데이터를 출력
