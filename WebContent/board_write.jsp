@@ -64,6 +64,9 @@
 			adminVO vo = (adminVO)session.getAttribute("admin");
 			adminDAO dao = new adminDAO();
 			
+			String admin_id = vo.getAdmin_id();
+			session.setAttribute("admin_id", admin_id);
+			
 			
 			safeboxDAO safeboxdao = new safeboxDAO();
 			ArrayList<safeboxVO> safebox_array_all = safeboxdao.safeboxList();
@@ -85,22 +88,23 @@
 
 							<!-- Content -->
 								<section>
+								<form method="post" action="boardWriteServlet">
 											<div class="board_write">
 												<div class="title">
 													<dl>
 														<dt>제목</dt>
-														<dd><input type="text" id="mnt_title" placeholder="제목 입력"></dd>
-														<dd><input type="text" name="board_title" placeholder="제목 입력"></dd>
+														<dd><input type="text" name="mnt_title" placeholder="제목 입력"></dd>
+														
 													</dl>
 												</div>
 												<div class="info">
 													<dl>
 														<dt>SAFEBOX 선택</dt>
 														<dd>
-															<select name="device_id" id="demo-category">
+															<select name="device_seq" id="demo-category">
 			                                                    <option value=""> SAFEBOX LIST </option>
 			                                                    <%for(safeboxVO vo2_safebox : safebox_array_all){%>
-			                                                    <option value=""><%=vo2_safebox.getDevice_seq() %>. <%=vo2_safebox.getDevice_id() %></option>
+			                                                    <option ><%=vo2_safebox.getDevice_id() %>/<%=vo2_safebox.getDevice_seq() %></option>
 			                                                    <%}%>
 			                                                </select>
 														</dd>
@@ -108,7 +112,7 @@
 													<dl>
 														<dt>사진첨부</dt>
 														<dd><div class="filebox">
-																<input class="upload-name" id ="mnt_file" value=" " placeholder="첨부파일">
+																<input class="upload-name" name ="mnt_file"  placeholder="첨부파일">
 																<label for="file">파일찾기</label>
 																<input type="file" id="file">
 															</div></dd>
@@ -120,15 +124,14 @@
 													<textarea placeholder="내용 입력" name="mnt_content"></textarea>
 												</div>
 											</div>
+											
 											<div class="col-12" style=" vertical-align : middle;">
 												<ul class="pagination" >
-													<li><form action="#"><input type="submit" value="등록" class="primary" /></form></li>
-													<li><form action="board_list.jsp"><input type="submit" value="취소" class="primary" /></form></li>
+													<li><input type="submit" value="등록" class="primary" /></li>
+													<li><input type="" value="취소" class="primary" /></li>
 												</ul>
-												
-											
 										</div>
-									
+									</form>
 								
 								</section>
 

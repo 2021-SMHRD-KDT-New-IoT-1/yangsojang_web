@@ -23,6 +23,7 @@
 			//현재 로그인 상태인지 확인 (vo == null > 로그인 하지 않은 상태)
 			adminVO vo = (adminVO)session.getAttribute("admin");
 			adminDAO dao = new adminDAO();
+			
 			%>
 		<!-- Wrapper -->
 			<div id="wrapper">

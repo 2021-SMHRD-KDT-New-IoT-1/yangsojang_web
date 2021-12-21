@@ -1,3 +1,5 @@
+<%@page import="com.model.boardDAO"%>
+<%@page import="com.model.boardVO"%>
 <%@page import="com.model.adminDAO"%>
 <%@page import="com.model.adminVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -31,6 +33,8 @@
 			//현재 로그인 상태인지 확인 (vo == null > 로그인 하지 않은 상태)
 			adminVO vo = (adminVO)session.getAttribute("admin");
 			adminDAO dao = new adminDAO();
+			
+			boardDAO dao2 = new boardDAO();
 			%>
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -62,15 +66,15 @@
 												<div class="info">
 													<dl>
 														<dt>번호</dt>
-														<dd>1</dd>
+														<dd><%=vo2.getMnt_seq() %></dd>
 													</dl>
 													<dl>
-														<dt>글쓴이</dt>
-														<dd>김이름</dd>
+														<dt>관리자ID</dt>
+														<dd><%=vo.getAdmin_id() %></dd>
 													</dl>
 													<dl>
 														<dt>작성일</dt>
-														<dd>2021.1.16</dd>
+														<dd>vo2.get</dd>
 													</dl>
 													<dl>
 														<dt>조회</dt>
