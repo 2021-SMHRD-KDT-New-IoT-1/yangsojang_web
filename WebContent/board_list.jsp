@@ -1,3 +1,6 @@
+<%@page import="com.model.boardVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.boardDAO"%>
 <%@page import="com.model.adminDAO"%>
 <%@page import="com.model.adminVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -30,9 +33,12 @@
 	</style>
 	<body class="is-preload">
 			<%
-			//현재 로그인 상태인지 확인 (vo == null > 로그인 하지 않은 상태)
+			
 			adminVO vo = (adminVO)session.getAttribute("admin");
 			adminDAO dao = new adminDAO();
+			
+			boardDAO boarddao = new boardDAO();
+		 	ArrayList<boardVO> boardall = boarddao.boardArrayList();
 			%>
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -68,41 +74,15 @@
 													<div class="date">작성일</div>
 													<div class="count"></div>
 												</div>
+												<%for(boardVO vo_board : boardall){%>
 												<div>
-													<div class="num">5</div>
-													<div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
-													<div class="writer">김이름</div>
-													<div class="date">2021.1.15</div>
+													<div class="num"><%=vo_board.getMnt_seq() %></div>
+													<div class="title"><a href="view.html"><%=vo_board.getMnt_title() %></a></div>
+													<div class="writer"><%=vo_board.getAdmin_id() %></div>
+													<div class="date"><%=vo_board.getMnt_date() %></div>
 													<div class="count"><a href="board_edit.jsp" class="button">수정</a></div>
 												</div>
-												<div>
-													<div class="num">4</div>
-													<div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
-													<div class="writer">김이름</div>
-													<div class="date">2021.1.15</div>
-													<div class="count"><a href="board_edit.jsp" class="button">수정</a></div>
-												</div>
-												<div>
-													<div class="num">3</div>
-													<div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
-													<div class="writer">김이름</div>
-													<div class="date">2021.1.15</div>
-													<div class="count"><a href="board_edit.jsp" class="button">수정</a></div>
-												</div>
-												<div>
-													<div class="num">2</div>
-													<div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
-													<div class="writer">김이름</div>
-													<div class="date">2021.1.15</div>
-													<div class="count"><a href="board_edit.jsp" class="button">수정</a></div>
-												</div>
-												<div>
-													<div class="num">1</div>
-													<div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
-													<div class="writer">김이름</div>
-													<div class="date">2021.1.15</div>
-													<div class="count"><a href="board_edit.jsp" class="button">수정</a></div>
-												</div>
+												<%}%>
 											</div>
 											<br><br><br>
 											<div>
