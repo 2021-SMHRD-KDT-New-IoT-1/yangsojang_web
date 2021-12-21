@@ -14,6 +14,7 @@ public class fieldDAO {
    int cnt = 0;
    fieldVO vo1_field = null;
    fieldVO vo2_field = null;
+   fieldVO vo3_field = null;
    ArrayList<fieldVO> array_field_all = null;
    String site_name;
 
@@ -127,6 +128,7 @@ public class fieldDAO {
                   
                   String get_site_name = rs.getString("site_name");
                   
+                  
                   vo2_field = new fieldVO(get_site_name);
                }   
                
@@ -184,4 +186,36 @@ public class fieldDAO {
             return cnt;
          }    
 
+    //현장 one select 확인
+      public fieldVO fieldName_Addr(int site_seq) {
+         
+              try {
+                 connection();
+                 
+                 String sql = "select site_name, site site_addr from site_loc where site_seq=?";
+                 psmt = conn.prepareStatement(sql);
+                          
+                 psmt.setInt(1, site_seq);  
+                 
+                 rs = psmt.executeQuery();
+                 
+                 while(rs.next()) {
+                    System.out.println("현장Name_Addr  불러오기 성공..");
+                    
+                    String get_site_name = rs.getString("site_name");
+                    String get_site_addr = rs.getString("site_addr");
+                    
+                    vo3_field = new fieldVO(get_site_name, get_site_addr);
+                 }   
+                 
+              } catch (Exception e) {
+                 System.out.println("현장Name_Addr  불러오기 실패..");
+                 e.printStackTrace();
+              }finally {
+                 close();
+                 }
+              return vo3_field;
+              
+           }   
+      
 }

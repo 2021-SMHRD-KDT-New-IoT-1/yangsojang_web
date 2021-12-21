@@ -135,9 +135,11 @@
 									<ul>
 										<% if(vo==null){%>
 										<li><a href="login.jsp">로그인</a></li>
+										<li><a href="adminDelete.jsp">회원탈퇴</a></li>	
 										<%}else{ %>
 										
-										<li><a href="mypage.jsp">회원정보수정</a></li>										
+										<li><a href="mypage.jsp">회원정보수정</a></li>	
+																		
 										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
 										<%} %>
 									</ul>
@@ -251,7 +253,7 @@
 								window.location.href = "login.jsp"; 
 							}else{
 								
-								alert('로그인 완료되었습니다.')
+								alert('로그인 완료되었습니다. 경고 발생 현황을 확인해 주세요!')
 								
 								window.location.href = "notice.jsp";
 							}

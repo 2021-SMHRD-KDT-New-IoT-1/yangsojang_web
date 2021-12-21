@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.fieldVO"%>
+<%@page import="com.model.fieldDAO"%>
 <%@page import="com.model.adminDAO"%>
 <%@page import="com.model.adminVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -47,6 +50,14 @@
 			//현재 로그인 상태인지 확인 (vo == null > 로그인 하지 않은 상태)
 			adminVO vo = (adminVO)session.getAttribute("admin");
 			adminDAO dao = new adminDAO();
+			
+			fieldDAO fielddao = new fieldDAO();
+			
+			int field_seq = (int)session.getAttribute("field_seq_session0");
+			
+			fieldVO fieldvo = fielddao.fieldName_Addr(field_seq);
+			
+			
 			%>
          <div id="wrapper">
             
@@ -56,12 +67,12 @@
 
                      <!-- Header -->
                         <header id="header">
-                           <a href="sensorValue.jsp" class="logo" style="font-size: 20px;"><strong>현장명</strong>  <br> 현장 주소</a>
+                           <a href="#" class="logo" style="font-size: 20px;"><strong></strong><br></a>
                            
                            <ul class="icons">
                               
                               <li><a href="notice.jsp" class="logo"><span class="label"><strong>경고발생현황</strong></span></a></li>
-                              <li><a href="board_list.jsp".html" class="logo"><span class="label">관리일지</span></a></li>
+                              <li><a href="board_list.jsp" class="logo"><span class="label">관리일지</span></a></li>
                                
                               
                            </ul>
@@ -136,9 +147,11 @@
 								<ul>
 										<% if(vo==null){%>
 										<li><a href="login.jsp">로그인</a></li>
+										<li><a href="adminDelete.jsp">회원탈퇴</a></li>	
 										<%}else{ %>
 										
-										<li><a href="mypage.jsp">회원정보수정</a></li>										
+										<li><a href="mypage.jsp">회원정보수정</a></li>		
+																		
 										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
 										<%} %>
 									</ul>
@@ -172,29 +185,7 @@
 				</nav>
 				<%} %>
 
-							<!-- Section -->
-								<!-- <section>
-									<header class="major">
-										<h2>Ante interdum</h2>
-									</header>
-									<div class="mini-posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-								</section> -->
+							
 
 							<!-- Section -->
 								<section>

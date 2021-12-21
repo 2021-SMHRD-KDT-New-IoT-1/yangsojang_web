@@ -176,7 +176,7 @@ public class adminDAO {
 	         
 	         String sql = "select admin_id from tbl_admin where admin_id=?";
 	         psmt = conn.prepareStatement(sql);
-	         psmt.setNString(1, admin_id);      
+	         psmt.setString(1, admin_id);      
 	         
 	         rs = psmt.executeQuery();
 	         
@@ -199,4 +199,24 @@ public class adminDAO {
 	      }
 	      return idcheck;
 	   }
+	   
+	   public int adminDelete(String admin_id, String admin_pwd) {
+		      try {
+		         connection();
+
+		         String sql = "delete from tbl_admin where admin_id=? and admin_pwd=?";
+		         psmt = conn.prepareStatement(sql);
+		         psmt.setString(1, admin_id);    
+		         psmt.setString(2, admin_pwd); 
+		         
+		         cnt = psmt.executeUpdate();
+		         
+		      } catch (Exception e) {
+		         System.out.println("관리자 정보 삭제 실패..");
+		         e.printStackTrace();
+		      }finally {
+		         close();
+		         }
+		      return cnt;
+		   }
 }
