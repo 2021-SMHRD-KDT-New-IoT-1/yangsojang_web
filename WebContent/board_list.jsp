@@ -77,10 +77,10 @@
 												<%for(boardVO vo_board : boardall){%>
 												<div>
 													<div class="num"><%=vo_board.getMnt_seq() %></div>
-													<div class="title"><a href="view.html"><%=vo_board.getMnt_title() %></a></div>
+													<div class="title"><%=vo_board.getMnt_title() %></div>
 													<div class="writer"><%=vo_board.getAdmin_id() %></div>
 													<div class="date"><%=vo_board.getMnt_date() %></div>
-													<div class="count"><a href="board_edit.jsp" class="button">수정</a></div>
+													<div class="count"><a href="boardEditCheckService?mnt_seq=<%=vo_board.getMnt_seq()%>" class="button">수정</a></div>
 												</div>
 												<%}%>
 											</div>

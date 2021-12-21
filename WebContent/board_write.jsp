@@ -116,10 +116,7 @@
 																<input class="upload-name" name ="mnt_file"  placeholder="梅何颇老">
 																<label for="file">颇老茫扁</label>
 																<input type="file" id="file">
-															</div></dd>
-
-														<dd><a href="#" class="button icon solid fa-download">梅何</a></dd>
-														
+															</div></dd>				
 													</dl>
 												</div>
 												<div class="cont">
