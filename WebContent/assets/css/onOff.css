@@ -1,88 +1,142 @@
-*,
-:after,
-:before {
-  box-sizing: border-box;
+/* Styles for on/off toggle */
+.toggle--on-off {
+  display: flex;
 }
-
-body {
-  margin: 60px auto;
-  text-align: center;
-  background-color: #ff9295;
-  transition: background-color 0.2s cubic-bezier(0, -1.85, 0.27, 1.75);
-  overflow: hidden;
+.toggle--on-off .toggle__checkbox:not(:checked) ~ .toggle__backdrop::before {
+  opacity: 0;
 }
-
-.toggle {
+.toggle--on-off .toggle__checkbox:checked ~ .toggle__backdrop {
+  background-color: #67942a;
+}
+.toggle--on-off .toggle__checkbox:checked ~ .toggle__backdrop::after {
+  opacity: 0;
+}
+.toggle--on-off .toggle__checkbox:not(:checked) + .toggle__handle::before {
+  opacity: 0;
+}
+.toggle--on-off .toggle__backdrop::before {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
-}
-.toggle .toggletext:before {
-  content: "OFF";
-  position: absolute;
-  left: -56px;
-  top: 30px;
-  font-size: 18px;
+  left: 8px;
   color: #fff;
+  content: "On";
+  transition: opacity 0.1s ease-out;
 }
-.toggle .toggletext:after {
-  content: "ON";
+.toggle--on-off .toggle__backdrop::after {
   position: absolute;
-  right: -46px;
-  top: 30px;
-  font-size: 18px;
-  color: rgba(253, 15, 21, 0.31);
+  right: 5px;
+  color: #999;
+  content: "Off";
+  transition: opacity 0.1s ease-out;
 }
-.toggle label {
-  position: relative;
+/* Styles for left/right toggle */
+.toggle--left-right {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.toggle--left-right .toggle__option {
   display: inline-block;
-  width: 80px;
-  height: 80px;
-  background-color: #fd1015;
-  border-radius: 50px;
+  color: #999;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
   cursor: pointer;
-  box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.1), 0px 9px 15px 0px #ef4247;
-  -webkit-tap-highlight-color: transparent;
 }
-.toggle label:before {
-  content: "";
+.toggle--left-right .toggle__backdrop::before {
+  content: none;
+}
+.toggle--left-right .toggle__backdrop::after {
+  content: none;
+}
+.is-left-selected .toggle__option:first-child,
+.is-right-selected .toggle__option:last-child {
+  color: #236690;
+}
+/* Toggle switch */
+.toggle__switch {
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  width: 45px;
+  height: 18px;
+  border-radius: 18px;
+  vertical-align: middle;
+  display: inline-block;
+}
+.toggle__label {
+  margin-left: 10px;
+  cursor: pointer;
+}
+.toggle__checkbox {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s cubic-bezier(0, -1.85, 0.27, 1.75);
-  height: 42px;
-  width: 42px;
-  background-color: #fd0f14;
-  border-radius: 46px;
-  box-shadow: inset 0px 0px 0px 8px #fff;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  box-sizing: border-box;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
 }
-.toggle .bgdiv {
+.toggle__checkbox:checked + .toggle__handle {
+  transform: translateX(29px);
+}
+.toggle__handle {
   position: absolute;
-  height: 110vh;
-  width: 110vw;
-  left: -50vw;
-  top: -50vh;
-  z-index: -1;
-}
-.toggle input {
-  display: none;
-}
-.toggle input:checked + div:before {
-  color: rgba(62, 160, 81, 0.89);
-}
-.toggle input:checked + div:after {
-  color: #fff;
-}
-.toggle input:checked + div + div {
-  background-color: #6fc57c;
-}
-.toggle input:checked + div + div + label {
-  background-color: #57de72;
-  box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.1), 0px 9px 15px 0px rgba(3, 132, 28, 0.5411764706);
-}
-.toggle input:checked + div + div + label:before {
-  width: 10px;
+  top: 2px;
+  z-index: 1;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 14px;
   background-color: #fff;
+  transition: transform 0.1s ease-out;
+  transform: translateX(2px);
+}
+.toggle__backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  background-color: #ddd;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 18px;
+  transition: background-color 0.1s ease-out;
+}
+/* Irrelevant presentational styles */
+html {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #234;
+  background-color: #fefefe;
+  font-size: 14px;
+  height: 100%;
+}
+h1,
+h3 {
+  font-family: Futura, sans-serif;
+  margin: 10px 0;
+}
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+.container > div {
+  margin-bottom: 35px;
+}
+.animations-container {
+  margin: 25px -10px -10px;
+  padding: 1px 10px 10px;
+  background-color: #fbf9c7;
+  border-radius: 4px;
+}
+/* Disable animations */
+.no-animations *,
+.no-animations *::before,
+.no-animations *::after {
+  transition: none !important;
 }

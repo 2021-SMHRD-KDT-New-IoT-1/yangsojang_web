@@ -18,6 +18,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/onOff.css">
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
 </head>
@@ -38,8 +39,6 @@ table .ttbody {
 	position: relative;
 	vertical-align: middle;
 }
-
-
 </style>
 
 <body class="is-preload">
@@ -64,12 +63,11 @@ table .ttbody {
 				</header>
 
 
-				<section class="banner">
-					<div class="box" style="display:inline-block">
+				<section>
+					<div class="box"
+						style="display: inline-block; position: relative; width: 100%">
 						<div class="row">
-							<div class="col-2">
-								<img src="images/비정상동그라미.png">
-							</div>
+							
 							<div class="col-4">
 								<h3>SAFEBOX ID</h3>
 							</div>
@@ -78,8 +76,8 @@ table .ttbody {
 									<div class="onoff-switch"></div>
 								</label>
 							</div>
-						
-							<div class="row" style="margin-left: 6px">
+
+							<div class="row" style="margin-left: 6px ;width:100%">
 								<ul class="alt">
 									<li><h4>기기 위치</h4>
 										<p>위치를 넣어주세요</p></li>
@@ -96,16 +94,55 @@ table .ttbody {
 											</div>
 										</form></li>
 								</ul>
-								
+								<div class="container"
+									style="display: float;">
+									<div class="animations-container">
+										<h3>SAFE BOX 동작 제어</h3>
+										<div class="toggle toggle--on-off">
+											<div class="toggle__switch">
+												<input class="toggle__checkbox" id="toggle1" type="checkbox"
+													name="toggle1" checked="" /><span class="toggle__handle"></span><span
+													class="toggle__backdrop"></span>
+											</div>
+											<label class="toggle__label" for="toggle1"><p>무언가 주의사항이 써져있다. 주의사항을 충분히 읽은 후 이 곳을 클릭해 주세요.</p></label>
+										</div>
+									</div>
+									<div>
+										<h3>무언가 추가기능 on/off</h3>
+										<div class="toggle toggle--on-off">
+											<div class="toggle__switch">
+												<input class="toggle__checkbox" id="toggle2" type="checkbox"
+													name="toggle2" /><span class="toggle__handle"></span><span
+													class="toggle__backdrop"></span>
+											</div>
+											<label class="toggle__label" for="toggle2">추가기능에 대한 설명이 주저리주저리 써져있다. 
+											사용자가 바로 읽어서 충분히 반복적으로 숙지하게 하기 위함이다. </label>
+										</div>
+									</div>
+									<div>
+										<h3>모드 선택</h3>
+										<div class="toggle toggle--left-right is-left-selected">
+											<label class="toggle__option" for="toggle3">모드1</label>
+											<div class="toggle__switch">
+												<input class="toggle__checkbox" id="toggle3" type="checkbox"
+													name="toggle3" /><span class="toggle__handle"></span><span
+													class="toggle__backdrop"></span>
+											</div>
+											<label class="toggle__option" for="toggle3">모드2</label>
+										</div>
+									</div>
+								</div>
 
 							</div>
-							
+
 						</div>
-						
+
+
 					</div>
-					<span class="icon fa-gem"></span>
-					
+
+
 				</section>
+
 
 				<section class="banner">
 					<div class="table-wrapper">
@@ -141,110 +178,110 @@ table .ttbody {
 
 
 
-	<!-- Sidebar -->
-	<div id="sidebar">
-		<div class="inner">
+		<!-- Sidebar -->
+		<div id="sidebar">
+			<div class="inner">
 
-			<!-- Search -->
-			<section id="search" class="alt">
-				<form method="post" action="#">
-					<input type="text" name="query" id="query" placeholder="Search" />
-				</form>
-			</section>
+				<!-- Search -->
+				<section id="search" class="alt">
+					<form method="post" action="#">
+						<input type="text" name="query" id="query" placeholder="Search" />
+					</form>
+				</section>
 
-			<nav id="menu">
+				<nav id="menu">
 
-				<ul>
-					<%
-						if (vo == null) {
-					%>
-					<li><a href="login.jsp">로그인</a></li>
-					<li><a href="adminDelete.jsp">회원탈퇴</a></li>
-					<%
-						} else {
-					%>
+					<ul>
+						<%
+							if (vo == null) {
+						%>
+						<li><a href="login.jsp">로그인</a></li>
+						<li><a href="adminDelete.jsp">회원탈퇴</a></li>
+						<%
+							} else {
+						%>
 
-					<li><a href="mypage.jsp">회원정보수정</a></li>
+						<li><a href="mypage.jsp">회원정보수정</a></li>
 
-					<li><a href="logoutServlet" class="logo">로그아웃</a></li>
-					<%
-						}
-					%>
-				</ul>
-			</nav>
+						<li><a href="logoutServlet" class="logo">로그아웃</a></li>
+						<%
+							}
+						%>
+					</ul>
+				</nav>
 
-			<!-- Menu -->
-			<%
-				if (vo != null) {
-			%>
-			<nav id="menu">
-				<header class="major">
-					<h2>현장 관리 메뉴</h2>
-				</header>
-				<ul>
-					<li><a href="fieldlist.jsp">현장 목록 </a></li>
-					<li><a href="board_list.jsp">관리 일지</a></li>
-					<li><a href="notice.jsp">경고 발생 현황</a></li>
-
-
-				</ul>
-			</nav>
-			<%
-				} else {
-			%>
-			<nav id="menu">
-				<header class="major">
-					<h2>현장 관리 메뉴</h2>
-				</header>
-				<ul>
-					<li><a href="#">로그인이 필요합니다. </a></li>
+				<!-- Menu -->
+				<%
+					if (vo != null) {
+				%>
+				<nav id="menu">
+					<header class="major">
+						<h2>현장 관리 메뉴</h2>
+					</header>
+					<ul>
+						<li><a href="fieldlist.jsp">현장 목록 </a></li>
+						<li><a href="board_list.jsp">관리 일지</a></li>
+						<li><a href="notice.jsp">경고 발생 현황</a></li>
 
 
-
-				</ul>
-			</nav>
-			<%
-				}
-			%>
+					</ul>
+				</nav>
+				<%
+					} else {
+				%>
+				<nav id="menu">
+					<header class="major">
+						<h2>현장 관리 메뉴</h2>
+					</header>
+					<ul>
+						<li><a href="#">로그인이 필요합니다. </a></li>
 
 
 
-			<!-- Section -->
-			<section>
-				<header class="major">
-					<h2>내 정보</h2>
-				</header>
+					</ul>
+				</nav>
+				<%
+					}
+				%>
 
-				<ul class="contact">
-					<%
-						if (vo != null) {
-					%>
-					<li class="icon solid fa-envelope"><%=vo.getAdmin_email()%></li>
-					<li class="icon solid fa-phone"><%=vo.getAdmin_phone()%></li>
-					<li class="icon solid fa-home"><%=vo.getAdmin_dept()%></li>
-					<%
-						} else {
-					%>
-					<li class="icon solid fa-envelope">이메일</li>
-					<li class="icon solid fa-phone">전화번호</li>
-					<li class="icon solid fa-home">소속</li>
-					<%
-						}
-					%>
-				</ul>
-			</section>
 
-			<!-- Footer -->
-			<footer id="footer">
-				<p class="copyright">
-					&copy; Untitled. All rights reserved. Demo Images: <a
-						href="https://unsplash.com">Unsplash</a>. Design: <a
-						href="https://html5up.net">HTML5 UP</a>.
-				</p>
-			</footer>
 
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>내 정보</h2>
+					</header>
+
+					<ul class="contact">
+						<%
+							if (vo != null) {
+						%>
+						<li class="icon solid fa-envelope"><%=vo.getAdmin_email()%></li>
+						<li class="icon solid fa-phone"><%=vo.getAdmin_phone()%></li>
+						<li class="icon solid fa-home"><%=vo.getAdmin_dept()%></li>
+						<%
+							} else {
+						%>
+						<li class="icon solid fa-envelope">이메일</li>
+						<li class="icon solid fa-phone">전화번호</li>
+						<li class="icon solid fa-home">소속</li>
+						<%
+							}
+						%>
+					</ul>
+				</section>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<p class="copyright">
+						&copy; Untitled. All rights reserved. Demo Images: <a
+							href="https://unsplash.com">Unsplash</a>. Design: <a
+							href="https://html5up.net">HTML5 UP</a>.
+					</p>
+				</footer>
+
+			</div>
 		</div>
-	</div>
 
 	</div>
 
@@ -254,6 +291,7 @@ table .ttbody {
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="assets/js/onOff.js"></script>
 
 </body>
 </html>
