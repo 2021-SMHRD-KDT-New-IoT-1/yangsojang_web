@@ -194,7 +194,7 @@ public class fieldDAO {
               try {
                  connection();
                  
-                 String sql = "select site_name, site site_addr from site_loc where site_seq=?";
+                 String sql = "select site_name, site_addr from site_loc where site_seq=?";
                  psmt = conn.prepareStatement(sql);
                           
                  psmt.setInt(1, site_seq);  

@@ -47,12 +47,14 @@ table .ttbody {
 		//현재 로그인 상태인지 확인 (vo == null > 로그인 하지 않은 상태)
 	adminVO vo = (adminVO) session.getAttribute("admin");
 	adminDAO dao = new adminDAO();
+	
+	fieldVO fieldvo = (fieldVO)session.getAttribute("fieldvo_session");
 	%>
 	<div id="wrapper">
 		<div id="main">
 			<div class="inner">
 				<header id="header">
-					<a href="#" class="logo" style="font-size: 20px;"><strong></strong><br></a>
+					<a href="#" class="logo" style="font-size: 20px;"><strong><%=fieldvo.getField_name() %></strong><br><%=fieldvo.getField_addr() %></a>
 
 					<ul class="icons">
 
