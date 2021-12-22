@@ -47,12 +47,14 @@ table .ttbody {
 		//현재 로그인 상태인지 확인 (vo == null > 로그인 하지 않은 상태)
 	adminVO vo = (adminVO) session.getAttribute("admin");
 	adminDAO dao = new adminDAO();
+	
+	fieldVO fieldvo = (fieldVO)session.getAttribute("fieldvo_session");
 	%>
 	<div id="wrapper">
 		<div id="main">
 			<div class="inner">
 				<header id="header">
-					<a href="#" class="logo" style="font-size: 20px;"><strong></strong><br></a>
+					<a href="#" class="logo" style="font-size: 20px;"><strong><%=fieldvo.getField_name() %></strong><br><%=fieldvo.getField_addr() %></a>
 
 					<ul class="icons">
 
@@ -63,75 +65,52 @@ table .ttbody {
 				</header>
 
 
-				<section>
+				<section class="banner" style="width: 45%; padding-top: 10px">
 					<div class="box"
-						style="display: inline-block; position: relative; width: 100%">
+						style="display: inline-block;; margin-top: 1px">
 						<div class="row">
-							
+							<div class="col-2">
+								<img src="images/비정상동그라미.png">
+							</div>
 							<div class="col-4">
 								<h3>SAFEBOX ID</h3>
 							</div>
-							<div class="col-3">
-								<label class="switch-button"> <input type="checkbox" />
-									<div class="onoff-switch"></div>
-								</label>
-							</div>
+							<br><br><br>
+							<div>
+								<h4>기기 위치</h4>
+								<p>위치를 넣어주세요</p>
+								<strong>측정 주기 :</strong><span> 10초</span>
 
-							<div class="row" style="margin-left: 6px ;width:100%">
-								<ul class="alt">
-									<li><h4>기기 위치</h4>
-										<p>위치를 넣어주세요</p></li>
-									<li><h4>측정 주기</h4>
-										<p>주기를 넣어주세요</p>
-										<form method="post" action="#">
-											<div class="row">
-												<div class="col-6">
-													<input type="text" id="" value="" placeholder="주기를 입력하세요.">
+								<div style="padding-top: 20px">
+									<form method="post" action="#">
+										<div class="row">
+											<div class="col-6">
+												<input type="text" id="" value="" placeholder="주기를 입력하세요.">
+											</div>
+											<div class="col-6">
+												<input type="submit" id="" value="확인" class="primary">
+											</div>
+
+
+											<div class="container">
+												<div class="animations-container">
+													<h3>SAFE BOX 동작 제어</h3>
+													<div class="toggle toggle--on-off">
+														<div class="toggle__switch">
+															<input class="toggle__checkbox" id="toggle1"
+																type="checkbox" name="toggle1" checked="" /><span
+																class="toggle__handle"></span><span
+																class="toggle__backdrop"></span>
+														</div>
+														<label class="toggle__label" for="toggle1"><p>무언가
+																주의사항이 써져있다. 주의사항을 충분히 읽은 후 이 곳을 클릭해 주세요.</p></label>
+													</div>
 												</div>
-												<div class="col-6">
-													<input type="submit" id="" value="확인" class="primary">
-												</div>
 											</div>
-										</form></li>
-								</ul>
-								<div class="container"
-									style="display: float;">
-									<div class="animations-container">
-										<h3>SAFE BOX 동작 제어</h3>
-										<div class="toggle toggle--on-off">
-											<div class="toggle__switch">
-												<input class="toggle__checkbox" id="toggle1" type="checkbox"
-													name="toggle1" checked="" /><span class="toggle__handle"></span><span
-													class="toggle__backdrop"></span>
-											</div>
-											<label class="toggle__label" for="toggle1"><p>무언가 주의사항이 써져있다. 주의사항을 충분히 읽은 후 이 곳을 클릭해 주세요.</p></label>
 										</div>
-									</div>
-									<div>
-										<h3>무언가 추가기능 on/off</h3>
-										<div class="toggle toggle--on-off">
-											<div class="toggle__switch">
-												<input class="toggle__checkbox" id="toggle2" type="checkbox"
-													name="toggle2" /><span class="toggle__handle"></span><span
-													class="toggle__backdrop"></span>
-											</div>
-											<label class="toggle__label" for="toggle2">추가기능에 대한 설명이 주저리주저리 써져있다. 
-											사용자가 바로 읽어서 충분히 반복적으로 숙지하게 하기 위함이다. </label>
-										</div>
-									</div>
-									<div>
-										<h3>모드 선택</h3>
-										<div class="toggle toggle--left-right is-left-selected">
-											<label class="toggle__option" for="toggle3">모드1</label>
-											<div class="toggle__switch">
-												<input class="toggle__checkbox" id="toggle3" type="checkbox"
-													name="toggle3" /><span class="toggle__handle"></span><span
-													class="toggle__backdrop"></span>
-											</div>
-											<label class="toggle__option" for="toggle3">모드2</label>
-										</div>
-									</div>
 								</div>
+
+
 
 							</div>
 
@@ -141,10 +120,10 @@ table .ttbody {
 					</div>
 
 
-				</section>
 
 
-				<section class="banner">
+
+
 					<div class="table-wrapper">
 						<table>
 							<thead>
@@ -170,6 +149,8 @@ table .ttbody {
 						</table>
 					</div>
 				</section>
+
+				<section class="banner">시험용</section>
 			</div>
 		</div>
 

@@ -71,7 +71,8 @@
                                             </thead>
                                             <tbody>
                                             <% for(noticeVO noticevo : notice_array) {
-                                            	safeboxVO safeboxvo = safeboxdao.safeboxSelect(noticevo.getDevice_seq());%>
+                                            	safeboxVO safeboxvo = safeboxdao.safeboxSelect(noticevo.getDevice_seq());
+                                            	if(noticevo.getNotice_check()==1){%>
                                                 <tr>
                                                     <td><%=noticevo.getDevice_seq() %></td>
                                                     <td><%=safeboxvo.getDevice_id() %></td>
@@ -79,9 +80,9 @@
                                                     <td><%=noticevo.getNotice_content() %></td>
                                                     <td><%=noticevo.getNotice_date() %></td>
                                                     <td><a href="#" class="logo" style="outline: none; text-decoration: none;">이동</a></td>
-                                                    <td><div class="col-6 col-12-small"><input type="checkbox" id="1" name="1"><label for="1"></label></div></td>
+                                                    <td><div class="col-6 col-12-small"><input type="checkbox" id="1" name="1" ><label for="1" ></label></div></td>
                                                 </tr>
-                                                
+                                                	<%} %>
                                                 <%} %>
                                                 
                                             </tbody>
@@ -89,7 +90,7 @@
                                         </table>
                                         <div class="col-12" style="text-align: center;">
                                             <ul class="actions">
-                                                <li><input type="submit" value="확인 완료" class="primary" /></li>
+                                                <li><input type="button" onclick="check()" value="확인 완료" class="primary" /></li>
                                                 
                                                 <!-- <li><input type="reset" value="Reset" /></li> -->
                                             </ul>
@@ -191,19 +192,44 @@
 			<script src="assets/js/main.js"></script>
 			
 			<script>
-				/* function gascheck() {	
-					setInterval() => {
+			
+				function check(){
+					
+					var check = document.getElementById("1");
+					console.log(check.value);
+						
+					$.ajax({
+						type : "get", //데이터 전송 요청 방식
+						 data : {"check" : check.value}, 
+						url : "noticeDeleteCheckService", 
+						dataType : "text", //응답데이터의 형식
+						success : function(data){ //통신 성공
+							
+							if(data==""){
+								window.location.href = "notice.jsp";				
+							}
+						},
+						error : function(){ //통신 실패
+						}
+					});
+					
+				}
+				
+				
+				function gascheck() {	
+					setInterval(() => {
 						$.ajax({
-							type : "get", //데이터 전송 요청 방식
-							/* data : {"email" : input.value}, 전송하는 데이터 */
-							url : "oneSelectGas", //데이터를 전송, 요청하는 서버 페이지
-							dataType : "text", //응답데이터의 형식
-							success : function(data){ //통신 성공
+							type : "get", 
+							/* data : {"email" : input.value}, */
+							url : "gasgasCheck", 
+							dataType : "text", 
+							success : function(data){
 								
-								if(data=="0"){
-									let check = confirm("랄랄");
+								if(data=="1"){
+									let check = confirm("※위험※  유출 현황을 확인해주세요!!  ※위험※");
 									if(check){
-										window.location.href = "myMember.jsp";
+										window.location.href = "notice.jsp";
+										
 									}							
 								}
 							},
@@ -211,8 +237,7 @@
 							}
 						});
 						
-						//=======
-						$.ajax({
+						/*  $.ajax({
 							type : "get", 
 							url : "transeService", 
 							dataType : "text",
@@ -222,11 +247,16 @@
 							},
 							error : function(){
 							}
-						});
+						});  */
+					
 					}, 1000);
 					
 				}
-				gascheck(); */
+				gascheck();
+				
+			
+			
+				
 			</script>
 
 	</body>

@@ -81,5 +81,98 @@ public class noticeDAO {
 	      
 	   }
 	   
+	   public String selectOne() {
+			String notice_check = null;
+			
+			try {
+				connection();
+				
+				String sql = "select notice_check from tbl_notice where manager_no in (select max(notice_seq) from tbl_notice)";
+				psmt = conn.prepareStatement(sql);
+							
+				rs = psmt.executeQuery();
+				
+				while(rs.next()) {
+					System.out.println("최신 데이터 불러오기 성공!");
+					
+					notice_check = rs.getString("notice_check");
+
+				}	
+					
+				} catch (Exception e) {
+					System.out.println("최신 데이터 조회 실패!");
+					e.getStackTrace();
+				}finally {
+					close();
+				}
+				return notice_check;
+			
+		}
+	   
+//	   public String notice_check_0() {
+//			String notice_check = null;
+//			try {
+//				connection();
+//				
+//				String sql = "update tbl_notice set notice_check='0'";
+//				psmt = conn.prepareStatement(sql);
+//			
+//				psmt.executeUpdate();
+//			} catch (Exception e) {
+//				System.out.println("0으로 수정 실패!");
+//				e.printStackTrace();
+//			}finally {
+//				close();
+//			}
+//			return notice_check;
+//		}
+	   
+	   public int gasOne() {
+			int notice_check=0;
+			
+			try {
+				connection();
+				
+				String sql = "select notice_check from tbl_notice where notice_check in (select max(notice_seq) from tbl_notice)";
+				psmt = conn.prepareStatement(sql);
+							
+				rs = psmt.executeQuery();
+				
+				while(rs.next()) {
+					System.out.println("최신 데이터 불러오기 성공!");
+					
+					notice_check = rs.getInt("notice_check");
+				}	
+					
+				} catch (Exception e) {
+					System.out.println("최신 데이터 조회 실패!");
+					e.getStackTrace();
+				}finally {
+					close();
+				}
+				return notice_check;
+				
+		}
+	   
+	   public void Alert_cnt_1() {
+		   
+			try {
+				connection();
+				
+				String sql = "update tbl_notice set notice_check='0' where notice_check in (select max(notice_seq) from tbl_notice)";
+				psmt = conn.prepareStatement(sql);
+			
+				psmt.executeUpdate();
+			} catch (Exception e) {
+				System.out.println("수정 실패!");
+				e.printStackTrace();
+				
+			}finally {
+				close();
+			}
+			
+		}
+	   
+	   
 	 
 }

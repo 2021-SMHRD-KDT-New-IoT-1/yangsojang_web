@@ -20,7 +20,7 @@ public class safeboxDeleteService extends HttpServlet {
 		
 		safeboxDAO dao = new safeboxDAO();
 		int cnt = dao.safeboxDelete(safebox_seq_int);
-		
+		System.out.println(cnt);
 		if(cnt>0) {
 			System.out.println("기기 삭제 성공!");
 			response.sendRedirect("safeboxEdit.jsp");
