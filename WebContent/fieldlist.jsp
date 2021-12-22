@@ -6,6 +6,11 @@
 <%@page import="com.model.adminDAO"%>
 <%@page import="com.model.adminVO"%>
 
+<%@ page import="java.io.File" %>
+<%@ page import="java.util.Enumeration" %>
+<%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@ page import="com.oreilly.servlet.MultipartRequest"%>
+
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
@@ -29,6 +34,8 @@
 			
 			fieldDAO fielddao = new fieldDAO();
 		 	ArrayList<fieldVO> array_field_all = fielddao.fieldAllList();
+		 	
+		 	
 			%>
 
 	<div id="wrapper">
@@ -54,6 +61,7 @@
 					<%for(fieldVO vo1_field : array_field_all){%>
 						<article>
 							<a href="#" class="image"><img src="images/pic01.jpg" ></a>
+							
 							<h3><%=vo1_field.getField_seq() %>. <%=vo1_field.getField_name() %></h3>
 							<p><%=vo1_field.getField_addr() %></p>
 							<ul class="actions">

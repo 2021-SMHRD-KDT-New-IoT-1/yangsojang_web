@@ -75,7 +75,7 @@
 
 									<!-- <span class="image main"><img src="images/pic11.jpg" alt="" /></span> -->
 
-									<form method="post" action="#">
+									<form method="post"  encType = "multipart/form-data" method="post" action="fieldlist.jsp">
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
                                                 <div class="col-6 col-12-xsmall"> 
@@ -84,9 +84,9 @@
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
                                                     <div class="filebox">
-																<input class="upload-name" name ="field_file"  id="field_file" placeholder="첨부파일">
-																<label for="file">파일찾기</label>
-																<input type="file" id="file">
+																<input class="upload-name"  name="fileName"  id="field_file" placeholder="첨부파일">
+																<label for="file"  name="fileName">파일찾기</label>
+																<input type="file" id="file"  name="fileName">
 															</div>
                                                 </div>
                                                 <div class="col-12">
@@ -271,10 +271,10 @@
 		</script>
 		<script>
 	
-	$("#file").on('change',function(){
+	/* $("#file").on('change',function(){
 		var fileName = $("#file").val();
 		$(".upload-name").val(fileName);
-	  });
+	  }); */
 	
 	</script>
 	</body>
