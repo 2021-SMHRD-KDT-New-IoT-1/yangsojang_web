@@ -1,6 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,19 +18,23 @@ public class transeService extends HttpServlet {
 		
 		String data = request.getParameter("data");
 		System.out.println(data);
+		
 		noticeDAO noticedao = new noticeDAO();
-		String notice_check = noticedao.selectOne();
-		
-		
-		/*
-		 * if(notice_check.equals("1")) { notice_check = dao.Alert_cnt_1(); PrintWriter
-		 * out = response.getWriter(); out.print(alert_cnt);
-		 * 
-		 * 
-		 * System.out.println(alert_cnt);
-		 * 
-		 * } PrintWriter out = response.getWriter(); out.print(alert_cnt);
-		 */
+		int alert_cnt = noticedao.gasOne();
+		 
+		 if(alert_cnt==1) {
+			 noticedao.Alert_cnt_1();
+				PrintWriter out = response.getWriter();
+		        out.print(alert_cnt);
+		        
+		        
+		        System.out.println(alert_cnt);
+		        
+			}
+			PrintWriter out = response.getWriter();
+			out.print(alert_cnt);
+		  
+		 
 		
 		
 	}

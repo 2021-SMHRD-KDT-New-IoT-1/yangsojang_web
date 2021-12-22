@@ -114,18 +114,65 @@ public class noticeDAO {
 			try {
 				connection();
 				
-				String sql = "update tbl_notice set notice_check='0' where manager_no in (select max(manager_no) from inte_tbl)";
+				String sql = "update tbl_notice set notice_check='0'";
 				psmt = conn.prepareStatement(sql);
 			
 				psmt.executeUpdate();
 			} catch (Exception e) {
-				System.out.println("수정 실패!");
+				System.out.println("0으로 수정 실패!");
 				e.printStackTrace();
 			}finally {
 				close();
 			}
 			return notice_check;
 		}
+	   
+	   public int gasOne() {
+			int alert_cnt = 0;
+			
+			try {
+				connection();
+				
+				String sql = "select alert_cnt from tbl_notice where alert_cnt in (select max(notice_seq) from tbl_notice)";
+				psmt = conn.prepareStatement(sql);
+							
+				rs = psmt.executeQuery();
+				
+				while(rs.next()) {
+					System.out.println("최신 데이터 불러오기 성공!");
+					
+					alert_cnt = rs.getInt("alert_cnt");
+				}	
+					
+				} catch (Exception e) {
+					System.out.println("최신 데이터 조회 실패!");
+					e.getStackTrace();
+				}finally {
+					close();
+				}
+				return alert_cnt;
+			
+		}
+	   
+	   public void Alert_cnt_1() {
+		   int alert_cnt;
+			try {
+				connection();
+				
+				String sql = "update tbl_notice set alert_cnt='0' where alert_cnt in (select max(notice_seq) from tbl_notice)";
+				psmt = conn.prepareStatement(sql);
+			
+				psmt.executeUpdate();
+			} catch (Exception e) {
+				System.out.println("수정 실패!");
+				e.printStackTrace();
+				
+			}finally {
+				close();
+			}
+			
+		}
+	   
 	   
 	 
 }
