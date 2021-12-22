@@ -1,3 +1,5 @@
+<%@page import="com.model.safeboxVO"%>
+<%@page import="com.model.safeboxDAO"%>
 <%@page import="com.model.boardDAO"%>
 <%@page import="com.model.boardVO"%>
 <%@page import="com.model.adminDAO"%>
@@ -34,6 +36,12 @@
 			adminVO vo = (adminVO)session.getAttribute("admin");
 			adminDAO dao = new adminDAO();
 			
+			int mnt_seq = (int)session.getAttribute("mnt_seq_session");
+			boardDAO boarddao = new boardDAO();
+			boardVO boardvo = boarddao.board_all(mnt_seq);
+			
+			safeboxDAO safeboxdao = new safeboxDAO();
+			safeboxVO safeboxvo = safeboxdao.safeboxSelect(boardvo.getDevice_seq());
 			%>
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -60,44 +68,34 @@
 										<div class="board_view_wrap">
 											<div class="board_view">
 												<div class="title">
-													글 제목이 들어갑니다.
+													<%=boardvo.getMnt_title() %>
 												</div>
 												<div class="info">
 													<dl>
-														<dt>번호</dt>
-
-														<dd></dd>
-
-														<dd><%= %></dd>
+														<dt>글번호</dt>
+														<dd><%=boardvo.getMnt_seq() %></dd>
 
 													</dl>
 													<dl>
 														<dt>관리자ID</dt>
-														<dd><%=vo.getAdmin_id() %></dd>
+														<dd><%=boardvo.getAdmin_id() %></dd>
 													</dl>
 													<dl>
 														<dt>작성일</dt>
-														<dd>vo2.get</dd>
+														<dd><%=boardvo.getMnt_date() %></dd>
 													</dl>
 													<dl>
-														<dt>조회</dt>
-														<dd>33</dd>
+														<dt>SAFEBOX ID</dt>
+														<dd><%=safeboxvo.getDevice_id() %></dd>
 													</dl>
+													
 												</div>
-												<div class="cont">
-													글 내용이 들어갑니다<br>
-													글 내용이 들어갑니다<br>
-													글 내용이 들어갑니다<br>
-													글 내용이 들어갑니다<br>
-													글 내용이 들어갑니다<br>
-													글 내용이 들어갑니다<br>
-													글 내용이 들어갑니다<br>
-													글 내용이 들어갑니다
-												</div>
+												<div class="cont"><img src = "<%=boardvo.getMnt_file() %>"></div>
+												<div class="cont"><%=boardvo.getMnt_content() %></div>
 											</div>
 												<ul class="pagination">
-													<a href="board_list.jsp" ><input type="submit" value="목록" class="primary" /></a>
-													<a href="board_edit.jsp" ><input type="submit" value="수정" class="primary" /></a>	
+													<a href="board_list.jsp" class="button">목록</a>
+													<!-- <a href="board_edit.jsp" ><input type="submit" value="수정" class="primary" /></a> -->	
 												</ul>
 										</div>
 									</div>

@@ -48,7 +48,7 @@
 									<ul class="icons">
 										<li><a href="fieldlist.jsp" class="logo"><span class="label"><strong>현장목록</strong></span></a></li>
                               			
-                                        <li><a href="board_list.jsp"" class="logo"><span class="label">관리일지</span></a></li>  										
+                                        <li><a href="board_list.jsp" class="logo"><span class="label">관리일지</span></a></li>  										
 									</ul>
 								</header>
 
@@ -63,7 +63,6 @@
                                                     <th>번호</th>
                                                     <th>SAFEBOX ID</th>
                                                     <th>SAFEBOX 위치</th>
-                                                    
                                                     <th>알림 내용 </th>
                                                     <th>알림 날짜</th>
                                                     <th>확인</th>
@@ -77,7 +76,6 @@
                                                     <td><%=noticevo.getNotice_seq() %></td>
                                                     <td><%=safeboxvo.getDevice_id() %></td>
                                                     <td><%=safeboxvo.getDevice_location() %></td>
-                                                    
                                                     <td><%=noticevo.getNotice_content() %></td>
                                                     <td><%=noticevo.getNotice_date() %></td>
                                                     <td><a href="#" class="logo" style="outline: none; text-decoration: none;">이동</a></td>
