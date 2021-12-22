@@ -61,7 +61,7 @@
                                                     <input type="text" name="admin_phone" id="admin_phone" placeholder="傈拳锅龋" />
                                                 </div>   
                                            		<div class="col-12">
-                                                	<input type="text" name="admin_dept" id="admin_dept" value="" placeholder="家加" />
+                                                	<input type="text" name="admin_dept" id="admin_dept" placeholder="家加" />
                                            		</div>
                                            
                                             <div class="col-12" style="text-align: center;">

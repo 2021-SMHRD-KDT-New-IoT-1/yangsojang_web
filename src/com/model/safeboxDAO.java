@@ -20,6 +20,7 @@ public class safeboxDAO {
 	safeboxVO vo1_safebox = null;
 	ArrayList<safeboxVO> safebox_array_all = null;
 	safeboxVO vo2_safebox = null;
+	safeboxVO vo3_safebox = null;
 	
 	   public void connection() {
 	      try {
@@ -186,4 +187,36 @@ public class safeboxDAO {
 		      return cnt;
 		   }
 	   
+		public safeboxVO safeboxSelect(int device_seq) {
+		       
+            try {
+               connection();
+               
+               String sql = "select device_id, device_location from tbl_device where device_seq=?";
+               psmt = conn.prepareStatement(sql);
+                        
+               psmt.setInt(1, device_seq);  
+               
+               rs = psmt.executeQuery();
+               
+               while(rs.next()) {
+                  System.out.println("safeboxSelect 불러오기 성공..");
+                  
+                  String get_device_id = rs.getString("device_id");
+                  String get_device_location = rs.getString("device_location");
+                  
+                  
+                  vo3_safebox = new safeboxVO(get_device_id, get_device_location);
+               }   
+               
+            } catch (Exception e) {
+               System.out.println("safeboxSelect 불러오기 실패..");
+               e.printStackTrace();
+            }finally {
+               close();
+               }
+            return vo3_safebox;
+            
+         }   
+		
 }

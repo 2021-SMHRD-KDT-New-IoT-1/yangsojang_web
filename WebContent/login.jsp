@@ -235,8 +235,8 @@
 				}
 				
 				function login() {
-					let admin_id = document.getElementById("admin_id");
-					let admin_pwd = document.getElementById("admin_pwd");
+					var admin_id = document.getElementById("admin_id");
+					var admin_pwd = document.getElementById("admin_pwd");
 					
 					$.ajax({
 						type : "post", //데이터 전송 요청 방식
@@ -265,12 +265,12 @@
 				
 				function join() {
 					
-					let admin_id = document.getElementById("admin_id");
-					let admin_pwd = document.getElementById("admin_pwd");
-					let admin_name = document.getElementById("admin_name");
-					let admin_phone = document.getElementById("admin_phone");
-					let admin_email = document.getElementById("admin_email");
-					let admin_dept = document.getElementById("admin_dept");
+					var admin_id = document.getElementById("admin_id");
+					var admin_pwd = document.getElementById("admin_pwd");
+					var admin_name = document.getElementById("admin_name");
+					var admin_phone = document.getElementById("admin_phone");
+					var admin_email = document.getElementById("admin_email");
+					var admin_dept = document.getElementById("admin_dept");
 									
 					$.ajax({
 						type : "post", //데이터 전송 요청 방식

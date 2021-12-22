@@ -27,6 +27,8 @@ public class joinServlet extends HttpServlet {
 				String admin_phone = request.getParameter("admin_phone");
 				String admin_email = request.getParameter("admin_email");
 				String admin_dept = request.getParameter("admin_dept"); 
+				System.out.println(admin_id);
+				System.out.println(admin_pwd);
 				
 				adminDAO dao = new adminDAO();
 				int cnt = dao.join(admin_id, admin_pwd, admin_name, admin_phone, admin_email,admin_dept);

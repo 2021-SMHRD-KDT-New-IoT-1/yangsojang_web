@@ -28,11 +28,45 @@ request.setCharacterEncoding("euc-kr");
 		String admin_email = request.getParameter("admin_email");
 		String admin_dept = request.getParameter("admin_dept");
 	
-		// String user_no = request.getParameter("user_no");
+		String admin_pwd_result;
+		String admin_name_result;
+		String admin_phone_result;
+		String admin_email_result;
+		String admin_dept_result;
+		
+		if(admin_pwd!="") {
+			admin_pwd_result = admin_pwd;
+		}else {
+			admin_pwd_result = vo.getAdmin_pwd();
+		}
+		
+		if(admin_name!="") {
+			admin_name_result = admin_name;
+		}else {
+			admin_name_result = vo.getAdmin_name();
+		}
+		
+		if(admin_phone!="") {
+			admin_phone_result = admin_phone;
+		}else {
+			admin_phone_result = vo.getAdmin_phone();
+		}
+		
+		if(admin_email!="") {
+			admin_email_result = admin_email;
+		}else {
+			admin_email_result = vo.getAdmin_email();
+		}
+		
+		if(admin_dept!="") {
+			admin_dept_result = admin_dept;
+		}else {
+			admin_dept_result = vo.getAdmin_phone();
+		}
 		
 
 		adminDAO dao = new adminDAO();
-		int cnt = dao.update(admin_pwd, admin_name, admin_phone, admin_email, admin_dept, admin_id);
+		int cnt = dao.update(admin_pwd_result, admin_name_result, admin_phone_result, admin_email_result, admin_dept_result, admin_id);
 		
 		if(cnt>0) {
 			System.out.println("수정 성공");
