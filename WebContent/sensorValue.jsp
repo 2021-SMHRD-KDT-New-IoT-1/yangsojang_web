@@ -109,30 +109,8 @@ table .ttbody {
 											<label class="toggle__label" for="toggle1"><p>무언가 주의사항이 써져있다. 주의사항을 충분히 읽은 후 이 곳을 클릭해 주세요.</p></label>
 										</div>
 									</div>
-									<div>
-										<h3>무언가 추가기능 on/off</h3>
-										<div class="toggle toggle--on-off">
-											<div class="toggle__switch">
-												<input class="toggle__checkbox" id="toggle2" type="checkbox"
-													name="toggle2" /><span class="toggle__handle"></span><span
-													class="toggle__backdrop"></span>
-											</div>
-											<label class="toggle__label" for="toggle2">추가기능에 대한 설명이 주저리주저리 써져있다. 
-											사용자가 바로 읽어서 충분히 반복적으로 숙지하게 하기 위함이다. </label>
-										</div>
-									</div>
-									<div>
-										<h3>모드 선택</h3>
-										<div class="toggle toggle--left-right is-left-selected">
-											<label class="toggle__option" for="toggle3">모드1</label>
-											<div class="toggle__switch">
-												<input class="toggle__checkbox" id="toggle3" type="checkbox"
-													name="toggle3" /><span class="toggle__handle"></span><span
-													class="toggle__backdrop"></span>
-											</div>
-											<label class="toggle__option" for="toggle3">모드2</label>
-										</div>
-									</div>
+									
+									
 								</div>
 
 							</div>
