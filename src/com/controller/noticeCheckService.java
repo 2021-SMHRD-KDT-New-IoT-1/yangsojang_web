@@ -20,6 +20,7 @@ public class noticeCheckService extends HttpServlet {
 		
 		noticeDAO dao = new noticeDAO();
 		String notice_check = dao.selectOne();
+		System.out.println(notice_check);
 		
 		if(notice_check.equals("1")) {
 			response.setContentType("application/x-json; charset=EUC-KR");
