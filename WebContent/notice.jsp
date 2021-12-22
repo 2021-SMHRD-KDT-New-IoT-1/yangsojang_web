@@ -237,7 +237,7 @@
 							}
 						});
 						
-						/*  $.ajax({
+						  $.ajax({
 							type : "get", 
 							url : "transeService", 
 							dataType : "text",
@@ -247,7 +247,7 @@
 							},
 							error : function(){
 							}
-						});  */
+						});  
 					
 					}, 1000);
 					

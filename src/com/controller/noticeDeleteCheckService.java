@@ -19,7 +19,7 @@ public class noticeDeleteCheckService extends HttpServlet {
 		
 		if(check.equals("on")) {
 			noticeDAO dao = new noticeDAO();
-			/* dao.notice_check_0(); */
+			dao.notice_check_0(); 
 		}
 		
 		
