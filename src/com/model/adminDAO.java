@@ -122,7 +122,7 @@ public class adminDAO {
 	         psmt.setString(3, admin_phone);
 	         psmt.setString(4, admin_email);
 	         psmt.setString(5, admin_dept);
-	         psmt.setNString(6, admin_id);
+	         psmt.setString(6, admin_id);
 	        
 	         cnt = psmt.executeUpdate();
 	         

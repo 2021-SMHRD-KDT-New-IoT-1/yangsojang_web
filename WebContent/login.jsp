@@ -52,10 +52,10 @@
 									<form method="post" action="#">
                                         <div class="row gtr-uniform">
                                             <div class="col-6 col-12-xsmall" style="text-align: center;">
-                                                <input type="text" name="admin_id" id="admin_id" value="" placeholder="아이디" />
+                                                <input type="text" name="admin_id" id="admin_idl" value="" placeholder="아이디" />
                                             </div>
                                             <div class="col-6 col-12-xsmall" style="text-align: center;">
-                                                <input type="password" name="admin_pwd" id="admin_pwd" value="" placeholder="비밀번호" />
+                                                <input type="password" name="admin_pwd" id="admin_pwdl" value="" placeholder="비밀번호" />
                                             </div>
                                         
                                             <!-- Break -->
@@ -77,13 +77,13 @@
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
                                                 <div class="col-6 col-12-xsmall">                                              
-													<input type="text" name="admin_id" id="admin_id"  placeholder="아이디" />
+													<input type="text" name="admin_id" id="admin_idj"  placeholder="아이디" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
                                                     <input type="button" onclick="idCheck()" value="ID 중복체크" class="primary" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="password" name="admin_pwd" id="admin_pwd"  placeholder="비밀번호" />
+                                                    <input type="password" name="admin_pwd" id="admin_pwdj"  placeholder="비밀번호" />
                                                 </div>
 												<div class="col-6 col-12-xsmall">
                             
@@ -215,7 +215,7 @@
 			<script>
 				function idCheck() {
 					
-					var input = document.getElementById("admin_id");
+					var input = document.getElementById("admin_idj");
 					
 					$.ajax({
 						type : "post", //데이터 전송 요청 방식
@@ -235,8 +235,8 @@
 				}
 				
 				function login() {
-					var admin_id = document.getElementById("admin_id");
-					var admin_pwd = document.getElementById("admin_pwd");
+					var admin_id = document.getElementById("admin_idl");
+					var admin_pwd = document.getElementById("admin_pwdl");
 					
 					$.ajax({
 						type : "post", //데이터 전송 요청 방식
@@ -265,8 +265,8 @@
 				
 				function join() {
 					
-					var admin_id = document.getElementById("admin_id");
-					var admin_pwd = document.getElementById("admin_pwd");
+					var admin_id = document.getElementById("admin_idj");
+					var admin_pwd = document.getElementById("admin_pwdj");
 					var admin_name = document.getElementById("admin_name");
 					var admin_phone = document.getElementById("admin_phone");
 					var admin_email = document.getElementById("admin_email");

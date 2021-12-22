@@ -28,6 +28,28 @@ public class fieldUpdateService extends HttpServlet {
 		HttpSession session = request.getSession();
 		int field_seq = (int)session.getAttribute("field_seq_session_again");
 		
+		String field_name_result;
+		String field_addr_result;
+		String field_memo_result;
+		
+		if(field_name=="" || field_name == null) {
+			
+		}else {
+			field_name_result = field_name;
+		}
+		
+		if(field_addr=="" || field_addr == null) {
+					
+		}else {
+			field_addr_result = field_addr;
+		}
+		
+		if(field_memo=="" || field_memo == null) {
+			
+		}else {
+			field_memo_result = field_memo;
+		}
+		
 			
 		fieldDAO dao = new fieldDAO();
 		int cnt = dao.fieldUpdate(field_name, field_addr, field_memo, field_seq);
