@@ -17,6 +17,10 @@ public class fieldDAO {
    fieldVO vo3_field = null;
    ArrayList<fieldVO> array_field_all = null;
    String site_name;
+   String realFolder="";
+   String saveFolder = "bbsUpload";		//사진을 저장할 경로
+   String encType = "utf-8";				//변환형식
+   int maxSize=5*1024*1024;				//사진의 size
 
    // 커넥션 함수 생성
    public void connection() {
