@@ -15,6 +15,38 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
+	<style>
+	.filebox .upload-name {
+			margin-top : 30px;
+			display: inline-block;
+			height: 40px;
+			padding: 0 10px;
+			vertical-align: middle;
+			margin-bottom: 12px;
+			border: 1px solid #dddddd;
+			width: 50%;
+			color: #999999;
+		}
+		.filebox label {
+			margin-top : 30px;
+			display: inline-block;
+			padding: 10px 20px;
+			color: #fff;
+			vertical-align: middle;
+			background-color: #999999;
+			cursor: pointer;
+			height: 40px;
+			margin-left: 10px;
+		}
+		.filebox input[type="file"] {
+    		position: absolute;
+    		width: 0;
+    		height: 0;
+    		padding: 0;
+    		overflow: hidden;
+    		border: 0;
+		}
+	</style>
 	
 	<body class="is-preload">
 			<%
@@ -47,11 +79,15 @@
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
                                                 <div class="col-6 col-12-xsmall"> 
-                                               
-                                                    <input type="text" name="field_name" id="field_name"  placeholder="현장명" />
+                                                    <input type="text" name="field_name" id="field_name"  placeholder="현장명" /><br>
+                                                    <input type="text" name="field_addr" id="field_addr"  placeholder="주소" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="field_addr" id="field_addr"  placeholder="주소" />
+                                                    <div class="filebox">
+																<input class="upload-name" name ="mnt_file"  placeholder="첨부파일">
+																<label for="file">파일찾기</label>
+																<input type="file" id="file">
+															</div>
                                                 </div>
                                                 <div class="col-12">
                                                     <textarea name="field_memo" id="field_memo" placeholder="메모" rows="6"></textarea>
@@ -231,5 +267,13 @@
 		
 			
 		</script>
+		<script>
+	
+	$("#file").on('change',function(){
+		var fileName = $("#file").val();
+		$(".upload-name").val(fileName);
+	  });
+	
+	</script>
 	</body>
 </html>

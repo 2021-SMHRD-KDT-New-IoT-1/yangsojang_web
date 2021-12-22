@@ -52,7 +52,7 @@
 					<div class="posts"> 
 					<%for(fieldVO vo1_field : array_field_all){%>
 						<article>
-							<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+							<div title = "소연이는 예쁘다!"><a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a></div>
 							<h3><%=vo1_field.getField_seq() %>. <%=vo1_field.getField_name() %></h3>
 							<p><%=vo1_field.getField_addr() %></p>
 							<ul class="actions">
