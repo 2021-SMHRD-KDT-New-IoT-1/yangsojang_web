@@ -191,42 +191,29 @@
 			<script src="assets/js/main.js"></script>
 			
 			<script>
-				/* function gascheck() {	
+				 function gascheck() {	
 					setInterval() => {
 						$.ajax({
 							type : "get", //데이터 전송 요청 방식
 							/* data : {"email" : input.value}, 전송하는 데이터 */
-							url : "oneSelectGas", //데이터를 전송, 요청하는 서버 페이지
+							url : "noticeCheckService", //데이터를 전송, 요청하는 서버 페이지
 							dataType : "text", //응답데이터의 형식
 							success : function(data){ //통신 성공
 								
-								if(data=="0"){
+								if(data=="1"){
 									let check = confirm("랄랄");
 									if(check){
-										window.location.href = "myMember.jsp";
+										window.location.href = "notice.jsp";
 									}							
 								}
 							},
 							error : function(){ //통신 실패
 							}
 						});
-						
-						//=======
-						$.ajax({
-							type : "get", 
-							url : "transeService", 
-							dataType : "text",
-							data : {'data' : '통신 성공'},
-							success : function(data){ 
-								console.log(data)
-							},
-							error : function(){
-							}
-						});
 					}, 1000);
 					
 				}
-				gascheck(); */
+				gascheck(); 
 			</script>
 
 	</body>
