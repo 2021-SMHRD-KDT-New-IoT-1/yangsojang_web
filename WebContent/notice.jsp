@@ -73,7 +73,7 @@
                                             <% for(noticeVO noticevo : notice_array) {
                                             	safeboxVO safeboxvo = safeboxdao.safeboxSelect(noticevo.getDevice_seq());%>
                                                 <tr>
-                                                    <td><%=noticevo.getNotice_seq() %></td>
+                                                    <td><%=noticevo.getDevice_seq() %></td>
                                                     <td><%=safeboxvo.getDevice_id() %></td>
                                                     <td><%=safeboxvo.getDevice_location() %></td>
                                                     <td><%=noticevo.getNotice_content() %></td>
