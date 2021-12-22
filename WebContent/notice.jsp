@@ -229,9 +229,7 @@
 									let check = confirm("※위험※  유출 현황을 확인해주세요!!  ※위험※");
 									if(check){
 										window.location.href = "notice.jsp";
-										<%
-											noticedao.Alert_cnt_1();
-										%>
+										
 									}							
 								}
 							},
@@ -239,7 +237,7 @@
 							}
 						});
 						
-						/* $.ajax({
+						/*  $.ajax({
 							type : "get", 
 							url : "transeService", 
 							dataType : "text",
@@ -249,7 +247,7 @@
 							},
 							error : function(){
 							}
-						}); */
+						});  */
 					
 					}, 1000);
 					

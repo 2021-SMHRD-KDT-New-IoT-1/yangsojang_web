@@ -18,16 +18,16 @@ public class gasgasCheck extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		noticeDAO dao = new noticeDAO();
-		int alert_cnt = dao.gasOne();	
+		int notice_check = dao.gasOne();	
+		System.out.println(notice_check);
 		
-		
-		if(alert_cnt==1) {
+		if(notice_check==1) {
 			response.setContentType("application/x-json; charset=EUC-KR");
 	        PrintWriter out = response.getWriter();
-	        out.print(alert_cnt);
+	        out.print(notice_check);
 	        
 	        
-	        System.out.println(alert_cnt);
+	        System.out.println(notice_check);
 	        
 		}else {
 			
