@@ -14,6 +14,7 @@ public class boardDAO {
 		ArrayList<boardVO> board_array = null;
 		boardVO vo_board = null;
 		boardVO vo2_board = null;
+		boardVO vo3_board = null;
 		ArrayList<boardVO> boardall = null;
 		
 		
@@ -185,6 +186,43 @@ public class boardDAO {
 		                 close();
 		                 }
 		              return vo2_board;
+		              
+		           }   
+				
+				// 관리 일지 one select(수정페이지에 값띄우기)
+				public boardVO board_all(int mnt_seq) {
+			         
+		              try {
+		                 connection();
+		                 
+		                 String sql = "select mnt_seq, mnt_title,mnt_content,mnt_file, device_seq, admin_id, mnt_date from tbl_device_mnt where mnt_seq=?";
+		                 psmt = conn.prepareStatement(sql);
+		                          
+		                 psmt.setInt(1, mnt_seq);  
+		                 
+		                 rs = psmt.executeQuery();
+		                 
+		                 while(rs.next()) {
+		                    System.out.println("관리일지  불러오기 성공..");
+		                    
+		                    int get_mnt_seq = rs.getInt("mnt_seq");
+		                    String get_mnt_title = rs.getString("mnt_title");
+		                    String get_mnt_content = rs.getString("mnt_content");
+		                    String get_mnt_file = rs.getString("mnt_file");
+		                    int get_device_seq = rs.getInt("device_seq");
+		                    String get_admin_id = rs.getString("admin_id");
+		                    String get_mnt_date = rs.getString("mnt_date");
+		                    
+		                    vo3_board = new boardVO(get_mnt_seq, get_mnt_title, get_mnt_content, get_mnt_file, get_device_seq, get_admin_id, get_mnt_date);
+		                 }   
+		                 
+		              } catch (Exception e) {
+		                 System.out.println("관리일지  불러오기 실패..");
+		                 e.printStackTrace();
+		              }finally {
+		                 close();
+		                 }
+		              return vo3_board;
 		              
 		           }   
 				

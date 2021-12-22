@@ -121,6 +121,7 @@
 													</dl>
 												</div>
 												<div class="cont">
+													<img src="<%=boardvo.getMnt_file() %>">
 													<textarea placeholder="내용 입력" name="mnt_content"><%=boardvo.getMnt_content() %></textarea>
 												</div>
 											</div>

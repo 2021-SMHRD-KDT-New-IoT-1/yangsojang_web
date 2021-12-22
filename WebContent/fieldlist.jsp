@@ -6,6 +6,11 @@
 <%@page import="com.model.adminDAO"%>
 <%@page import="com.model.adminVO"%>
 
+<%@ page import="java.io.File" %>
+<%@ page import="java.util.Enumeration" %>
+<%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@ page import="com.oreilly.servlet.MultipartRequest"%>
+
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
@@ -19,6 +24,7 @@
 <!-- bootStrap의 css를 사용하겠다 명시 -->
 <link rel="stylesheet" href="assets/css/main.css" />
 </head>
+
 <body class="is-preload">
 
 			<%
@@ -28,6 +34,8 @@
 			
 			fieldDAO fielddao = new fieldDAO();
 		 	ArrayList<fieldVO> array_field_all = fielddao.fieldAllList();
+		 	
+		 	
 			%>
 
 	<div id="wrapper">
@@ -52,11 +60,12 @@
 					<div class="posts"> 
 					<%for(fieldVO vo1_field : array_field_all){%>
 						<article>
-							<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+							<a href="#" class="image"><img src="images/pic01.jpg" ></a>
+							
 							<h3><%=vo1_field.getField_seq() %>. <%=vo1_field.getField_name() %></h3>
 							<p><%=vo1_field.getField_addr() %></p>
 							<ul class="actions">
-								<li><a href="sensorValue.jsp" class="button primary"
+								<li><a href="sensorValueCheckService?field_seq=<%=vo1_field.getField_seq()%>" class="button primary"
 									style="margin-right: 10px;">SAFEBOX 확인</a>
 									<a href="fieldUpdateCheckService?field_seq=<%=vo1_field.getField_seq()%>" class="button"
 									style="margin-right: 10px;">현장 정보 수정</a>
@@ -98,7 +107,6 @@
 										<%}else{ %>
 										
 										<li><a href="mypage.jsp">회원정보수정</a></li>
-																				
 										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
 										<%} %>
 									</ul>

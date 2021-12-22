@@ -20,7 +20,7 @@ public class boardVO {
 		this.mnt_file = mnt_file;
 	}
 	
-	// 관리 일지 작성, view 생성자
+	// 관리 일지 작성, 
 	public boardVO(String mnt_title,String mnt_content,String mnt_file,int device_seq, String admin_id)
 	{
 		this.mnt_title = mnt_title;
@@ -42,6 +42,20 @@ public class boardVO {
 	public boardVO(int mnt_seq, String mnt_title, String admin_id, String mnt_date) {
 		this.mnt_seq = mnt_seq;
 		this.mnt_title = mnt_title;
+		this.admin_id = admin_id;
+		this.mnt_date = mnt_date;
+	}
+	
+	
+	//view 생성자
+	public boardVO(int mnt_seq, String mnt_title, String mnt_content, String mnt_file, int device_seq, String admin_id,
+			String mnt_date) {
+		super();
+		this.mnt_seq = mnt_seq;
+		this.mnt_title = mnt_title;
+		this.mnt_content = mnt_content;
+		this.mnt_file = mnt_file;
+		this.device_seq = device_seq;
 		this.admin_id = admin_id;
 		this.mnt_date = mnt_date;
 	}

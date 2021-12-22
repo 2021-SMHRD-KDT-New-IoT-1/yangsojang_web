@@ -15,7 +15,7 @@ import com.model.adminVO;
 public class updateServlet extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("euc-kr");
 		
 		HttpSession session = request.getSession(); //세션객체 생성
 		adminVO vo = (adminVO)session.getAttribute("admin"); //현재 로그인한 사용자의 정보
@@ -33,35 +33,35 @@ request.setCharacterEncoding("euc-kr");
 		String admin_phone_result;
 		String admin_email_result;
 		String admin_dept_result;
-		
-		if(admin_pwd!="") {
-			admin_pwd_result = admin_pwd;
-		}else {
+				
+		if(admin_pwd=="" || admin_pwd==null) {
 			admin_pwd_result = vo.getAdmin_pwd();
+		}else {
+			admin_pwd_result = admin_pwd;
 		}
 		
-		if(admin_name!="") {
-			admin_name_result = admin_name;
-		}else {
+		if(admin_name=="" || admin_name==null) {
 			admin_name_result = vo.getAdmin_name();
+		}else {
+			admin_name_result = admin_name;
 		}
 		
-		if(admin_phone!="") {
-			admin_phone_result = admin_phone;
-		}else {
+		if(admin_phone=="" || admin_phone==null) {
 			admin_phone_result = vo.getAdmin_phone();
+		}else {
+			admin_phone_result = admin_phone;
 		}
 		
-		if(admin_email!="") {
-			admin_email_result = admin_email;
-		}else {
+		if(admin_email=="" || admin_email==null) {
 			admin_email_result = vo.getAdmin_email();
+		}else {
+			admin_email_result = admin_email;
 		}
 		
-		if(admin_dept!="") {
-			admin_dept_result = admin_dept;
-		}else {
+		if(admin_dept=="" || admin_dept==null) {
 			admin_dept_result = vo.getAdmin_phone();
+		}else {
+			admin_dept_result = admin_dept;
 		}
 		
 
@@ -71,7 +71,7 @@ request.setCharacterEncoding("euc-kr");
 		if(cnt>0) {
 			System.out.println("수정 성공");
 			
-			vo = new adminVO(admin_pwd, admin_name, admin_phone, admin_email, admin_dept);
+			vo = new adminVO(admin_pwd_result, admin_name_result, admin_phone_result, admin_email_result, admin_dept_result);
 			session.setAttribute("admin", vo); //수정한 값으로 업뎃
 			
 			

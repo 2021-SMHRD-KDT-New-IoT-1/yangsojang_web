@@ -48,7 +48,7 @@
 									<ul class="icons">
 										<li><a href="fieldlist.jsp" class="logo"><span class="label"><strong>현장목록</strong></span></a></li>
                               			
-                                        <li><a href="board_list.jsp"" class="logo"><span class="label">관리일지</span></a></li>  										
+                                        <li><a href="board_list.jsp" class="logo"><span class="label">관리일지</span></a></li>  										
 									</ul>
 								</header>
 
@@ -63,7 +63,6 @@
                                                     <th>번호</th>
                                                     <th>SAFEBOX ID</th>
                                                     <th>SAFEBOX 위치</th>
-                                                    
                                                     <th>알림 내용 </th>
                                                     <th>알림 날짜</th>
                                                     <th>확인</th>
@@ -72,18 +71,18 @@
                                             </thead>
                                             <tbody>
                                             <% for(noticeVO noticevo : notice_array) {
-                                            	safeboxVO safeboxvo = safeboxdao.safeboxSelect(noticevo.getDevice_seq());%>
+                                            	safeboxVO safeboxvo = safeboxdao.safeboxSelect(noticevo.getDevice_seq());
+                                            	if(noticevo.getNotice_check()==1){%>
                                                 <tr>
-                                                    <td><%=noticevo.getNotice_seq() %></td>
+                                                    <td><%=noticevo.getDevice_seq() %></td>
                                                     <td><%=safeboxvo.getDevice_id() %></td>
                                                     <td><%=safeboxvo.getDevice_location() %></td>
-                                                    
                                                     <td><%=noticevo.getNotice_content() %></td>
                                                     <td><%=noticevo.getNotice_date() %></td>
                                                     <td><a href="#" class="logo" style="outline: none; text-decoration: none;">이동</a></td>
-                                                    <td><div class="col-6 col-12-small"><input type="checkbox" id="1" name="1"><label for="1"></label></div></td>
+                                                    <td><div class="col-6 col-12-small"><input type="checkbox" id="1" name="1" ><label for="1" ></label></div></td>
                                                 </tr>
-                                                
+                                                	<%} %>
                                                 <%} %>
                                                 
                                             </tbody>
@@ -91,7 +90,7 @@
                                         </table>
                                         <div class="col-12" style="text-align: center;">
                                             <ul class="actions">
-                                                <li><input type="submit" value="확인 완료" class="primary" /></li>
+                                                <li><input type="button" onclick="check()" value="확인 완료" class="primary" /></li>
                                                 
                                                 <!-- <li><input type="reset" value="Reset" /></li> -->
                                             </ul>
@@ -191,6 +190,74 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
+			<script>
+			
+				function check(){
+					
+					var check = document.getElementById("1");
+					console.log(check.value);
+						
+					$.ajax({
+						type : "get", //데이터 전송 요청 방식
+						 data : {"check" : check.value}, 
+						url : "noticeDeleteCheckService", 
+						dataType : "text", //응답데이터의 형식
+						success : function(data){ //통신 성공
+							
+							if(data==""){
+								window.location.href = "notice.jsp";				
+							}
+						},
+						error : function(){ //통신 실패
+						}
+					});
+					
+				}
+				
+				
+				function gascheck() {	
+					setInterval(() => {
+						$.ajax({
+							type : "get", 
+							/* data : {"email" : input.value}, */
+							url : "gasgasCheck", 
+							dataType : "text", 
+							success : function(data){
+								
+								if(data=="1"){
+									let check = confirm("※위험※  유출 현황을 확인해주세요!!  ※위험※");
+									if(check){
+										window.location.href = "notice.jsp";
+										
+									}							
+								}
+							},
+							error : function(){ //통신 실패
+							}
+						});
+						
+						/*  $.ajax({
+							type : "get", 
+							url : "transeService", 
+							dataType : "text",
+							data : {'data' : '통신 성공'},
+							success : function(data){ 
+								console.log(data)
+							},
+							error : function(){
+							}
+						});  */
+					
+					}, 1000);
+					
+				}
+				gascheck();
+				
+			
+			
+				
+			</script>
 
 	</body>
 </html>

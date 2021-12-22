@@ -15,6 +15,38 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
+	<style>
+	.filebox .upload-name {
+			margin-top : 30px;
+			display: inline-block;
+			height: 40px;
+			padding: 0 10px;
+			vertical-align: middle;
+			margin-bottom: 12px;
+			border: 1px solid #dddddd;
+			width: 50%;
+			color: #999999;
+		}
+		.filebox label {
+			margin-top : 30px;
+			display: inline-block;
+			padding: 10px 20px;
+			color: #fff;
+			vertical-align: middle;
+			background-color: #999999;
+			cursor: pointer;
+			height: 40px;
+			margin-left: 10px;
+		}
+		.filebox input[type="file"] {
+    		position: absolute;
+    		width: 0;
+    		height: 0;
+    		padding: 0;
+    		overflow: hidden;
+    		border: 0;
+		}
+	</style>
 	
 	<body class="is-preload">
 			<%
@@ -43,15 +75,19 @@
 
 									<!-- <span class="image main"><img src="images/pic11.jpg" alt="" /></span> -->
 
-									<form method="post" action="#">
+									<form method="post"  encType = "multipart/form-data" method="post" action="fieldlist.jsp">
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
                                                 <div class="col-6 col-12-xsmall"> 
-                                               
-                                                    <input type="text" name="field_name" id="field_name"  placeholder="현장명" />
+                                                    <input type="text" name="field_name" id="field_name"  placeholder="현장명" /><br>
+                                                    <input type="text" name="field_addr" id="field_addr"  placeholder="주소" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="field_addr" id="field_addr"  placeholder="주소" />
+                                                    <div class="filebox">
+																<input class="upload-name"  name="fileName"  id="field_file" placeholder="첨부파일">
+																<label for="file"  name="fileName">파일찾기</label>
+																<input type="file" id="file"  name="fileName">
+															</div>
                                                 </div>
                                                 <div class="col-12">
                                                     <textarea name="field_memo" id="field_memo" placeholder="메모" rows="6"></textarea>
@@ -192,6 +228,7 @@
 				
 				let field_name = document.getElementById("field_name");
 				let field_addr = document.getElementById("field_addr");
+				let field_file = document.getElementById("field_file");
 				let field_memo = document.getElementById("field_memo");
 				
 				//if(field_name!="" && field_addr != ""){
@@ -201,6 +238,7 @@
 						type : "post", //데이터 전송 요청 방식
 						data : {"field_name" : field_name.value,
 							"field_addr" : field_addr.value,
+							"field_file" : field_file.value,
 							"field_memo" : field_memo.value
 							}, //전송하는 데이터
 						url : "fieldAddCheckService", //데이터를 전송, 요청하는 서버 페이지
@@ -231,5 +269,13 @@
 		
 			
 		</script>
+		<script>
+	
+	/* $("#file").on('change',function(){
+		var fileName = $("#file").val();
+		$(".upload-name").val(fileName);
+	  }); */
+	
+	</script>
 	</body>
 </html>
