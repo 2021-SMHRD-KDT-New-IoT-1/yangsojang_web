@@ -119,6 +119,7 @@
 															</div></dd>				
 													</dl>
 												</div>
+												
 												<div class="cont">
 													<textarea placeholder="내용 입력" name="mnt_content"></textarea>
 												</div>

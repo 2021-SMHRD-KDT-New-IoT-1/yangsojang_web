@@ -48,7 +48,7 @@
 									<ul class="icons">
 										<li><a href="fieldlist.jsp" class="logo"><span class="label"><strong>현장목록</strong></span></a></li>
                               			
-                                        <li><a href="board_list.jsp"" class="logo"><span class="label">관리일지</span></a></li>  										
+                                        <li><a href="board_list.jsp" class="logo"><span class="label">관리일지</span></a></li>  										
 									</ul>
 								</header>
 
@@ -189,6 +189,45 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
+			<script>
+				/* function gascheck() {	
+					setInterval() => {
+						$.ajax({
+							type : "get", //데이터 전송 요청 방식
+							/* data : {"email" : input.value}, 전송하는 데이터 */
+							url : "oneSelectGas", //데이터를 전송, 요청하는 서버 페이지
+							dataType : "text", //응답데이터의 형식
+							success : function(data){ //통신 성공
+								
+								if(data=="0"){
+									let check = confirm("랄랄");
+									if(check){
+										window.location.href = "myMember.jsp";
+									}							
+								}
+							},
+							error : function(){ //통신 실패
+							}
+						});
+						
+						//=======
+						$.ajax({
+							type : "get", 
+							url : "transeService", 
+							dataType : "text",
+							data : {'data' : '통신 성공'},
+							success : function(data){ 
+								console.log(data)
+							},
+							error : function(){
+							}
+						});
+					}, 1000);
+					
+				}
+				gascheck(); */
+			</script>
 
 	</body>
 </html>

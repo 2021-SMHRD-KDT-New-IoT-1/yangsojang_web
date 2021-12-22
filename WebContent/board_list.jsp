@@ -76,7 +76,15 @@
 												<%for(boardVO vo_board : boardall){%>
 												<div>
 													<div class="num"><%=vo_board.getMnt_seq() %></div>
-													<div class="title"><a href="boardEditCheckService?mnt_seq=<%=vo_board.getMnt_seq()%>"><%=vo_board.getMnt_title() %></a></div>
+													<% if(vo.getAdmin_id().equals(vo_board.getAdmin_id()) ){  %>
+													<div class="title">
+													<a href="boardEditCheckService?mnt_seq=<%=vo_board.getMnt_seq() %>"><%=vo_board.getMnt_title() %></a>
+													</div>
+													<%}else{ %>
+													<div class="title">
+													<a href="boardViewCheckService?mnt_seq=<%=vo_board.getMnt_seq() %>"><%=vo_board.getMnt_title() %></a>
+													</div>
+													<%} %>
 													<div class="writer"><%=vo_board.getAdmin_id() %></div>
 													<div class="date"><%=vo_board.getMnt_date() %></div>
 													<%-- <div class="count"><a href="boardEditCheckService?mnt_seq=<%=vo_board.getMnt_seq()%>" class="button">수정</a></div> --%>
@@ -84,19 +92,7 @@
 												<%}%>
 											</div>
 											<br><br><br>
-											<!-- <div>
-											<ul class="pagination">
-												<li><span class="button disabled">이전</span></li>
-												<li><a href="#" class="page active">1</a></li>
-												<li><a href="#" class="page">2</a></li>
-												<li><a href="#" class="page">3</a></li>
-												<li><span>&hellip;</span></li>
-												<li><a href="#" class="page">8</a></li>
-												<li><a href="#" class="page">9</a></li>
-												<li><a href="#" class="page">10</a></li>
-												<li><a href="#" class="button">다음</a></li>
-											</ul>
-											</div> -->
+											
 											<ul class="pagination">
 											<a href="board_write.jsp" class="button">등록</a>
 											</ul>	
