@@ -24,13 +24,43 @@ public class fieldUpdateService extends HttpServlet {
 		String field_name = request.getParameter("field_name");
 		String field_addr = request.getParameter("field_addr");
 		String field_memo = request.getParameter("field_memo");
+		String field_file = request.getParameter("field_file");
 		
 		HttpSession session = request.getSession();
 		int field_seq = (int)session.getAttribute("field_seq_session_again");
 		
+		String field_name_result;
+		String field_addr_result;
+		String field_memo_result;
+		String field_file_result;
+		
+		if(field_name=="" || field_name == null) {
+			
+		}else {
+			field_name_result = field_name;
+		}
+		
+		if(field_addr=="" || field_addr == null) {
+					
+		}else {
+			field_addr_result = field_addr;
+		}
+		
+		if(field_memo=="" || field_memo == null) {
+			
+		}else {
+			field_memo_result = field_memo;
+		}
+		
+		if(field_file=="" || field_file == null) {
+			
+		}else {
+			field_file_result = field_file;
+		}
+		
 			
 		fieldDAO dao = new fieldDAO();
-		int cnt = dao.fieldUpdate(field_name, field_addr, field_memo, field_seq);
+		int cnt = dao.fieldUpdate(field_name, field_addr, field_memo, field_file, field_seq);
 		
 		if(cnt>0) {
 			System.out.println("현장 정보 수정 성공!");
