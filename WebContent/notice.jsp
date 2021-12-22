@@ -63,7 +63,6 @@
                                                     <th>번호</th>
                                                     <th>SAFEBOX ID</th>
                                                     <th>SAFEBOX 위치</th>
-                                                    
                                                     <th>알림 내용 </th>
                                                     <th>알림 날짜</th>
                                                     <th>확인</th>
@@ -74,10 +73,9 @@
                                             <% for(noticeVO noticevo : notice_array) {
                                             	safeboxVO safeboxvo = safeboxdao.safeboxSelect(noticevo.getDevice_seq());%>
                                                 <tr>
-                                                    <td><%=noticevo.getNotice_seq() %></td>
+                                                    <td><%=noticevo.getDevice_seq() %></td>
                                                     <td><%=safeboxvo.getDevice_id() %></td>
                                                     <td><%=safeboxvo.getDevice_location() %></td>
-                                                    
                                                     <td><%=noticevo.getNotice_content() %></td>
                                                     <td><%=noticevo.getNotice_date() %></td>
                                                     <td><a href="#" class="logo" style="outline: none; text-decoration: none;">이동</a></td>

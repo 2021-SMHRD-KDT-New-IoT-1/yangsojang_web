@@ -53,18 +53,19 @@ public class fieldDAO {
       }
    
    //현장 추가
-    public int fieldAdd(String field_name, String field_addr, String field_memo) {
+    public int fieldAdd(String field_name, String field_addr, String field_memo, String field_file) {
 
          //받아온 값을 db 테이블에 삽입
          try {
             connection();
          
-            String sql = "insert into site_loc(site_name, site_addr, site_memo) values(?,?,?)";
+            String sql = "insert into site_loc(site_name, site_addr, site_memo, site_file) values(?,?,?,?)";
             
             psmt = conn.prepareStatement(sql);
             psmt.setString(1, field_name);
             psmt.setString(2, field_addr);
             psmt.setString(3, field_memo);
+            psmt.setString(4, field_file);
 
             cnt = psmt.executeUpdate();
          
@@ -143,17 +144,18 @@ public class fieldDAO {
          }   
    
     //현장 정보 수정
-    public int fieldUpdate(String field_name, String field_addr, String field_memo, int site_seq) {
+    public int fieldUpdate(String field_name, String field_addr, String field_memo, String field_file, int site_seq) {
          try {
             connection();
             
-            String sql = "update site_loc set site_name = ?, site_addr=?, site_memo=? where site_seq=?";
+            String sql = "update site_loc set site_name = ?, site_addr=?, site_memo=?, site_file=? where site_seq=?";
             psmt = conn.prepareStatement(sql);
                
             psmt.setString(1, field_name);      
             psmt.setString(2, field_addr);   
             psmt.setString(3, field_memo);
-            psmt.setInt(4, site_seq);
+            psmt.setString(4, field_file);
+            psmt.setInt(5, site_seq);
                      
             cnt = psmt.executeUpdate();
             

@@ -93,7 +93,7 @@
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
                                                 <div class="filebox">
-																<input class="upload-name" name ="mnt_file"  placeholder="첨부파일">
+																<input class="upload-name" name ="field_file" id = "field_file"  placeholder="첨부파일">
 																<label for="file">파일찾기</label>
 																<input type="file" id="file">
 															</div>
@@ -230,6 +230,7 @@
 				
 				let field_name = document.getElementById("field_name");
 				let field_addr = document.getElementById("field_addr");
+				let field_file = document.getElementById("field_file");
 				let field_memo = document.getElementById("field_memo");
 				
 								
@@ -238,6 +239,7 @@
 					data : {
 							"field_name" :	field_name.value,
 							"field_addr" :	field_addr.value,
+							"field_file" :	field_file.value,
 							"field_memo" :	field_memo.value
 							},
 					url : "fieldUpdateService", //데이터를 전송, 요청하는 서버 페이지

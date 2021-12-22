@@ -19,6 +19,7 @@
 <!-- bootStrap의 css를 사용하겠다 명시 -->
 <link rel="stylesheet" href="assets/css/main.css" />
 </head>
+
 <body class="is-preload">
 
 			<%
@@ -52,7 +53,7 @@
 					<div class="posts"> 
 					<%for(fieldVO vo1_field : array_field_all){%>
 						<article>
-							<div title = "소연이는 예쁘다!"><a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a></div>
+							<a href="#" class="image"><img src="images/pic01.jpg" ></a>
 							<h3><%=vo1_field.getField_seq() %>. <%=vo1_field.getField_name() %></h3>
 							<p><%=vo1_field.getField_addr() %></p>
 							<ul class="actions">
@@ -98,7 +99,6 @@
 										<%}else{ %>
 										
 										<li><a href="mypage.jsp">회원정보수정</a></li>
-																				
 										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
 										<%} %>
 									</ul>
