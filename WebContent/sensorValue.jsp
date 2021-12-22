@@ -65,53 +65,52 @@ table .ttbody {
 				</header>
 
 
-				<section>
+				<section class="banner" style="width: 45%; padding-top: 10px">
 					<div class="box"
-						style="display: inline-block; position: relative; width: 100%">
+						style="display: inline-block;; margin-top: 1px">
 						<div class="row">
-							
+							<div class="col-2">
+								<img src="images/비정상동그라미.png">
+							</div>
 							<div class="col-4">
 								<h3>SAFEBOX ID</h3>
 							</div>
-							<div class="col-3">
-								<label class="switch-button"> <input type="checkbox" />
-									<div class="onoff-switch"></div>
-								</label>
-							</div>
+							<br><br><br>
+							<div>
+								<h4>기기 위치</h4>
+								<p>위치를 넣어주세요</p>
+								<strong>측정 주기 :</strong><span> 10초</span>
 
-							<div class="row" style="margin-left: 6px ;width:100%">
-								<ul class="alt">
-									<li><h4>기기 위치</h4>
-										<p>위치를 넣어주세요</p></li>
-									<li><h4>측정 주기</h4>
-										<p>주기를 넣어주세요</p>
-										<form method="post" action="#">
-											<div class="row">
-												<div class="col-6">
-													<input type="text" id="" value="" placeholder="주기를 입력하세요.">
-												</div>
-												<div class="col-6">
-													<input type="submit" id="" value="확인" class="primary">
+								<div style="padding-top: 20px">
+									<form method="post" action="#">
+										<div class="row">
+											<div class="col-6">
+												<input type="text" id="" value="" placeholder="주기를 입력하세요.">
+											</div>
+											<div class="col-6">
+												<input type="submit" id="" value="확인" class="primary">
+											</div>
+
+
+											<div class="container">
+												<div class="animations-container">
+													<h3>SAFE BOX 동작 제어</h3>
+													<div class="toggle toggle--on-off">
+														<div class="toggle__switch">
+															<input class="toggle__checkbox" id="toggle1"
+																type="checkbox" name="toggle1" checked="" /><span
+																class="toggle__handle"></span><span
+																class="toggle__backdrop"></span>
+														</div>
+														<label class="toggle__label" for="toggle1"><p>무언가
+																주의사항이 써져있다. 주의사항을 충분히 읽은 후 이 곳을 클릭해 주세요.</p></label>
+													</div>
 												</div>
 											</div>
-										</form></li>
-								</ul>
-								<div class="container"
-									style="display: float;">
-									<div class="animations-container">
-										<h3>SAFE BOX 동작 제어</h3>
-										<div class="toggle toggle--on-off">
-											<div class="toggle__switch">
-												<input class="toggle__checkbox" id="toggle1" type="checkbox"
-													name="toggle1" checked="" /><span class="toggle__handle"></span><span
-													class="toggle__backdrop"></span>
-											</div>
-											<label class="toggle__label" for="toggle1"><p>무언가 주의사항이 써져있다. 주의사항을 충분히 읽은 후 이 곳을 클릭해 주세요.</p></label>
 										</div>
-									</div>
-									
-									
 								</div>
+
+
 
 							</div>
 
@@ -121,10 +120,10 @@ table .ttbody {
 					</div>
 
 
-				</section>
 
 
-				<section class="banner">
+
+
 					<div class="table-wrapper">
 						<table>
 							<thead>
@@ -150,6 +149,8 @@ table .ttbody {
 						</table>
 					</div>
 				</section>
+
+				<section class="banner">시험용</section>
 			</div>
 		</div>
 
