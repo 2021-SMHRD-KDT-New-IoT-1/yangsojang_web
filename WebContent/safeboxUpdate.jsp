@@ -1,3 +1,5 @@
+<%@page import="com.model.safeboxVO"%>
+<%@page import="com.model.safeboxDAO"%>
 <%@page import="com.model.adminDAO"%>
 <%@page import="com.model.adminVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -23,6 +25,9 @@
 			
 			adminVO vo = (adminVO)session.getAttribute("admin");
 			adminDAO dao = new adminDAO();
+			
+			safeboxDAO safeboxdao = new safeboxDAO();
+			safeboxVO safeboxvo = safeboxdao.safeboxSelect(safebox_seq_int_session);
 		%>
 
 
@@ -52,10 +57,10 @@
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="device_id" id="device_id" value="" placeholder="기기ID" />
+                                                    <input type="text" name="device_id" id="device_id" value="<%=safeboxvo.getDevice_id() %>" placeholder="기기ID" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="device_location" id="device_location" value="" placeholder="설치 장소" />
+                                                    <input type="text" name="device_location" id="device_location" value="<%=safeboxvo.getDevice_location() %>" placeholder="설치 장소" />
                                                 </div>
                                                 
                                             <div class="col-12" style="text-align: center;">
@@ -197,6 +202,43 @@
 				});
 			}
 			
+				function gascheck() {	
+					setInterval(() => {
+						$.ajax({
+							type : "get", 
+							/* data : {"email" : input.value}, */
+							url : "gasgasCheck", 
+							dataType : "text", 
+							success : function(data){
+								
+								if(data=="1"){
+									let check = confirm("※위험※  유출 현황을 확인해주세요!!  ※위험※");
+									if(check){
+										window.location.href = "notice.jsp";
+										
+									}							
+								}
+							},
+							error : function(){ //통신 실패
+							}
+						});
+						
+						  $.ajax({
+							type : "get", 
+							url : "transeService", 
+							dataType : "text",
+							data : {'data' : '통신 성공'},
+							success : function(data){ 
+								console.log(data)
+							},
+							error : function(){
+							}
+						});  
+					
+					}, 1000);
+					
+				}
+				gascheck();
 			</script>
 			
 	</body>

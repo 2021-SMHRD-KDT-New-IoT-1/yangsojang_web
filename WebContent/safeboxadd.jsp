@@ -204,12 +204,45 @@
 					
 				}
 			});
-		
-		//}
-		
-		
-			
 	}
+		
+	function gascheck() {	
+		setInterval(() => {
+			$.ajax({
+				type : "get", 
+				/* data : {"email" : input.value}, */
+				url : "gasgasCheck", 
+				dataType : "text", 
+				success : function(data){
+					
+					if(data=="1"){
+						let check = confirm("※위험※  유출 현황을 확인해주세요!!  ※위험※");
+						if(check){
+							window.location.href = "notice.jsp";
+							
+						}							
+					}
+				},
+				error : function(){ //통신 실패
+				}
+			});
+			
+			  $.ajax({
+				type : "get", 
+				url : "transeService", 
+				dataType : "text",
+				data : {'data' : '통신 성공'},
+				success : function(data){ 
+					console.log(data)
+				},
+				error : function(){
+				}
+			});  
+		
+		}, 1000);
+		
+	}
+	gascheck();
 	</script>
 	
 	</body>

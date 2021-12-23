@@ -110,13 +110,14 @@ public class noticeDAO {
 
 	}
 
-	   public String notice_check_0() {
+	   public String notice_check_0(int notice_seq) {
 			String notice_check = null;
 			try {
 				connection();
 				
-				String sql = "update tbl_notice set notice_check='0'";
+				String sql = "update tbl_notice set notice_check='0' where notice_seq=?";
 				psmt = conn.prepareStatement(sql);
+				psmt.setInt(1, notice_seq);
 			
 				psmt.executeUpdate();
 			} catch (Exception e) {
@@ -163,6 +164,7 @@ public class noticeDAO {
 
 			String sql = "update tbl_notice set alert_cnt='0' where notice_seq in (select max(notice_seq) from tbl_notice)";
 			psmt = conn.prepareStatement(sql);
+			
 
 			psmt.executeUpdate();
 		} catch (Exception e) {
