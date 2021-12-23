@@ -1,4 +1,5 @@
 
+<%@page import="com.model.fieldDAO"%>
 <%@page import="com.model.fieldVO"%>
 
 <%@page import="com.model.adminDAO"%>
@@ -59,6 +60,10 @@
 			
 			adminVO vo = (adminVO)session.getAttribute("admin");
 			adminDAO dao = new adminDAO();
+			
+			fieldDAO fielddao = new fieldDAO();
+			fieldVO fieldvo = fielddao.field_one(vo_field_session);
+			
 		%>
 
 			
@@ -88,18 +93,18 @@
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
                                                 <div class="col-6 col-12-xsmall">
-                                                    <input type="text" name="field_name" id="field_name" value="" placeholder="현장명" /><br>
-                                                    <input type="text" name="field_addr" id="field_addr" value="" placeholder="주소" />
+                                                    <input type="text" name="field_name" id="field_name" value="<%=fieldvo.getField_name() %>" placeholder="현장명" /><br>
+                                                    <input type="text" name="field_addr" id="field_addr" value="<%=fieldvo.getField_addr() %>" placeholder="주소" />
                                                 </div>
                                                 <div class="col-6 col-12-xsmall">
                                                 <div class="filebox">
-																<input class="upload-name" name ="field_file" id = "field_file"  placeholder="첨부파일">
+																<input class="upload-name" name ="field_file" id = "field_file"  placeholder="첨부파일" value="<%=fieldvo.getField_file() %>">
 																<label for="file">파일찾기</label>
 																<input type="file" id="file">
 															</div>
                                                 </div>
                                                 <div class="col-12">
-                                                    <textarea name="field_memo" id="field_memo" placeholder="메모" rows="6"></textarea>
+                                                    <textarea name="field_memo" id="field_memo" placeholder="메모" rows="6"><%=fieldvo.getField_memo() %></textarea>
                                                 </div>
                                                
                                             <div class="col-12" style="text-align: center;">

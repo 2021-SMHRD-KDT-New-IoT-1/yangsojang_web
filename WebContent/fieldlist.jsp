@@ -55,7 +55,7 @@
 				<!-- Header -->
 				<header id="header">
 					<a href="fieldlist.jsp" class="logo" style="font-size: 20px;"><strong>현장
-							목록</strong></a>
+							목록</strong><br>현장 사진에 마우스를 올리면 메모를 확인할 수 있습니다.</a>
 					<ul class="icons">
 						<li><a href="fieldAdd.jsp" class="logo"><span
 								class="label">현장추가</span></a></li>

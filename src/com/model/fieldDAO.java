@@ -15,6 +15,7 @@ public class fieldDAO {
    fieldVO vo1_field = null;
    fieldVO vo2_field = null;
    fieldVO vo3_field = null;
+   fieldVO vo4_field = null;
    ArrayList<fieldVO> array_field_all = null;
    String site_name;
    String realFolder="";
@@ -225,5 +226,38 @@ public class fieldDAO {
               return vo3_field;
               
            }   
+      
+      public fieldVO field_one(int site_seq) {
+          
+          try {
+             connection();
+             
+             String sql = "select site_name, site_addr, site_file, site_memo from site_loc where site_seq=?";
+             psmt = conn.prepareStatement(sql);
+                      
+             psmt.setInt(1, site_seq);  
+             
+             rs = psmt.executeQuery();
+             
+             while(rs.next()) {
+                System.out.println("현장one  불러오기 성공..");
+                
+                String get_site_name = rs.getString("site_name");
+                String get_site_addr = rs.getString("site_addr");
+                String get_site_file = rs.getString("site_file");
+                String get_site_memo = rs.getString("site_memo");
+                
+                vo4_field = new fieldVO(get_site_name, get_site_addr, get_site_file, get_site_memo);
+             }   
+             
+          } catch (Exception e) {
+             System.out.println("현장one  불러오기 실패..");
+             e.printStackTrace();
+          }finally {
+             close();
+             }
+          return vo4_field;
+          
+       }  
       
 }
