@@ -82,15 +82,27 @@ table .ttbody {
 								<strong>측정 주기 :</strong><span> 10초</span>
 
 								<div style="padding-top: 20px">
-									<form method="post" action="#">
+									<form method="get" action="mqtt_pub_sub">
 										<div class="row">
 											<div class="col-6">
-												<input type="text" id="" value="" placeholder="주기를 입력하세요.">
+												<select name = "num">
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+												<option>7</option>
+												<option>8</option>
+												<option>9</option>
+
+												</select>
 											</div>
 											<div class="col-6">
 												<input type="submit" id="" value="확인" class="primary">
 											</div>
-
+											
+</form>
 
 											<div class="container">
 												<div class="animations-container">

@@ -25,6 +25,7 @@ public class mqtt_pub_sub extends HttpServlet {
 	      MyMqtt_sub_client sub = new MyMqtt_sub_client();
 	      
 	      sub.init("tcp://211.48.228.15:1883", "sensor/total").subscribe("sensor/total");
+	      System.out.println(num);
 	      sub.MyMqtt_pub_client();
 	      sub.send("minTopic", num);
 
