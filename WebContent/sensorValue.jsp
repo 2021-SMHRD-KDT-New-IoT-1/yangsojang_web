@@ -1,3 +1,5 @@
+<%@page import="com.model.safeboxVO"%>
+<%@page import="com.model.safeboxDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.fieldVO"%>
 <%@page import="com.model.fieldDAO"%>
@@ -47,14 +49,18 @@ table .ttbody {
 		//현재 로그인 상태인지 확인 (vo == null > 로그인 하지 않은 상태)
 	adminVO vo = (adminVO) session.getAttribute("admin");
 	adminDAO dao = new adminDAO();
-	
-	fieldVO fieldvo = (fieldVO)session.getAttribute("fieldvo_session");
+
+	fieldVO fieldvo = (fieldVO) session.getAttribute("fieldvo_session");
+
+	int field_seq_session = (int) session.getAttribute("field_seq_session_");
+	safeboxDAO safeboxdao = new safeboxDAO();
+	ArrayList<safeboxVO> safebox_array_all = safeboxdao.safeboxAllList(field_seq_session);
 	%>
 	<div id="wrapper">
 		<div id="main">
 			<div class="inner">
 				<header id="header">
-					<a href="#" class="logo" style="font-size: 20px;"><strong><%=fieldvo.getField_name() %></strong><br><%=fieldvo.getField_addr() %></a>
+					<a href="#" class="logo" style="font-size: 20px;"><strong><%=fieldvo.getField_name()%></strong><br><%=fieldvo.getField_addr()%></a>
 
 					<ul class="icons">
 
@@ -65,22 +71,49 @@ table .ttbody {
 				</header>
 
 
-				<section class="banner" style="width: 45%; padding-top: 10px">
-					<div class="box"
-						style="display: inline-block;; margin-top: 1px">
-						<div class="row">
-							<div class="col-2">
-								<img src="images/비정상동그라미.png">
-							</div>
-							<div class="col-4">
-								<h3>SAFEBOX ID</h3>
-							</div>
-							<br><br><br>
-							<div>
-								<h4>기기 위치</h4>
-								<p>위치를 넣어주세요</p>
-								<strong>측정 주기 :</strong><span> 10초</span>
+				<!-- <section class="banner" style="width: 45%; padding-top: 10px"> -->
+				<section>
+					<div class="posts">
+						<%
+							for (safeboxVO vo2_safebox : safebox_array_all) {
+						%>
+						<article>
+							<div class="box" style="display: inline-block;; margin-top: 1px">
+								<div class="row">
+									<div class="col-2">
+										<img src="images/비정상동그라미.png">
+									</div>
+									<div class="col-4">
+										<h3><%=vo2_safebox.getDevice_seq()%>.
+											<%=vo2_safebox.getDevice_id()%></h3>
+									</div>
+									<br>
+									<br>
+									<br>
+									<div>
+										<h4>기기 위치</h4>
+										<p>위치를 넣어주세요</p>
+										<script type="text/javascript">
+								var selectBoxChange = function(){
+									var value = $("#changeInput").val(); 
+									console.log("값변경테스트 : " + value);
+									$("#iter").text(value);
+								}
+								var selectSubmit = function(){
+									var value = $("#changeInput").val(); 
+									$.ajax({
+										type:"get",
+										data:{
+											num:value
+										},
+										url:"mqtt_pub_sub"
+										})
+										
+									alert("변경되었습니다");
+								}
+								</script>
 
+<<<<<<< HEAD
 								<div style="padding-top: 20px">
 									<form method="get" action="mqtt_pub_sub">
 										<div class="row">
@@ -103,66 +136,105 @@ table .ttbody {
 											</div>
 											
 </form>
+=======
+										</script>
+										<strong>측정 주기 :</strong> <span id="iter">1</span>
 
-											<div class="container">
-												<div class="animations-container">
-													<h3>SAFE BOX 동작 제어</h3>
-													<div class="toggle toggle--on-off">
-														<div class="toggle__switch">
-															<input class="toggle__checkbox" id="toggle1"
-																type="checkbox" name="toggle1" checked="" /><span
-																class="toggle__handle"></span><span
-																class="toggle__backdrop"></span>
+										<p><%=vo2_safebox.getDevice_location()%></p>
+										<strong>측정 주기 :</strong><span> 10초</span>
+
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
+
+										<div style="padding-top: 20px">
+											<form method="get" action="mqtt_pub_sub">
+												<div class="row">
+													<div class="col-6">
+														<select name=num onchange="selectBoxChange();"
+															id="changeInput">
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="7">7</option>
+															<option value="8">8</option>
+															<option value="9">9</option>
+															<option value="10">10</option>
+														</select>
+													</div>
+													<div class="col-6">
+														<input type="button" id="" value="확인" class="primary"
+															onclick="selectSubmit()">
+													</div>
+
+
+													<div class="container">
+														<div class="animations-container">
+															<h3>SAFE BOX 동작 제어</h3>
+															<div class="toggle toggle--on-off">
+																<div class="toggle__switch">
+																	<input class="toggle__checkbox" id="toggle1"
+																		type="checkbox" name="toggle1" checked="" /><span
+																		class="toggle__handle"></span><span
+																		class="toggle__backdrop"></span>
+																</div>
+																<label class="toggle__label" for="toggle1"><p>무언가
+																		주의사항이 써져있다. 주의사항을 충분히 읽은 후 이 곳을 클릭해 주세요.</p></label>
+															</div>
 														</div>
-														<label class="toggle__label" for="toggle1"><p>무언가
-																주의사항이 써져있다. 주의사항을 충분히 읽은 후 이 곳을 클릭해 주세요.</p></label>
 													</div>
 												</div>
-											</div>
 										</div>
-								</div>
 
+
+
+									</div>
+
+								</div>
 
 
 							</div>
 
-						</div>
-
-
-					</div>
 
 
 
 
 
+							<div class="table-wrapper">
+								<table>
+									<thead>
+										<tr>
+											<th>센서이름</th>
+											<th>기준농도</th>
+											<th>현재농도</th>
+											<th>설정변경</th>
 
-					<div class="table-wrapper">
-						<table>
-							<thead>
-								<tr>
-									<th>센서이름</th>
-									<th>기준농도</th>
-									<th>현재농도</th>
-									<th>설정변경</th>
+										</tr>
+									</thead>
+									<tbody class="ttbody">
+										<tr>
+											<td id="id">온도</td>
+											<td id="std"></td>
+											<td id="cur"></td>
+											<td><form action="sensorManage.jsp">
+													<input type="submit" value="설정">
+												</form></td>
+										</tr>
+									</tbody>
 
-								</tr>
-							</thead>
-							<tbody class="ttbody">
-								<tr>
-									<td id="id">온도</td>
-									<td class = "level"></td>
-									<td id = "now_level"></td>
-									<td><form action="sensorManage.jsp">
-											<input type="submit" value="설정">
-										</form></td>
-								</tr>
-							</tbody>
+								</table>
+							</div>
 
-						</table>
+						</article>
+						<%
+							}
+						%>
 					</div>
 				</section>
 
-				<section class="banner">시험용</section>
+				<!-- <section class="banner"></section> -->
+
 			</div>
 		</div>
 
@@ -285,8 +357,8 @@ table .ttbody {
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/onOff.js"></script>
-	
-	<script type = "text/javascript">
+
+	<script type="text/javascript">
       function gascheck() {   
          setInterval(() => {
             
@@ -304,25 +376,16 @@ table .ttbody {
                      result = JSON.parse(data[i]);
                   }
                   
-                 // <tbody class="ttbody">
-				//	<tr>
-				//		<td id="id"></td>
-					//	<td id = "level"></td>
-						//<td id = "now_level"></td>
-						//<td><form action="sensorManage.jsp">
-							//	<input type="submit" value="설정">
-							//</form></td>
-					//</tr>
-				//</tbody>
-                  
-                  
-                  var storeAdd = "<tr>" + "<td>" +"온도" + "</td>"+"<td>"+"</td>" + "<td>"+result.Temp+"</td>" + "</tr>";
-                
-				$(".ttbody").append(storeAdd);
-                  
                  
-                  $('.ttbody').empty();
-				$(".ttbody").append(storeAdd);	
+                  
+                  
+                  var storeAdd = "<tr>" + "<td>" +"온도" + "</td>"+"<td>"+result.Temp+"</td>" + "<td>"+result.Humidity+"</td>" + "<td>"+"<form>"+
+                  "<input type= submit value=설정>" +"</form>"+"</td>"+"</tr>";
+                
+                 $("#std").text(result.Temp);
+                $("#cur").text(result.Humidity);
+				
+				
 				
 
 
@@ -347,7 +410,8 @@ table .ttbody {
       
    </script>
 
-<script>
+	<script>
+var test;
 function gascheck() {	
 	setInterval(() => {
 		$.ajax({
