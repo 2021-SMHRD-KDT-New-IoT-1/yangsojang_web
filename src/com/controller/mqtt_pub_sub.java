@@ -22,6 +22,7 @@ public class mqtt_pub_sub extends HttpServlet {
 	      String topic = null;
 	      MqttMessage message = null;
 	      String num = request.getParameter("num");
+	      
 	      if(num==null) {
 	    	  num="1";
 	      }

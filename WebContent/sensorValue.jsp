@@ -115,10 +115,7 @@ table .ttbody {
                               </script>
                               <strong>측정 주기 :</strong> <span id="iter">1</span>
    
-                              
-
-
-                              <div style="padding-top: 20px">
+                                 <div style="padding-top: 20px">
                                  <form method="get" action="mqtt_pub_sub">
                                     <div class="row">
                                        <div class="col-6">
