@@ -1,3 +1,4 @@
+<%@page import="com.model.fieldDAO"%>
 <%@page import="com.model.safeboxVO"%>
 <%@page import="com.model.safeboxDAO"%>
 <%@page import="com.model.noticeVO"%>
@@ -33,6 +34,7 @@
 			ArrayList<noticeVO> notice_array = noticedao.noticeAllList();
 			
 			safeboxDAO safeboxdao = new safeboxDAO();
+			
 			
 			%>
 		<!-- Wrapper -->
@@ -73,14 +75,16 @@
                                             <% for(noticeVO noticevo : notice_array) {
                                             	safeboxVO safeboxvo = safeboxdao.safeboxSelect(noticevo.getDevice_seq());
                                             	if(noticevo.getNotice_check()==1){
-                                            	session.setAttribute("notice_seq", noticevo.getNotice_seq());%>
+                                            	session.setAttribute("notice_seq", noticevo.getNotice_seq());
+                                            	int field_seq = safeboxdao.field_seq(noticevo.getDevice_seq());
+                                            	%>
                                                 <tr>
                                                     <td><%=noticevo.getDevice_seq() %></td>
                                                     <td><%=safeboxvo.getDevice_id() %></td>
                                                     <td><%=safeboxvo.getDevice_location() %></td>
                                                     <td><%=noticevo.getNotice_content() %></td>
                                                     <td><%=noticevo.getNotice_date() %></td>
-                                                    <td><a href="#" class="logo" style="outline: none; text-decoration: none;">이동</a></td>
+                                                    <td><a href="sensorValueCheckService?field_seq=<%=field_seq %>" class="logo" style="outline: none; text-decoration: none;">이동</a></td>
                                                     <td><div class="col-6 col-12-small"><input type="checkbox" id="<%=noticevo.getNotice_seq() %>" name="1" ><label for="<%=noticevo.getNotice_seq() %>" ></label></div></td>
                                                 </tr>
                                                 	<%} %>

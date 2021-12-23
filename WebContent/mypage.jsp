@@ -30,7 +30,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="mypage.html" class="logo" style="font-size: 20px;"><strong>회원 정보 수정</strong><br>입력하지 않은 정보는 이전 정보 그대로 유지됩니다.</a>
+									<a href="mypage.jsp" class="logo" style="font-size: 20px;"><strong>회원 정보 수정</strong><br>입력하지 않은 정보는 이전 정보 그대로 유지됩니다.</a>
 									
 									<ul class="icons">
 										<li><a href="fieldlist.jsp" class="logo"><span class="label">현장목록</span></a></li>		

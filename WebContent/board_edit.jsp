@@ -127,7 +127,7 @@
 											</div>
 											
 											<ul class="pagination">
-												<a href="board_list.jsp" ><input type="submit" value="수정" class="primary" /></a>
+												<input type="submit" value="수정" class="primary" />
 												<a href="boardDeleteService?mnt_seq=<%=mnt_seq %>" class="button">삭제</a>
 												<a href="board_list.jsp" class="button">취소</a>	
 											</ul>
