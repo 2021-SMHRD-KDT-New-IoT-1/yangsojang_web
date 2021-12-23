@@ -1,3 +1,5 @@
+<%@page import="com.model.safeboxVO"%>
+<%@page import="com.model.safeboxDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.fieldVO"%>
 <%@page import="com.model.fieldDAO"%>
@@ -49,6 +51,10 @@ table .ttbody {
 	adminDAO dao = new adminDAO();
 	
 	fieldVO fieldvo = (fieldVO)session.getAttribute("fieldvo_session");
+	
+	int field_seq_session = (int)session.getAttribute("field_seq_session_");
+	safeboxDAO safeboxdao = new safeboxDAO();
+	ArrayList<safeboxVO> safebox_array_all = safeboxdao.safeboxAllList(field_seq_session);
 	%>
 	<div id="wrapper">
 		<div id="main">
@@ -65,20 +71,23 @@ table .ttbody {
 				</header>
 
 
-				<section class="banner" style="width: 45%; padding-top: 10px">
-					<div class="box"
-						style="display: inline-block;; margin-top: 1px">
+				<!-- <section class="banner" style="width: 45%; padding-top: 10px"> -->
+				<section>
+				<div class="posts"> 
+				<%for(safeboxVO vo2_safebox : safebox_array_all){%>
+				<article>
+					<div class="box" style="display: inline-block;; margin-top: 1px">
 						<div class="row">
 							<div class="col-2">
 								<img src="images/비정상동그라미.png">
 							</div>
 							<div class="col-4">
-								<h3>SAFEBOX ID</h3>
+								<h3><%=vo2_safebox.getDevice_seq() %>. <%=vo2_safebox.getDevice_id() %></h3>
 							</div>
 							<br><br><br>
 							<div>
 								<h4>기기 위치</h4>
-								<p>위치를 넣어주세요</p>
+								<p><%=vo2_safebox.getDevice_location() %></p>
 								<strong>측정 주기 :</strong><span> 10초</span>
 
 								<div style="padding-top: 20px">
@@ -148,9 +157,14 @@ table .ttbody {
 
 						</table>
 					</div>
+					
+					</article>
+					<%}%>
+					</div>
 				</section>
 
-				<section class="banner">시험용</section>
+				<!-- <section class="banner"></section> -->
+				
 			</div>
 		</div>
 

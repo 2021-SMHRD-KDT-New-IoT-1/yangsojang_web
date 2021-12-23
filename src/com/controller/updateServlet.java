@@ -59,7 +59,7 @@ public class updateServlet extends HttpServlet {
 		}
 		
 		if(admin_dept=="" || admin_dept==null) {
-			admin_dept_result = vo.getAdmin_phone();
+			admin_dept_result = vo.getAdmin_dept();
 		}else {
 			admin_dept_result = admin_dept;
 		}

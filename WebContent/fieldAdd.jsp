@@ -75,7 +75,7 @@
 
 									<!-- <span class="image main"><img src="images/pic11.jpg" alt="" /></span> -->
 
-									<form method="post"  encType = "multipart/form-data" method="post" action="fieldlist.jsp">
+									<form method="post"  encType = "multipart/form-data" action="#">
                                         <div class="row gtr-uniform">
                                             <div class="row gtr-uniform">
                                                 <div class="col-6 col-12-xsmall"> 
@@ -105,24 +105,6 @@
                                         </div>
                                        </div>
                                     </form>
-
-									<!-- <hr class="major" />
-
-									<h2></h2>
-									<p></p>
-									<p></p>
-
-									<hr class="major" />
-
-									<h2></h2>
-									<p></p>
-									<p></p>
-
-									<hr class="major" />
-
-									<h2></h2>
-									<p></p>
-									<p></p> -->
 
 								</section>
 
@@ -294,13 +276,12 @@
 			}
 			gascheck();
 			
-		</script>
-		<script>
+		
 	
-	/* $("#file").on('change',function(){
+	 $("#file").on('change',function(){
 		var fileName = $("#file").val();
 		$(".upload-name").val(fileName);
-	  }); */
+	  }); 
 	
 	</script>
 	</body>

@@ -29,7 +29,7 @@ public class sensorValueCheckService extends HttpServlet {
 			HttpSession session = request.getSession();
 			// 세션 값 설정
 			session.setAttribute("fieldvo_session", fieldvo);
-			
+			session.setAttribute("field_seq_session_", field_seq_int);
 			response.sendRedirect("sensorValue.jsp");
 		}else {
 			System.out.println("센서 value 페이지 확인 실패!!");
