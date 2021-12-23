@@ -24,15 +24,16 @@ public class transeService extends HttpServlet {
 		 
 		 if(alert_cnt==1) {
 			 noticedao.Alert_cnt_1();
-				PrintWriter out = response.getWriter();
-		        out.print(alert_cnt);
-		        
+				/*
+				 * PrintWriter out = response.getWriter(); out.print(alert_cnt);
+				 */
 		        
 		        System.out.println(alert_cnt);
 		        
 			}
-			PrintWriter out = response.getWriter();
-			out.print(alert_cnt);
+			/*
+			 * PrintWriter out = response.getWriter(); out.print(alert_cnt);
+			 */
 		  
 		 
 		
