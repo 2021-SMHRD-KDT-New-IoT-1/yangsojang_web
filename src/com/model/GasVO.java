@@ -12,12 +12,12 @@ public class GasVO {
 	private String Temp; //온도
 	private String Humidity; //습도
 	
-	public GasVO(String admin_id, String tolueno, String nH4, String acetona, String co2, String co, String formalin,
+	public GasVO(String admin_id, String tolueno, String NH4, String acetona, String co2, String co, String formalin,
 			String temp, String humidity) {
 		super();
 		Admin_id = admin_id;
 		Tolueno = tolueno;
-		NH4 = nH4;
+		NH4 = this.NH4;
 		Acetona = acetona;
 		Co2 = co2;
 		Co = co;
@@ -40,8 +40,8 @@ public class GasVO {
 	public String getNH4() {
 		return NH4;
 	}
-	public void setNH4(String nH4) {
-		NH4 = nH4;
+	public void setNH4(String NH4) {
+		NH4 = this.NH4;
 	}
 	public String getAcetona() {
 		return Acetona;

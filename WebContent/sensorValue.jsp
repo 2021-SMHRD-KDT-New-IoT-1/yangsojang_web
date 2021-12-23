@@ -137,9 +137,9 @@ table .ttbody {
 							</thead>
 							<tbody class="ttbody">
 								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
+									<td id="id">온도</td>
+									<td class = "level"></td>
+									<td id = "now_level"></td>
 									<td><form action="sensorManage.jsp">
 											<input type="submit" value="설정">
 										</form></td>
@@ -273,6 +273,67 @@ table .ttbody {
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/onOff.js"></script>
+	
+	<script type = "text/javascript">
+      function gascheck() {   
+         setInterval(() => {
+            
+            $.ajax({
+               type : "get",
+               /* data : {"email" : input.value}, //전송하는 데이터 */
+               url : "Getsensor", //데이터를 전송, 요청하는 서버 페이지
+               dataType : "json", //응답데이터의 형식
+               success : function(data){ //통신 성공
+                  /* alert(data) */
+                  
+                  let result =[];
+                  let i = 0;
+                  for(i=0;i<data.length;i++){
+                     result = JSON.parse(data[i]);
+                  }
+                  
+                 // <tbody class="ttbody">
+				//	<tr>
+				//		<td id="id"></td>
+					//	<td id = "level"></td>
+						//<td id = "now_level"></td>
+						//<td><form action="sensorManage.jsp">
+							//	<input type="submit" value="설정">
+							//</form></td>
+					//</tr>
+				//</tbody>
+                  
+                  
+                  var storeAdd = "<tr>" + "<td>" +"온도" + "</td>"+"<td>"+"</td>" + "<td>"+result.Temp+"</td>" + "</tr>";
+                
+				$(".ttbody").append(storeAdd);
+                  
+                 
+                  $('.ttbody').empty();
+				$(".ttbody").append(storeAdd);	
+				
+
+
+                  //console.log(result[i].temp);
+                  console.log(result);
+                  console.log(result.Temp);
+                  console.log(result.Humidity);
+                  //result[i].temp 배열안에 temp값을 가지고 오는거
+                  
+               
+               },
+               error : function(){ //통신 실패
+               
+               }
+            });
+            
+            
+         }, 1000);
+         
+      }
+      gascheck();
+      
+   </script>
 
 </body>
 </html>

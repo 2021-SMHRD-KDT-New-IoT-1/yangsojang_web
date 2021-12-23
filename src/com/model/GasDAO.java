@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class GasDAO {
 	
@@ -12,6 +13,9 @@ public class GasDAO {
 	ResultSet rs = null;
 	int cnt = 0;
 	String sql = null;
+	ArrayList<GasVO> gasall = null;
+	GasVO vo = null;
+	
 	public void connection() {
 	      try {
 	    	  Class.forName("org.mariadb.jdbc.Driver");
@@ -74,6 +78,46 @@ public class GasDAO {
 	      }
 	      return cnt;
 	   }   
+	
+	public ArrayList<GasVO> gasData() {
+	      gasall = new ArrayList<GasVO>();
+
+	      try {
+	         connection();
+
+	         String sql = "SELECT device_id, toluene_level, acetone_level, ammonia_level, "
+	         		+ "co_level, co2_level, formalin_level, Temperature_level, humidity_level FROM tbl_sensor ORDER BY reg_date DESC LIMIT 1;";
+	         psmt = conn.prepareStatement(sql);
+
+	         rs = psmt.executeQuery();
+
+	         while (rs.next()) {
+	            System.out.println("회원정보 불러오기 성공!");
+
+	            String admin_id = rs.getString("device_id");
+	            String tolueno = rs.getString("toluene_level");
+	            String NH4 = rs.getString("ammonia_level");
+	            String acetona = rs.getString("acetone_level");
+	            String co2 = rs.getString("co2_level");
+	            String co = rs.getString("co_level");
+	            String formalin = rs.getString("formalin_level");
+	            String temp = rs.getString("Temperature_level");
+	            String humidity = rs.getString("humidity_level");
+
+	            vo = new GasVO(admin_id, tolueno, NH4, acetona, co2, co, formalin, temp, humidity);
+	            gasall.add(vo);
+	         }
+
+	      } catch (Exception e) {
+	         System.out.println("회원정보 불러오기 실패!");
+	         e.printStackTrace();
+	      } finally {
+	         close();
+	      }
+	      return gasall;
+
+	   }
+	   
 	
 
 }
