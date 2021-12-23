@@ -113,7 +113,6 @@ table .ttbody {
 								}
 								</script>
 
-<<<<<<< HEAD
 								<div style="padding-top: 20px">
 									<form method="get" action="mqtt_pub_sub">
 										<div class="row">
@@ -136,14 +135,12 @@ table .ttbody {
 											</div>
 											
 </form>
-=======
 										</script>
 										<strong>측정 주기 :</strong> <span id="iter">1</span>
 
 										<p><%=vo2_safebox.getDevice_location()%></p>
 										<strong>측정 주기 :</strong><span> 10초</span>
 
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
 
 										<div style="padding-top: 20px">
 											<form method="get" action="mqtt_pub_sub">
