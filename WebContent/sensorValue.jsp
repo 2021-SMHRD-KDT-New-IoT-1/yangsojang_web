@@ -79,16 +79,48 @@ table .ttbody {
 							<div>
 								<h4>기기 위치</h4>
 								<p>위치를 넣어주세요</p>
-								<strong>측정 주기 :</strong><span> 10초</span>
+								<script type="text/javascript">
+								var selectBoxChange = function(){
+									var value = $("#changeInput").val(); 
+									console.log("값변경테스트 : " + value);
+									$("#iter").text(value);
+								}
+								var selectSubmit = function(){
+									var value = $("#changeInput").val(); 
+									$.ajax({
+										type:"get",
+										data:{
+											num:value
+										},
+										url:"mqtt_pub_sub"
+										})
+										
+									alert("변경되었습니다");
+								}
+								</script>
+								
+								</script>
+								<strong>측정 주기 :</strong>  <span id="iter">1</span>
 
 								<div style="padding-top: 20px">
-									<form method="post" action="#">
+									<form method="get" action="mqtt_pub_sub">
 										<div class="row">
 											<div class="col-6">
-												<input type="text" id="" value="" placeholder="주기를 입력하세요.">
+												<select name = num onchange = "selectBoxChange();" id = "changeInput">
+												<option value ="1">1</option>
+												<option value ="2">2</option>
+												<option value ="3">3</option>
+												<option value ="4">4</option>
+												<option value ="5">5</option>
+												<option value ="6">6</option>
+												<option value ="7">7</option>
+												<option value ="8">8</option>
+												<option value ="9">9</option>
+												<option value ="10">10</option>
+												</select>
 											</div>
 											<div class="col-6">
-												<input type="submit" id="" value="확인" class="primary">
+												<input type="button" id="" value="확인" class="primary" onclick="selectSubmit()">
 											</div>
 
 
@@ -138,8 +170,8 @@ table .ttbody {
 							<tbody class="ttbody">
 								<tr>
 									<td id="id">온도</td>
-									<td class = "level"></td>
-									<td id = "now_level"></td>
+									<td id = "std"></td>
+									<td id = "cur"></td>
 									<td><form action="sensorManage.jsp">
 											<input type="submit" value="설정">
 										</form></td>
@@ -304,13 +336,15 @@ table .ttbody {
 				//</tbody>
                   
                   
-                  var storeAdd = "<tr>" + "<td>" +"온도" + "</td>"+"<td>"+"</td>" + "<td>"+result.Temp+"</td>" + "</tr>";
+                  var storeAdd = "<tr>" + "<td>" +"온도" + "</td>"+"<td>"+result.Temp+"</td>" + "<td>"+result.Humidity+"</td>" + "<td>"+"<form>"+
+                  "<input type= submit value=설정>" +"</form>"+"</td>"+"</tr>";
                 
-				$(".ttbody").append(storeAdd);
-                  
-                 
-                  $('.ttbody').empty();
-				$(".ttbody").append(storeAdd);	
+                 $("#std").text(result.Temp);
+                $("#cur").text(result.Humidity);
+				/*$(".ttbody").append(storeAdd);
+                $('.ttbody').empty();
+				$(".ttbody").append(storeAdd);	*/
+				
 				
 
 
@@ -336,6 +370,7 @@ table .ttbody {
    </script>
 
 <script>
+var test;
 function gascheck() {	
 	setInterval(() => {
 		$.ajax({
