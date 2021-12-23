@@ -89,7 +89,7 @@ public class fieldDAO {
             try {
                connection();
                
-               String sql = "select site_seq, site_name, site_addr from site_loc";
+               String sql = "select site_seq, site_name, site_addr, site_memo, site_file from site_loc";
                psmt = conn.prepareStatement(sql);
                         
                rs = psmt.executeQuery();
@@ -100,8 +100,10 @@ public class fieldDAO {
                   int get_site_seq = rs.getInt("site_seq");
                   String get_site_name = rs.getString("site_name");
                   String get_site_addr = rs.getString("site_addr");
+                  String get_site_memo = rs.getString("site_memo");
+                  String get_site_file = rs.getString("site_file");
                   
-                  vo1_field = new fieldVO(get_site_seq, get_site_name, get_site_addr);
+                  vo1_field = new fieldVO(get_site_seq, get_site_name, get_site_addr, get_site_memo, get_site_file);
                   array_field_all.add(vo1_field);
                }   
                

@@ -230,9 +230,7 @@
 				let field_addr = document.getElementById("field_addr");
 				let field_file = document.getElementById("field_file");
 				let field_memo = document.getElementById("field_memo");
-				
-				//if(field_name!="" && field_addr != ""){
-					
+							
 					$.ajax({
 						
 						type : "post", //데이터 전송 요청 방식
@@ -252,21 +250,49 @@
 								alert("현장 추가 실패 되었습니다.");
 								window.location.href = "fieldAdd.jsp"; 
 							}
-								
-							
 						},
 						error : function(){ //통신 실패
-							
-							
 						}
 					});
-				
-				//}
-				
-				
-					
 			}
 		
+			function gascheck() {	
+				setInterval(() => {
+					$.ajax({
+						type : "get", 
+						/* data : {"email" : input.value}, */
+						url : "gasgasCheck", 
+						dataType : "text", 
+						success : function(data){
+							
+							if(data=="1"){
+								let check = confirm("※위험※  유출 현황을 확인해주세요!!  ※위험※");
+								if(check){
+									window.location.href = "notice.jsp";
+									
+								}							
+							}
+						},
+						error : function(){ //통신 실패
+						}
+					});
+					
+					  $.ajax({
+						type : "get", 
+						url : "transeService", 
+						dataType : "text",
+						data : {'data' : '통신 성공'},
+						success : function(data){ 
+							console.log(data)
+						},
+						error : function(){
+						}
+					});  
+				
+				}, 1000);
+				
+			}
+			gascheck();
 			
 		</script>
 		<script>
