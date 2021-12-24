@@ -228,7 +228,16 @@
 								
 								alert('로그인 완료되었습니다. 경고 발생 현황을 확인해 주세요!')
 								
+								$.ajax({
+									type:"get",
+									data:{
+										num:"1"
+									},
+									url:"mqtt_pub_sub"
+									
+									})
 								window.location.href = "notice.jsp";
+								
 							}
 						},
 						error : function(){ //통신 실패

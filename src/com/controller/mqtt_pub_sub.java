@@ -18,16 +18,21 @@ public class mqtt_pub_sub extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+			System.out.println("들어옴");
 	      String topic = null;
 	      MqttMessage message = null;
 	      String num = request.getParameter("num");
+	      
+	      if(num==null) {
+	    	  num="1";
+	      }
 	      MyMqtt_sub_client sub = new MyMqtt_sub_client();
 	      
 	      sub.init("tcp://211.48.228.15:1883", "sensor/total").subscribe("sensor/total");
+	      System.out.println(num);
 	      sub.MyMqtt_pub_client();
 	      sub.send("minTopic", num);
-
+	      
 	}
 
 }

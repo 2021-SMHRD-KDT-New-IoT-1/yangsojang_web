@@ -45,6 +45,8 @@ public class MyMqtt_sub_client implements MqttCallback {
 	@Override
 	public void connectionLost(Throwable arg0) {
 		// TODO Auto-generated method stub
+		init("tcp://211.48.228.15:1883", "sensor/total").subscribe("sensor/total");
+		System.out.println("연결 종료, 다시 연결합니다.");
 		arg0.printStackTrace();
 	}
 
