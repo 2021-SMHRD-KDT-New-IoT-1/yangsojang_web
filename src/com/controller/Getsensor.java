@@ -26,7 +26,7 @@ public class Getsensor extends HttpServlet {
 		GasDAO dao = new GasDAO();
 	      ArrayList<GasVO> cnt = dao.gasData();
 	      JsonArray jarray = new JsonArray();
-	        
+	      
 	      
 	      PrintWriter out = response.getWriter();
 	      Gson gson = new Gson();
