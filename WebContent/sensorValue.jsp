@@ -90,7 +90,7 @@ table .ttbody {
                            <br> <br> <br>
                            <div>
                               <h4>기기 위치</h4>
-                              <p><%=vo2_safebox.getDevice_location()%></p>
+                              <p>위치를 넣어주세요</p>
                               <script type="text/javascript">
                         var selectBoxChange = function(){
                            var value = $("#changeInput").val(); 
@@ -99,7 +99,6 @@ table .ttbody {
                         }
                         var selectSubmit = function(){
                            var value = $("#changeInput").val(); 
-                           
                            $.ajax({
                               type:"get",
                               data:{
@@ -114,8 +113,11 @@ table .ttbody {
 
                               </script>
                               <strong>측정 주기 :</strong> <span id="iter">1</span>
-   
-                                 <div style="padding-top: 20px">
+
+                              <p><%=vo2_safebox.getDevice_location()%></p>
+
+
+                              <div style="padding-top: 20px">
                                  <form method="get" action="mqtt_pub_sub">
                                     <div class="row">
                                        <div class="col-6">
