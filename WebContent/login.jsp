@@ -194,6 +194,7 @@
 						type : "post", //데이터 전송 요청 방식
 						data : {"admin_id" : input.value}, //전송하는 데이터
 						url : "idCheckServlet", //데이터를 전송, 요청하는 서버 페이지
+			
 						dataType : "text", //응답데이터의 형식
 						success : function(data){ //통신 성공
 							if(data=="true"){

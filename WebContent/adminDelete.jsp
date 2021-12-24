@@ -14,7 +14,7 @@
 		<title>Generic - Editorial by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="aㄴssets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="is-preload">
 			<%
@@ -47,7 +47,7 @@
 										<h1></h1>
 									</header> -->
 
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+									<!-- <span class="image main"><img src="images/pic11.jpg" alt="" /></span> -->
 
 									<form method="post" action="#">
                                         <div class="row gtr-uniform">
@@ -94,8 +94,8 @@
 										<li><a href="adminDelete.jsp">회원탈퇴</a></li>
 										<%}else{ %>
 										
-										<li><a href="mypage.jsp">회원정보수정</a></li>				
-																	
+										<li><a href="mypage.jsp">회원정보수정</a></li>
+										<li><a href="adminDelete.jsp">회원탈퇴</a></li>
 										<li><a href="logoutServlet" class="logo">로그아웃</a></li>
 										<%} %>
 									</ul>

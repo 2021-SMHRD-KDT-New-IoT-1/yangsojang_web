@@ -90,7 +90,6 @@
 													</dl>
 													
 												</div>
-												<div class="cont"><img src = "<%=boardvo.getMnt_file() %>"></div>
 												<div class="cont"><%=boardvo.getMnt_content() %></div>
 											</div>
 												<ul class="pagination">
