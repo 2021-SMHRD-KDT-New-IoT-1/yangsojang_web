@@ -15,7 +15,7 @@ public class sensorUpdateService extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
 		
 		String sensor_name_update = request.getParameter("sensor_name_update");
 		String sensor_id_update = request.getParameter("sensor_id_update");

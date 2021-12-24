@@ -20,12 +20,13 @@ public class fieldAddCheckService extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
 		
 		String field_name = request.getParameter("field_name");
 		String field_addr = request.getParameter("field_addr");
 		String field_memo = request.getParameter("field_memo");
 		String field_file = request.getParameter("field_file"); 
+		
 		
 		fieldDAO dao = new fieldDAO();
 		int cnt = dao.fieldAdd(field_name, field_addr, field_memo, field_file);

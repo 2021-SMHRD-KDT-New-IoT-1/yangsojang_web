@@ -19,7 +19,7 @@ public class safeboxUpdateService extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
 		
 		String device_id = request.getParameter("device_id");
 		String device_location = request.getParameter("device_location");
