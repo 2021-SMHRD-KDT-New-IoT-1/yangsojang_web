@@ -43,7 +43,7 @@
 										<h1></h1>
 									</header> -->
 
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+									 <!-- <span class="image main"><img src="images/1130144_411194_4810.jpg" alt="" /></span>  -->
 
 									<form method="post" action="#">
                                         <div class="row gtr-uniform">
@@ -169,7 +169,7 @@
 
 							<!-- Footer -->
 								<footer id="footer">
-									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">YANG SO JANG</a>.</p>
 								</footer>
 
 						</div>

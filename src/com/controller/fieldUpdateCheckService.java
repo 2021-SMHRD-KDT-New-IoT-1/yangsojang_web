@@ -16,7 +16,7 @@ public class fieldUpdateCheckService extends HttpServlet {
 		
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
 		
 		String field_seq = request.getParameter("field_seq");
 		int field_seq_int = Integer.parseInt(field_seq);

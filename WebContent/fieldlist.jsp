@@ -74,7 +74,11 @@
 							
 							
 							<div class="image">
-								  <img src="images/pic01.jpg" > 
+							<%if(vo1_field.getField_seq()==13){ %>
+								  <img src="images/현장1.jpg" > 
+								  <%}else{%>
+								   <img src="images/현장 2.jpg" >
+								  <%}%>
 									<div class="text">
 									
 										<p><%=vo1_field.getField_memo() %></p>
@@ -186,7 +190,7 @@
 					<p class="copyright">
 						&copy; Untitled. All rights reserved. Demo Images: <a
 							href="https://unsplash.com">Unsplash</a>. Design: <a
-							href="https://html5up.net">HTML5 UP</a>.
+							href="https://html5up.net">YANG SO JANG</a>.
 					</p>
 				</footer>
 

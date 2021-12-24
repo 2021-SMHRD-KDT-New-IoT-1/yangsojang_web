@@ -19,7 +19,7 @@ public class fieldUpdateService extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
 		
 		String field_name = request.getParameter("field_name");
 		String field_addr = request.getParameter("field_addr");

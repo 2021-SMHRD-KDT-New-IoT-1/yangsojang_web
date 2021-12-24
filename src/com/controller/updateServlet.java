@@ -15,7 +15,7 @@ import com.model.adminVO;
 public class updateServlet extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
 		
 		HttpSession session = request.getSession(); //세션객체 생성
 		adminVO vo = (adminVO)session.getAttribute("admin"); //현재 로그인한 사용자의 정보

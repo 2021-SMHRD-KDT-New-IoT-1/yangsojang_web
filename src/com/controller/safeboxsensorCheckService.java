@@ -13,7 +13,7 @@ public class safeboxsensorCheckService extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
 		
 		String safebox_seq = request.getParameter("safebox_seq");
 		int safebox_seq_int = Integer.parseInt(safebox_seq);

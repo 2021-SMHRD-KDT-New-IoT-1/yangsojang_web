@@ -18,7 +18,7 @@ public class loginServlet extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
 
 		String admin_id = request.getParameter("admin_id");
 		String admin_pwd = request.getParameter("admin_pwd");
