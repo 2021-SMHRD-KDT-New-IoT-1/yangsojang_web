@@ -37,7 +37,7 @@
    position: relative;
 }
 
-table .ttbody {
+.non {
    position: relative;
    vertical-align: middle;
 }
@@ -90,54 +90,23 @@ table .ttbody {
                            <br> <br> <br>
                            <div>
                               <h4>기기 위치</h4>
-                              <p>위치를 넣어주세요</p>
-                              <script type="text/javascript">
-                        var selectBoxChange = function(){
-                           var value = $("#changeInput").val(); 
-                           console.log("값변경테스트 : " + value);
-                           $("#iter").text(value);
-                        }
-                        var selectSubmit = function(){
-                           var value = $("#changeInput").val(); 
-                           $.ajax({
-                              type:"get",
-                              data:{
-                                 num:value
-                              },
-                              url:"mqtt_pub_sub"
-                              })
+                             <p><%=vo2_safebox.getDevice_location()%></p>
                               
-                           alert("변경되었습니다");
-                        }
-                        </script>
 
-                              </script>
+                             
                               <strong>측정 주기 :</strong> <span id="iter">1</span>
 
-                              <p><%=vo2_safebox.getDevice_location()%></p>
+                              
 
 
                               <div style="padding-top: 20px">
                                  <form method="get" action="mqtt_pub_sub">
                                     <div class="row">
                                        <div class="col-6">
-                                          <select name=num onchange="selectBoxChange();"
-                                             id="changeInput">
-                                             <option value="1">1</option>
-                                             <option value="2">2</option>
-                                             <option value="3">3</option>
-                                             <option value="4">4</option>
-                                             <option value="5">5</option>
-                                             <option value="6">6</option>
-                                             <option value="7">7</option>
-                                             <option value="8">8</option>
-                                             <option value="9">9</option>
-                                             <option value="10">10</option>
-                                          </select>
+                                          
                                        </div>
                                        <div class="col-6">
-                                          <input type="button" id="" value="확인" class="primary"
-                                             onclick="selectSubmit()">
+                                         
                                        </div>
 
 
@@ -169,16 +138,48 @@ table .ttbody {
                      </div>
 
 
-
+					<script type="text/javascript">
+					var selectBoxChange = function(){
+	                      var value = $("#changeInput").val(); 
+	                      console.log("값변경테스트 : " + value);
+	                      $("#iter").text(value);
+	                   }
+	                   var selectSubmit = function(){
+	                      var value_tol = $("#changetol").val(); 
+	                      var value_nh4 = $("#changenh4").val(); 
+	                      var value_ace = $("#changeace").val(); 
+	                      var value_co2 = $("#changeco2").val(); 
+	                      var value_co = $("#changeco").val(); 
+	                      var value_form = $("#changeform").val(); 
+	                      var value_temp = $("#changetemp").val(); 
+	                      var value_hum = $("#changehum").val(); 
+	                      $.ajax({
+	                         type:"get",
+	                         data:{
+	                            num1:value_tol,
+	                            num2:value_nh4,
+	                            num3:value_ace,
+	                            num4:value_co2,
+	                            num5:value_co,
+	                            num6:value_form,
+	                            num7:value_temp,
+	                            num8:value_hum,
+	                          	
+	                         },
+	                         url:"mqtt_pub_sub"
+	                         })
+	                         
+	                      alert("변경되었습니다");
+	                   }</script>
 
 
 
                      <div class="table-wrapper">
-                        <table>
+                        <table class = "non">
                            <thead>
                               <tr>
                                  <th>센서이름</th>
-                                 <th>기준농도</th>
+                                 <th>측정주기</th>
                                  <th>현재농도</th>
                                  <th>설정변경</th>
 
@@ -186,13 +187,166 @@ table .ttbody {
                            </thead>
                            <tbody class="ttbody">
                               <tr>
-                                 <td id="id">온도</td>
-                                 <td id="std"></td>
-                                 <td id="cur"></td>
-                                 <td><form action="sensorManage.jsp">
-                                       <input type="submit" value="설정">
+                                 <td id="id_tol">톨루엔</td>
+                                 <td id= "tol"></td>
+                                 <td><select name=tol_num onchange="selectBoxChange();"
+                                             id="changetol">
+                                             <option value="1">1</option>
+                                             <option value="2">2</option>
+                                             <option value="3">3</option>
+                                             <option value="4">4</option>
+                                             <option value="5">5</option>
+                                             <option value="6">6</option>
+                                             <option value="7">7</option>
+                                             <option value="8">8</option>
+                                             <option value="9">9</option>
+                                             <option value="10">10</option>
+                                          </select></td>
+                                 <td><form>
+                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit()">
                                     </form></td>
                               </tr>
+                              <tr>
+                                 <td id="id_nh4">암모니아</td>
+                                 <td id= "nh4"></td>
+                                 <td><select name=nh4_num onchange="selectBoxChange();"
+                                             id="changenh4">
+                                             <option value="1">1</option>
+                                             <option value="2">2</option>
+                                             <option value="3">3</option>
+                                             <option value="4">4</option>
+                                             <option value="5">5</option>
+                                             <option value="6">6</option>
+                                             <option value="7">7</option>
+                                             <option value="8">8</option>
+                                             <option value="9">9</option>
+                                             <option value="10">10</option>
+                                          </select></td>
+                                 <td><form>
+                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit()">
+                                    </form></td>
+                              </tr>
+                              <tr>
+                                 <td id="id_ace">아세톤</td>
+                                 <td id= "ace"></td>
+                                 <td><select name=ace_num onchange="selectBoxChange();"
+                                             id="changeace">
+                                             <option value="1">1</option>
+                                             <option value="2">2</option>
+                                             <option value="3">3</option>
+                                             <option value="4">4</option>
+                                             <option value="5">5</option>
+                                             <option value="6">6</option>
+                                             <option value="7">7</option>
+                                             <option value="8">8</option>
+                                             <option value="9">9</option>
+                                             <option value="10">10</option>
+                                          </select></td>
+                                 <td><form>
+                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit()">
+                                    </form></td>
+                              </tr>
+                              <tr>
+                                 <td id="id_co2">이산화탄소</td>
+                                 <td id= "co2"></td>
+                                 <td><select name=co2_num onchange="selectBoxChange();"
+                                             id="changeco2">
+                                             <option value="1">1</option>
+                                             <option value="2">2</option>
+                                             <option value="3">3</option>
+                                             <option value="4">4</option>
+                                             <option value="5">5</option>
+                                             <option value="6">6</option>
+                                             <option value="7">7</option>
+                                             <option value="8">8</option>
+                                             <option value="9">9</option>
+                                             <option value="10">10</option>
+                                          </select></td>
+                                 <td><form>
+                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit()">
+                                    </form></td>
+                              </tr>
+                              <tr>
+                                 <td id="id_co">일산화탄소</td>
+                                 <td id= "co"></td>
+                                 <td><select name=co_num onchange="selectBoxChange();"
+                                             id="changeco">
+                                             <option value="1">1</option>
+                                             <option value="2">2</option>
+                                             <option value="3">3</option>
+                                             <option value="4">4</option>
+                                             <option value="5">5</option>
+                                             <option value="6">6</option>
+                                             <option value="7">7</option>
+                                             <option value="8">8</option>
+                                             <option value="9">9</option>
+                                             <option value="10">10</option>
+                                          </select></td>
+                                 <td><form>
+                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit()">
+                                    </form></td>
+                              </tr>
+                              <tr>
+                                 <td id="id_form">포름알데히드</td>
+                                 <td id= "form"></td>
+                                 <td><select name=form_num onchange="selectBoxChange();"
+                                             id="changeform">
+                                             <option value="1">1</option>
+                                             <option value="2">2</option>
+                                             <option value="3">3</option>
+                                             <option value="4">4</option>
+                                             <option value="5">5</option>
+                                             <option value="6">6</option>
+                                             <option value="7">7</option>
+                                             <option value="8">8</option>
+                                             <option value="9">9</option>
+                                             <option value="10">10</option>
+                                          </select></td>
+                                 <td><form>
+                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit()">
+                                    </form></td>
+                              </tr>
+                              <tr>
+                                 <td id="id_temp">온도</td>
+                                 <td id= "temp"></td>
+                                 <td><select name=temp_num onchange="selectBoxChange();"
+                                             id="changetemp">
+                                             <option value="1">1</option>
+                                             <option value="2">2</option>
+                                             <option value="3">3</option>
+                                             <option value="4">4</option>
+                                             <option value="5">5</option>
+                                             <option value="6">6</option>
+                                             <option value="7">7</option>
+                                             <option value="8">8</option>
+                                             <option value="9">9</option>
+                                             <option value="10">10</option>
+                                          </select></td>
+                                 <td><form>
+                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit()">
+                                    </form></td>
+                              </tr>
+                              <tr>
+                                 <td id="id_hum">습도</td>
+                                 <td id= "hum"></td>
+                                 <td><select name=hum_num onchange="selectBoxChange();"
+                                             id="changehum">
+                                             <option value="1">1</option>
+                                             <option value="2">2</option>
+                                             <option value="3">3</option>
+                                             <option value="4">4</option>
+                                             <option value="5">5</option>
+                                             <option value="6">6</option>
+                                             <option value="7">7</option>
+                                             <option value="8">8</option>
+                                             <option value="9">9</option>
+                                             <option value="10">10</option>
+                                          </select></td>
+                                 <td><form>
+                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit()">
+                                    </form></td>
+                              </tr>
+                              
                            </tbody>
 
                         </table>
@@ -330,6 +484,7 @@ table .ttbody {
    <script src="assets/js/main.js"></script>
    <script src="assets/js/onOff.js"></script>
 
+
    <script type="text/javascript">
       function gascheck() {   
          setInterval(() => {
@@ -348,14 +503,18 @@ table .ttbody {
                      result = JSON.parse(data[i]);
                   }
                   
-                 
                   
                   
-                  var storeAdd = "<tr>" + "<td>" +"온도" + "</td>"+"<td>"+result.Temp+"</td>" + "<td>"+result.Humidity+"</td>" + "<td>"+"<form>"+
-                  "<input type= submit value=설정>" +"</form>"+"</td>"+"</tr>";
                 
-                 $("#std").text(result.Temp);
-                $("#cur").text(result.Humidity);
+                 $("#tol").text(result.Tolueno);
+                 $("#nh4").text(result.NH4);
+                 $("#ace").text(result.Acetona);
+                 $("#co2").text(result.Co2);
+                 $("#co").text(result.Co);
+                 $("#form").text(result.Formalin);
+                 $("#temp").text(result.Temp);
+                 $("#hum").text(result.Humidity);
+                
             
             
             
@@ -363,6 +522,8 @@ table .ttbody {
 
                   //console.log(result[i].temp);
                   console.log(result);
+                  console.log(result.NH4);
+                  
                   console.log(result.Temp);
                   console.log(result.Humidity);
                   //result[i].temp 배열안에 temp값을 가지고 오는거
