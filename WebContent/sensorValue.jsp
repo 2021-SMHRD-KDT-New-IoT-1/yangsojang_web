@@ -81,7 +81,11 @@
                      <div class="box" style="display: inline-block;; margin-top: 1px">
                         <div class="row">
                            <div class="col-2">
+                           <%if(vo2_safebox.getDevice_seq()==1){ %>
                               <img src="images/비정상동그라미.png">
+                              <%}else{ %>
+                              <img src="images/정상동그라미.png">
+                              <%} %>
                            </div>
                            <div class="col-4">
                               <h3><%=vo2_safebox.getDevice_seq()%>.
@@ -94,7 +98,7 @@
                               
 
                              
-                              <strong>측정 주기 :</strong> <span id="iter">1</span>
+                              <!-- <strong>측정 주기 :</strong> <span id="iter">1</span> -->
 
                               
 
@@ -120,8 +124,7 @@
                                                       class="toggle__handle"></span><span
                                                       class="toggle__backdrop"></span>
                                                 </div>
-                                                <label class="toggle__label" for="toggle1"><p>무언가
-                                                      주의사항이 써져있다. 주의사항을 충분히 읽은 후 이 곳을 클릭해 주세요.</p></label>
+                                                <label class="toggle__label" for="toggle1"><p>이 문구를 클릭하면 전원이 꺼집니다.</p></label>
                                              </div>
                                           </div>
                                        </div>
@@ -179,8 +182,8 @@
                            <thead>
                               <tr>
                                  <th>센서이름</th>
-                                 <th>측정주기</th>
-                                 <th>현재농도</th>
+                                 <th>측정농도</th>
+                                 <th>측정주기선택</th>
                                  <th>설정변경</th>
 
                               </tr>
