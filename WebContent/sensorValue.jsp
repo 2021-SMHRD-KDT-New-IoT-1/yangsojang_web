@@ -120,11 +120,13 @@
                                              <div class="toggle toggle--on-off">
                                                 <div class="toggle__switch">
                                                    <input class="toggle__checkbox" id="toggle1"
-                                                      type="checkbox" name="toggle1" checked="" /><span
+                                                      type="checkbox" name="toggle1" onclick = "gasgascheck()"/><span
                                                       class="toggle__handle"></span><span
                                                       class="toggle__backdrop"></span>
                                                 </div>
-                                                <label class="toggle__label" for="toggle1"><p>이 문구를 클릭하면 전원이 꺼집니다.</p></label>
+                                                <label class="toggle__label" for="toggle1">
+                                                <p> 이 곳을 클릭하면 전원이 제어됩니다.</p>
+                                                </label>
                                              </div>
                                           </div>
                                        </div>
@@ -491,8 +493,10 @@
 
 
    <script type="text/javascript">
+   let interval;
       function gasgascheck() {   
-         setInterval(() => {
+         if(document.getElementById('toggle1').checked){
+        	 interval=setInterval(() => {
             
             $.ajax({
                type : "get",
@@ -532,19 +536,32 @@
                   console.log(result.Temp);
                   console.log(result.Humidity);
                   //result[i].temp 배열안에 temp값을 가지고 오는거
-                  
+               
                
                },
                error : function(){ //통신 실패
-               
+            	  
                }
             });
             
             
-         }, 1000);
+         }, 1000);}
+         else{
+        	 clearInterval(interval);
+        	 $("#tol").text('');
+             $("#nh4").text('');
+             $("#ace").text('');
+             $("#co2").text('');
+             $("#co").text('');
+             $("#form").text('');
+             $("#temp").text('');
+             $("#hum").text('');
+        	 
+         }
+         
          
       }
-      gasgascheck();
+
       
    </script>
 
