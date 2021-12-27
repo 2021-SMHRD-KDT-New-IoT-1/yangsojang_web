@@ -176,7 +176,7 @@
 	                   }</script>
 
 
-
+				
                      <div class="table-wrapper">
                         <table class = "non">
                            <thead>
@@ -508,8 +508,6 @@
                      result = JSON.parse(data[i]);
                   }
                   
-                  
-                  
                 
                  $("#tol").text(result.Tolueno);
                  $("#nh4").text(result.NH4);
@@ -521,10 +519,6 @@
                  $("#hum").text(result.Humidity);
                 
             
-            
-            
-
-
                   //console.log(result[i].temp);
                   console.log(result);
                   console.log(result.NH4);
