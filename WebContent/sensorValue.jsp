@@ -391,7 +391,7 @@
                                              <div class="toggle toggle--on-off">
                                                 <div class="toggle__switch">
                                                    <input class="toggle__checkbox" id="toggle2"
-                                                      type="checkbox" name="toggle1" onclick = "gasgascheck()"/><span
+                                                      type="checkbox" name="toggle" checked={props.completed}/><span
                                                       class="toggle__handle"></span><span
                                                       class="toggle__backdrop"></span>
                                                 </div>
