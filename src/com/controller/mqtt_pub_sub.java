@@ -27,7 +27,7 @@ public class mqtt_pub_sub extends HttpServlet {
 	      String num4 = request.getParameter("num4");
 	      String num5 = request.getParameter("num5");
 	      String num6 = request.getParameter("num6");
-
+          System.out.println(num1);
 	      
 	      if(num1==null) {
 	    	  num1="1";
@@ -66,6 +66,7 @@ public class mqtt_pub_sub extends HttpServlet {
 	      sub.send("sensor/sub_co2", num4);
 	      sub.send("sensor/sub_co", num5);
 	      sub.send("sensor/sub_form", num6);
+	      
 	
 	      
 	}

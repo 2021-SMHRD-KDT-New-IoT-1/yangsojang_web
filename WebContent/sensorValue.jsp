@@ -512,23 +512,31 @@
                      result = JSON.parse(data[i]);
                   }
                   
-                  
-                  
-                
-                 $("#tol").text(result.Tolueno);
-                 $("#nh4").text(result.NH4);
-                 $("#ace").text(result.Acetona);
-                 $("#co2").text(result.Co2);
-                 $("#co").text(result.Co);
-                 $("#form").text(result.Formalin);
-                 $("#temp").text(result.Temp);
-                 $("#hum").text(result.Humidity);
-                
-            
-            
-            
-
-
+                  if (result.Tolueno != "0"){
+                	  $("#tol").text(result.Tolueno);
+                  }
+                  if(result.NH4 !="0"){
+                	  $("#nh4").text(result.NH4);
+                  }
+                  if(result.Acetona !="0"){
+                	  $("#ace").text(result.Acetona);
+                  }
+                  if(result.Co2 !="0"){
+                      $("#co2").text(result.Co2);
+                  }
+                  if(result.Co !="0"){
+                      $("#co").text(result.Co);
+                  }
+                  if(result.Formalin !="0"){
+                	  $("#form").text(result.Formalin);
+                  }
+                  if(result.Temp !="0"){
+                	  $("#temp").text(result.Temp);
+                  }
+                  if(result.Humidity !="0"){
+                	  $("#hum").text(result.Humidity);
+                  }
+ 
                   //console.log(result[i].temp);
                   console.log(result);
                   console.log(result.NH4);
