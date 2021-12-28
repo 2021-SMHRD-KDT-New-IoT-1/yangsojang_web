@@ -81,11 +81,9 @@
                      <div class="box" style="display: inline-block;; margin-top: 1px">
                         <div class="row">
                            <div class="col-2">
-                           <%if(vo2_safebox.getDevice_seq()==1){ %>
-                              <img src="images/비정상동그라미.png">
-                              <%}else{ %>
-                              <img src="images/정상동그라미.png">
-                              <%} %>
+                           
+                              <img id="imgcircle" src="">
+                              
                            </div>
                            <div class="col-4">
                               <h3><%=vo2_safebox.getDevice_seq()%>.
@@ -125,7 +123,7 @@
                                                       class="toggle__backdrop"></span>
                                                 </div>
                                                 <label class="toggle__label" for="toggle1">
-                                                <p> 이 곳을 클릭하면 전원이 제어됩니다.</p>
+                                                <span onclick="imgChange()"> 이 곳을 클릭하면</span><span onclick="imgChange2()"> 전원이 제어됩니다.</span>
                                                 </label>
                                              </div>
                                           </div>
@@ -178,7 +176,7 @@
 	                   }</script>
 
 
-
+				
                      <div class="table-wrapper">
                         <table class = "non">
                            <thead>
@@ -314,8 +312,133 @@
                               <tr>
                                  <td id="id_temp">온도</td>
                                  <td id= "temp"></td>
-                                 <td><select name=temp_num onchange="selectBoxChange();"
-                                             id="changetemp">
+                                 <td></td>
+                                 <td></td>
+                              </tr>
+                              <tr>
+                                 <td id="id_hum">습도</td>
+                                 <td id= "hum"></td>
+                                 <td></td>
+                                 <td></td>
+                              </tr>
+                              
+                           </tbody>
+
+                        </table>
+                     </div>
+
+                  </article>
+                  <%
+                     }
+                  %>
+                  <article>
+                     <div class="box" style="display: inline-block;; margin-top: 1px">
+                        <div class="row">
+                           <div class="col-2">
+                           
+                              <img src="images/정상동그라미.png">
+                              
+                           </div>
+                           <div class="col-4">
+                              <h3>2. mid_2</h3>
+                           </div>
+                           <br> <br> <br>
+                           <div>
+                              <h4>기기 위치</h4>
+                             <p>광주 남구 현장1, 2층 - 구역 A</p>
+                              <div style="padding-top: 20px">
+                                 <form method="get" action="mqtt_pub_sub">
+                                    <div class="row">
+                                       <div class="col-6">
+                                          
+                                       </div>
+                                       <div class="col-6">
+                                         
+                                       </div>
+
+
+                                       <div class="container">
+                                          <div class="animations-container">
+                                             <h3>SAFE BOX 동작 제어</h3>
+                                             <div class="toggle toggle--on-off">
+                                                <div class="toggle__switch">
+                                                   <input class="toggle__checkbox" id="toggle2"
+                                                      type="checkbox" name="toggle" checked={props.completed}/><span
+                                                      class="toggle__handle"></span><span
+                                                      class="toggle__backdrop"></span>
+                                                </div>
+                                                <label class="toggle__label" for="toggle2">
+                                                <span> 이 곳을 클릭하면 전원이 제어됩니다.</span>
+                                                </label>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                              </div>
+
+
+
+                           </div>
+
+                        </div>
+
+
+                     </div>
+
+
+					<script type="text/javascript">
+					var selectBoxChange = function(){
+	                      var value = $("#changeInput").val(); 
+	                      console.log("값변경테스트 : " + value);
+	                      $("#iter").text(value);
+	                   }
+	                   var selectSubmit = function(){
+	                      var value_tol = $("#changetol").val(); 
+	                      var value_nh4 = $("#changenh4").val(); 
+	                      var value_ace = $("#changeace").val(); 
+	                      var value_co2 = $("#changeco2").val(); 
+	                      var value_co = $("#changeco").val(); 
+	                      var value_form = $("#changeform").val(); 
+	                      var value_temp = $("#changetemp").val(); 
+	                      var value_hum = $("#changehum").val(); 
+	                      $.ajax({
+	                         type:"get",
+	                         data:{
+	                            num1:value_tol,
+	                            num2:value_nh4,
+	                            num3:value_ace,
+	                            num4:value_co2,
+	                            num5:value_co,
+	                            num6:value_form,
+	                            num7:value_temp,
+	                            num8:value_hum,
+	                          	
+	                         },
+	                         url:"mqtt_pub_sub"
+	                         })
+	                         
+	                      alert("변경되었습니다");
+	                   }</script>
+
+
+
+                     <div class="table-wrapper">
+                        <table class = "non">
+                           <thead>
+                              <tr>
+                                 <th>센서이름</th>
+                                 <th>측정농도</th>
+                                 <th>측정주기선택</th>
+                                 <th>설정변경</th>
+
+                              </tr>
+                           </thead>
+                           <tbody class="ttbody">
+                              <tr>
+                                 <td id="id_tol">톨루엔</td>
+                                 <td id= "tol">0.4 ㎍/㎥</td>
+                                 <td><select name=tol_num onchange="selectBoxChange();"
+                                             id="changetol">
                                              <option value="1">1</option>
                                              <option value="2">2</option>
                                              <option value="3">3</option>
@@ -332,10 +455,10 @@
                                     </form></td>
                               </tr>
                               <tr>
-                                 <td id="id_hum">습도</td>
-                                 <td id= "hum"></td>
-                                 <td><select name=hum_num onchange="selectBoxChange();"
-                                             id="changehum">
+                                 <td id="id_nh4">암모니아</td>
+                                 <td id= "nh4">1.8 ppm</td>
+                                 <td><select name=nh4_num onchange="selectBoxChange();"
+                                             id="changenh4">
                                              <option value="1">1</option>
                                              <option value="2">2</option>
                                              <option value="3">3</option>
@@ -351,6 +474,98 @@
                                        <input type="button" value="설정"  class="primary" onclick="selectSubmit()">
                                     </form></td>
                               </tr>
+                              <tr>
+                                 <td id="id_ace">아세톤</td>
+                                 <td id= "ace">0.23 ppm</td>
+                                 <td><select name=ace_num onchange="selectBoxChange();"
+                                             id="changeace">
+                                             <option value="1">1</option>
+                                             <option value="2">2</option>
+                                             <option value="3">3</option>
+                                             <option value="4">4</option>
+                                             <option value="5">5</option>
+                                             <option value="6">6</option>
+                                             <option value="7">7</option>
+                                             <option value="8">8</option>
+                                             <option value="9">9</option>
+                                             <option value="10">10</option>
+                                          </select></td>
+                                 <td><form>
+                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit()">
+                                    </form></td>
+                              </tr>
+                              <tr>
+                                 <td id="id_co2">이산화탄소</td>
+                                 <td id= "co2">506 ppm</td>
+                                 <td><select name=co2_num onchange="selectBoxChange();"
+                                             id="changeco2">
+                                             <option value="1">1</option>
+                                             <option value="2">2</option>
+                                             <option value="3">3</option>
+                                             <option value="4">4</option>
+                                             <option value="5">5</option>
+                                             <option value="6">6</option>
+                                             <option value="7">7</option>
+                                             <option value="8">8</option>
+                                             <option value="9">9</option>
+                                             <option value="10">10</option>
+                                          </select></td>
+                                 <td><form>
+                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit()">
+                                    </form></td>
+                              </tr>
+                              <tr>
+                                 <td id="id_co">일산화탄소</td>
+                                 <td id= "co">1.17 ppm</td>
+                                 <td><select name=co_num onchange="selectBoxChange();"
+                                             id="changeco">
+                                             <option value="1">1</option>
+                                             <option value="2">2</option>
+                                             <option value="3">3</option>
+                                             <option value="4">4</option>
+                                             <option value="5">5</option>
+                                             <option value="6">6</option>
+                                             <option value="7">7</option>
+                                             <option value="8">8</option>
+                                             <option value="9">9</option>
+                                             <option value="10">10</option>
+                                          </select></td>
+                                 <td><form>
+                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit()">
+                                    </form></td>
+                              </tr>
+                              <tr>
+                                 <td id="id_form">포름알데히드</td>
+                                 <td id= "form">0.31 ㎍/㎥</td>
+                                 <td><select name=form_num onchange="selectBoxChange();"
+                                             id="changeform">
+                                             <option value="1">1</option>
+                                             <option value="2">2</option>
+                                             <option value="3">3</option>
+                                             <option value="4">4</option>
+                                             <option value="5">5</option>
+                                             <option value="6">6</option>
+                                             <option value="7">7</option>
+                                             <option value="8">8</option>
+                                             <option value="9">9</option>
+                                             <option value="10">10</option>
+                                          </select></td>
+                                 <td><form>
+                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit()">
+                                    </form></td>
+                              </tr>
+                              <tr>
+                                 <td id="id_temp">온도</td>
+                                 <td id= "temp">25.3 ℃</td>
+                                 <td></td>
+                                 <td></td>
+                              </tr>
+                              <tr>
+                                 <td id="id_hum">습도</td>
+                                 <td id= "hum">31.8 %</td>
+                                 <td></td>
+                                 <td></td>
+                              </tr>
                               
                            </tbody>
 
@@ -358,9 +573,6 @@
                      </div>
 
                   </article>
-                  <%
-                     }
-                  %>
                </div>
             </section>
 
@@ -491,11 +703,25 @@
    <script src="assets/js/main.js"></script>
    <script src="assets/js/onOff.js"></script>
 
-
+	<script>
+	
+	function imgChange(){
+		document.getElementById("imgcircle").src = "images/비정상동그라미.png";
+			
+	}
+	
+	function imgChange2(){
+		document.getElementById("imgcircle").src = "";
+			
+	}
+	
+	</script>
    <script type="text/javascript">
+   
    let interval;
       function gasgascheck() {   
          if(document.getElementById('toggle1').checked){
+        	 
         	 interval=setInterval(() => {
             
             $.ajax({
@@ -511,39 +737,34 @@
                   for(i=0;i<data.length;i++){
                      result = JSON.parse(data[i]);
                   }
-                  
+
                   if (result.Tolueno != "0"){
-                	  $("#tol").text(result.Tolueno);
+                	  $("#tol").text(result.Tolueno + " ㎍/㎥");
                   }
                   if(result.NH4 !="0"){
-                	  $("#nh4").text(result.NH4);
+                	  $("#nh4").text(result.NH4 + " ppm");
                   }
                   if(result.Acetona !="0"){
-                	  $("#ace").text(result.Acetona);
+                	  $("#ace").text(result.Acetona+ " ppm");
                   }
                   if(result.Co2 !="0"){
-                      $("#co2").text(result.Co2);
+                	  $("#co2").text(result.Co2+ " ppm");
                   }
                   if(result.Co !="0"){
-                      $("#co").text(result.Co);
+                	  $("#co").text(result.Co+ " ppm");
                   }
                   if(result.Formalin !="0"){
-                	  $("#form").text(result.Formalin);
+                	  $("#form").text(result.Formalin + " ㎍/㎥");
                   }
                   if(result.Temp !="0"){
-                	  $("#temp").text(result.Temp);
+                	  $("#temp").text(result.Temp + " ℃");
                   }
                   if(result.Humidity !="0"){
-                	  $("#hum").text(result.Humidity);
+                	  $("#hum").text(result.Humidity + " %");
                   }
- 
-                  //console.log(result[i].temp);
+   
                   console.log(result);
-                  console.log(result.NH4);
-                  
-                  console.log(result.Temp);
-                  console.log(result.Humidity);
-                  //result[i].temp 배열안에 temp값을 가지고 오는거
+
                
                
                },
