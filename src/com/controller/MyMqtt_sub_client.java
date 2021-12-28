@@ -30,7 +30,8 @@ public class MyMqtt_sub_client implements MqttCallback {
 		try {
 			mqttOption = new MqttConnectOptions();
 			mqttOption.setCleanSession(true);
-			mqttOption.setKeepAliveInterval(30);
+			mqttOption.setKeepAliveInterval(15);
+			mqttOption.setConnectionTimeout(30);
 //         브로커에 subscribe 하기위한 클라이언트 객체 생성
 			mqttclient = new MqttClient(server, clientId);
 			// 클라이언트 객체에 MqttCallback 을 등록 --구독 신청후 적절한 시점에 처리하고 싶은 기능 구현하고
@@ -48,7 +49,7 @@ public class MyMqtt_sub_client implements MqttCallback {
 	@Override
 	public void connectionLost(Throwable arg0) {
 		// TODO Auto-generated method stub
-		init("tcp://211.48.228.15:1883", "sensor/#").subscribe("sensor/#");
+		init("tcp://211.48.228.15:1883", "sensor/total").subscribe("sensor/total");
 		System.out.println("연결 종료, 다시 연결합니다.");
 		arg0.printStackTrace();
 	}

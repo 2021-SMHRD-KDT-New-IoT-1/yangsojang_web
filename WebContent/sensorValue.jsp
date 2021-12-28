@@ -764,6 +764,10 @@
                   }
    
                   console.log(result);
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
                
                
                },
