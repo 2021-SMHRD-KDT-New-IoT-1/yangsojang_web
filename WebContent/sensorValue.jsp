@@ -176,7 +176,7 @@
 	                   }</script>
 
 
-
+				
                      <div class="table-wrapper">
                         <table class = "non">
                            <thead>
@@ -737,32 +737,33 @@
                   for(i=0;i<data.length;i++){
                      result = JSON.parse(data[i]);
                   }
-                  
-                  
-                  
-                 $("#tol").text(result.Tolueno + " ㎍/㎥");
-                             
-                 $("#nh4").text(result.NH4 + " ppm");
-                             
-                 $("#ace").text(result.Acetona+ " ppm");
-                 $("#co2").text(result.Co2+ " ppm");
-                 $("#co").text(result.Co+ " ppm");
-                 $("#form").text(result.Formalin + " ㎍/㎥");
-                 $("#temp").text(result.Temp + " ℃");
-                 $("#hum").text(result.Humidity + " %");
-                
-            
-            
-            
 
-
-                  //console.log(result[i].temp);
+                  if (result.Tolueno != "0"){
+                	  $("#tol").text(result.Tolueno + " ㎍/㎥");
+                  }
+                  if(result.NH4 !="0"){
+                	  $("#nh4").text(result.NH4 + " ppm");
+                  }
+                  if(result.Acetona !="0"){
+                	  $("#ace").text(result.Acetona+ " ppm");
+                  }
+                  if(result.Co2 !="0"){
+                	  $("#co2").text(result.Co2+ " ppm");
+                  }
+                  if(result.Co !="0"){
+                	  $("#co").text(result.Co+ " ppm");
+                  }
+                  if(result.Formalin !="0"){
+                	  $("#form").text(result.Formalin + " ㎍/㎥");
+                  }
+                  if(result.Temp !="0"){
+                	  $("#temp").text(result.Temp + " ℃");
+                  }
+                  if(result.Humidity !="0"){
+                	  $("#hum").text(result.Humidity + " %");
+                  }
+   
                   console.log(result);
-                  console.log(result.NH4);
-                  
-                  console.log(result.Temp);
-                  console.log(result.Humidity);
-                  //result[i].temp 배열안에 temp값을 가지고 오는거
                
                
                },
