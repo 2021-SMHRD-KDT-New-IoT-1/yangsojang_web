@@ -60,7 +60,7 @@ public class mqtt_pub_sub extends HttpServlet {
 	      
 	      sub.init("tcp://211.48.228.15:1883", "sensor/total").subscribe("sensor/total");
 	      sub.MyMqtt_pub_client();
-	      sub.send("sensor/sub_tol", num1);
+	      sub.send("sensor/sub_tol", num1.toString());
 	      sub.send("sensor/sub_nh4", num2);
 	      sub.send("sensor/sub_ace", num3);
 	      sub.send("sensor/sub_co2", num4);

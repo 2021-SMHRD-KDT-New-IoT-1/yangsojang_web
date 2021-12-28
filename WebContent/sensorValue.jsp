@@ -122,8 +122,9 @@
                                                       class="toggle__handle"></span><span
                                                       class="toggle__backdrop"></span>
                                                 </div>
+                                               
                                                 <label class="toggle__label" for="toggle1">
-                                                <span onclick="imgChange()"> 이 곳을 클릭하면</span><span onclick="imgChange2()"> 전원이 제어됩니다.</span>
+                                                <span onclick="imgChange()"> ON /</span><span onclick="imgChange2()"> OFF</span>
                                                 </label>
                                              </div>
                                           </div>
@@ -368,7 +369,7 @@
                                                       class="toggle__backdrop"></span>
                                                 </div>
                                                 <label class="toggle__label" for="toggle2">
-                                                <span> 이 곳을 클릭하면 전원이 제어됩니다.</span>
+                                                <span onclick="imgChange()"> ON /</span><span onclick="imgChange2()"> OFF</span>
                                                 </label>
                                              </div>
                                           </div>
@@ -764,12 +765,7 @@
                   }
    
                   console.log(result);
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-New-IoT-1/yangsojang_web.git
-               
-               
+                  
                },
                error : function(){ //통신 실패
             	  
