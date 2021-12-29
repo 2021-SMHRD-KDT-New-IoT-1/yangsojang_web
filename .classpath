@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mariadb-java-client-2.7.4.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cos.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/gson-2.8.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/org.eclipse.paho.client.mqttv3_fat.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

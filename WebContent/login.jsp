@@ -230,9 +230,10 @@
 								alert('로그인 완료되었습니다. 경고 발생 현황을 확인해 주세요!')
 								
 								$.ajax({
-									type:"get",
+									type:"post",
 									data:{
-										num:"1"
+										number:"1",
+										value:"1"
 									},
 									url:"mqtt_pub_sub"
 									

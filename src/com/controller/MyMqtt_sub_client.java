@@ -24,7 +24,7 @@ public class MyMqtt_sub_client implements MqttCallback {
 	private MqttClient mqttclient; // 브로커와 통신하는 역할 담당- subscriber, publisher 의 역할
 	private MqttConnectOptions mqttOption; // Mqtt 프로토콜을 이용해서 브로커에 연결하면서 연결 정보를 설정할 수 있는 객체
 	// ClientId는 브로커가 클라이언트를 식별하기 위한 문자열 -고유
-
+    
 	public MyMqtt_sub_client init(String server, String clientId) {
 
 		try {
@@ -49,9 +49,9 @@ public class MyMqtt_sub_client implements MqttCallback {
 	@Override
 	public void connectionLost(Throwable arg0) {
 		// TODO Auto-generated method stub
-		init("tcp://211.48.228.15:1883", "sensor/total").subscribe("sensor/total");
+		init("tcp://211.48.228.15:1883", "webserver").subscribe("sensor/total");
 		System.out.println("연결 종료, 다시 연결합니다.");
-		arg0.printStackTrace();
+//		arg0.printStackTrace();
 	}
 
 	// 메세지의 배달이 완료되면 호출
@@ -113,17 +113,17 @@ public class MyMqtt_sub_client implements MqttCallback {
 			// 브로커와 MQTT통신을 하며 메세지를 전송할 클라이언트 객체를 만들고 접속
 			mqttclient = new MqttClient("tcp://211.48.228.15:1883", "gang");
 			mqttclient.connect(); // 브로커 접속
-			System.out.println("접속완료");
+			System.out.println("pub접속완료");
 		} catch (MqttException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("pub접속실패");
+			
+			
 
 		}
 	}
 
-	public boolean send(String topic, int msg) {
-		return this.send(topic, new Integer(msg).toString());
-	}
 
 	// 메세지 전송을 위한 메소드
 	public boolean send(String topic, String msg) {

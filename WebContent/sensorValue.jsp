@@ -148,18 +148,35 @@
 	                      console.log("값변경테스트 : " + value);
 	                      $("#iter").text(value);
 	                   }
-	                   var selectSubmit = function(){
-	                      var value_tol = $("#changetol").val(); 
-	                      var value_nh4 = $("#changenh4").val(); 
-	                      var value_ace = $("#changeace").val(); 
-	                      var value_co2 = $("#changeco2").val(); 
-	                      var value_co = $("#changeco").val(); 
-	                      var value_form = $("#changeform").val(); 
-	                      var value_temp = $("#changetemp").val(); 
-	                      var value_hum = $("#changehum").val(); 
+	                   var selectSubmit = function(num){
+	                	   //var id = "#change" + num
+	                	   var val;
+	                	  if( num == 1){
+	                      //var value_tol = $("#changetol").val();
+	                		  val = $("#changetol").val();
+	                	  }else if(num==2){
+	                      var value_nh4 = $("#changenh4").val();
+	                      val = $("#changenh4").val();
+	                	  }else if(num==3){
+	                      var value_ace = $("#changeace").val();
+	                      val = $("#changeace").val();
+	                   }else if(num==4){
+	                      var value_co2 = $("#changeco2").val();
+	                      val = $("#changeco2").val();}
+	                   else if(num==5){
+	                      var value_co = $("#changeco").val();
+	                      val = $("#changeco").val();
+	                   }
+	                   else if(num==6){
+	                      var value_form = $("#changeform").val();
+	                      val = $("#changeform").val();
+	                   } 
+	                	  console.log(num, val);
+	                      //var value_temp = $("#changetemp").val(); 
+	                      //var value_hum = $("#changehum").val(); 
 	                      $.ajax({
-	                         type:"get",
-	                         data:{
+	                         type:"post",
+	                         /*data:{
 	                            num1:value_tol,
 	                            num2:value_nh4,
 	                            num3:value_ace,
@@ -169,7 +186,9 @@
 	                            num7:value_temp,
 	                            num8:value_hum,
 	                          	
-	                         },
+	                         }*/
+	                         data:{number:num,
+	                        	 value:val},
 	                         url:"mqtt_pub_sub"
 	                         })
 	                         
@@ -207,7 +226,7 @@
                                              <option value="10">10</option>
                                           </select></td>
                                  <td><form>
-                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit()">
+                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit(1)">
                                     </form></td>
                               </tr>
                               <tr>
@@ -227,7 +246,7 @@
                                              <option value="10">10</option>
                                           </select></td>
                                  <td><form>
-                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit()">
+                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit(2)">
                                     </form></td>
                               </tr>
                               <tr>
@@ -247,7 +266,7 @@
                                              <option value="10">10</option>
                                           </select></td>
                                  <td><form>
-                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit()">
+                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit(3)">
                                     </form></td>
                               </tr>
                               <tr>
@@ -267,7 +286,7 @@
                                              <option value="10">10</option>
                                           </select></td>
                                  <td><form>
-                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit()">
+                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit(4)">
                                     </form></td>
                               </tr>
                               <tr>
@@ -287,7 +306,7 @@
                                              <option value="10">10</option>
                                           </select></td>
                                  <td><form>
-                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit()">
+                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit(5)">
                                     </form></td>
                               </tr>
                               <tr>
@@ -307,7 +326,7 @@
                                              <option value="10">10</option>
                                           </select></td>
                                  <td><form>
-                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit()">
+                                       <input type="button" value="설정"  class="primary" onclick="selectSubmit(6)">
                                     </form></td>
                               </tr>
                               <tr>
@@ -393,7 +412,7 @@
 	                      console.log("값변경테스트 : " + value);
 	                      $("#iter").text(value);
 	                   }
-	                   var selectSubmit = function(){
+	                   /*var selectSubmit = function(){
 	                      var value_tol = $("#changetol").val(); 
 	                      var value_nh4 = $("#changenh4").val(); 
 	                      var value_ace = $("#changeace").val(); 
@@ -418,7 +437,7 @@
 	                         url:"mqtt_pub_sub"
 	                         })
 	                         
-	                      alert("변경되었습니다");
+	                      alert("변경되었습니다");*/
 	                   }</script>
 
 
